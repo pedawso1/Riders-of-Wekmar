@@ -1,0 +1,28 @@
+Iteration 1
+
+Ashley Camacho
+xx hr - getting to know JavaFx
+xx hr - task
+yy hr - total
+
+Kailash
+xx hr - task
+xx hr - task
+yy hr - total
+
+Peter
+xx hr - task
+xx hr - task
+yy hr - total
+
+Sam
+xx hr - task
+xx hr - task
+yy hr - total
+
+Kyle
+xx hr - task
+xx hr - task
+yy hr - total
+
+
