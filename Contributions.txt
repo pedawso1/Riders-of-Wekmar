@@ -16,7 +16,7 @@ xx hr - task
 yy hr - total
 
 Sam
-xx hr - task
+1 hr - group meeting -- getting to know github
 xx hr - task
 yy hr - total
 
