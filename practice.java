@@ -4,7 +4,7 @@ package practiceWing;
 
 
 public class practice {
-    public static void main(String[] args) {
+    public s(String[] args) {
      
     	System.out.print("Hello");
     	
