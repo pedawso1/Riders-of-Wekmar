@@ -1,7 +1,7 @@
 Iteration 1
 
 Ashley Camacho
-2 hr - JavaFx tutorial
+5 hr - JavaFx tutorial
 xx hr - task
 yy hr - total
 
