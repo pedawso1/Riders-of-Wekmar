@@ -2,7 +2,7 @@ Iteration 1
 
 Ashley Camacho
 5 hr - JavaFx tutorial
-xx hr - task
+1 hr - playing with buttons and Grid
 yy hr - total
 
 Kailash
