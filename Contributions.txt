@@ -27,5 +27,5 @@ yy hr - total
 
 Team Meetings:
 [9/7/17 11am-12pm]: 1 hr - getting to know github
-
+[9/14/17 11am-12pm]: 1 hr - talked laying out and dividing roles and assignments
 
