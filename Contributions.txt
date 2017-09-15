@@ -3,6 +3,7 @@ Iteration 1
 Ashley Camacho
 5 hr - JavaFx tutorial
 1 hr - playing with buttons and Grid
+0.5 hr - adding square and line button with icon
 yy hr - total
 
 Kailash
@@ -21,10 +22,12 @@ xx hr - task
 yy hr - total
 
 Kyle
-xx hr - task
-xx hr - task
-yy hr - total
-
++2 hr - JavaFX  and GitHub familiarization
++1 hr - Practicing layout and button presses
++2 hr - Working with canvas, shapes, and buttons
++2 hr - Group meetings
++7 hr - total
+ 
 Team Meetings:
 [9/7/17 11am-12pm]: 1 hr - getting to know github
 [9/14/17 11am-12pm]: 1 hr - talked laying out and dividing roles and assignments
