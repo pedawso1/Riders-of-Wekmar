@@ -4,6 +4,7 @@ Ashley Camacho
 5 hr - JavaFx tutorial
 1 hr - playing with buttons and Grid
 0.5 hr - adding square and line button with icon
+2 hr - group meetings
 yy hr - total
 
 Kailash
