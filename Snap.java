@@ -19,6 +19,7 @@ import javafx.stage.Stage;
  */
 
 public class Snap extends Application {
+ //Box and global declarations for snap events
     Rectangle classBox = new Rectangle();
     double firstHoldX, firstHoldY;
     double moveHoldX, moveHoldY;
@@ -31,8 +32,11 @@ public class Snap extends Application {
         classBox.setY(0);
         classBox.setWidth(100);
         classBox.setHeight(150);
+       //press selects and gets current location
         classBox.setOnMousePressed(boxOnMousePressedEventHandler);
+       //drag determines distance to move and translation variables
         classBox.setOnMouseDragged(boxOnMouseDraggedEventHandler);
+       //modifies location to align on grid spaces
         classBox.setOnMouseReleased(boxOnMouseReleasedEventHandler);
        }catch(NullPointerException e){
             e.getMessage();
@@ -40,18 +44,20 @@ public class Snap extends Application {
          
         int rows = 11;
         int columns = 11;
+     //creates column restraints and columns
         GridPane grid = new GridPane();
           for(int i = 0; i < columns; i++) {
             ColumnConstraints column = new ColumnConstraints(50);
             grid.getColumnConstraints().add(column);
         }
-
+ //creates row restraints and rows
         for(int i = 0; i < rows; i++) {
             RowConstraints row = new RowConstraints(50);
             grid.getRowConstraints().add(row);
         }
-
-        grid.getChildren().add(classBox);       
+//adds box object to the grid
+        grid.getChildren().add(classBox);    
+     //THIS IS NOT FOR FINAL RELEASE WE WILL NEED CSS TO DEFINE GRID LINES
         grid.setStyle("-fx-background-color: white; -fx-grid-lines-visible: true");
         Scene scene = new Scene(grid,(columns * 50),(rows*50),Color.WHITE);
         primaryStage.setTitle("SnapGrid");
@@ -61,7 +67,7 @@ public class Snap extends Application {
     public static void main(String[] args) {
       launch(args);
     }
-    
+    //Gets location and gives to drag
         EventHandler<MouseEvent> boxOnMousePressedEventHandler = 
         new EventHandler<MouseEvent>() {
         @Override
@@ -72,7 +78,7 @@ public class Snap extends Application {
             moveHoldY = ((Rectangle)(t.getSource())).getTranslateY();
         }
     };
-         
+    //determines new location     
     EventHandler<MouseEvent> boxOnMouseDraggedEventHandler = 
         new EventHandler<MouseEvent>() {
  
@@ -87,7 +93,7 @@ public class Snap extends Application {
             ((Rectangle)(t.getSource())).setTranslateY(moveY);
         }
     };
- 
+ //changes new location to snap to grid
         EventHandler<MouseEvent> boxOnMouseReleasedEventHandler = 
         new EventHandler<MouseEvent>() {
  
