@@ -1,38 +1,101 @@
-Iteration 1
+package application;
+	
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
-Ashley Camacho
-5 hr - JavaFx tutorial
-1 hr - playing with buttons and Grid
-0.5 hr - adding square and line button with icon
-2 hr - group meetings
-20 mins - Specificiations Iteration 1
-1.5 hrs - resizing buttons and panel research
-1 hr - fixed group Schdule and made a side panel
-11 hrs 20 mins - total
 
-Kailash
-xx hr - task
-xx hr - task
-yy hr - total
+public class buttons extends Application {
+  public static void main(String[] args) {
+		launch(args);
+	}
+    
+	@Override
+	public void start(Stage primaryStage) {
+		 primaryStage.setTitle("Riders of Wekmar Editor");
+		 BorderPane border = new BorderPane();
+		 
+		 	border.setLeft(addGridPane());
+	        border.setCenter(addFlowPane());
 
-Peter
-xx hr - task
-xx hr - task
-yy hr - total
+			Scene scene = new Scene(border, 1000, 1000);
+		    primaryStage.setScene(scene);
+		    scene.getStylesheets().add(buttons.class.getResource("application.css").toExternalForm());
+		    
+		    primaryStage.show();
+		}
+	
+	public GridPane addGridPane(){
+	       GridPane grid = new GridPane();
+	        grid.setAlignment(Pos.TOP_LEFT);
+	        grid.setHgap(10);
+	        grid.setVgap(10);
+	        grid.setPadding(new Insets(10, 10, 0, 10));
 
-Sam
-1 hr - group meeting -- getting to know github
-xx hr - task
-yy hr - total
+	        /*
+	         * Delete button with icon
+	         */
+			Image imageDelete = new Image(getClass().getResourceAsStream("bin.png"));
+			Button delete = new Button();
+			delete.setGraphic(new ImageView(imageDelete));
+	        HBox hbBtn = new HBox();
+	        hbBtn.setAlignment(Pos.TOP_LEFT);
+	        hbBtn.getChildren().add(delete);
+	        grid.add(hbBtn, 0, 0);
 
-Kyle
-+2 hr - JavaFX  and GitHub familiarization
-+1 hr - Practicing layout and button presses
-+2 hr - Working with canvas, shapes, and buttons
-+2 hr - Group meetings
-+7 hr - total
- 
-Team Meetings:
-[9/7/17 11am-12pm]: 1 hr - getting to know github
-[9/14/17 11am-12pm]: 1 hr - talked laying out and dividing roles and assignments
+	        /*
+	         * Box button with icon
+	         */
+	        Image imageBox = new Image(getClass().getResourceAsStream("square.png"));
+			Button box = new Button();
+			box.setGraphic(new ImageView(imageBox));
+	        HBox hbBtn2 = new HBox();
+	        hbBtn2.setAlignment(Pos.TOP_LEFT);
+	        hbBtn2.getChildren().add(box);
+	        grid.add(hbBtn2, 0, 1);
+	        
 
+	        /*
+	         * Line button with icon
+	         */
+	        Image imageLine = new Image(getClass().getResourceAsStream("drawLine.png"));
+			Button line = new Button();
+			line.setGraphic(new ImageView(imageLine));
+	        HBox hbBtn3 = new HBox();
+	        hbBtn3.setAlignment(Pos.TOP_LEFT);
+	        hbBtn3.getChildren().add(line);
+	        grid.add(hbBtn3, 0, 2);
+	        
+	        /*
+	         * Text button
+	         */
+			Button text = new Button("Text");
+			text.getStyleClass().add("text");
+	        HBox hbBtn4 = new HBox();
+	        hbBtn4.setAlignment(Pos.TOP_LEFT);
+	        hbBtn4.getChildren().add(text);
+	        grid.add(hbBtn4, 0, 3);
+	        
+			return grid;
+	}
+
+	public FlowPane addFlowPane() {
+	    FlowPane flow = new FlowPane();
+	    flow.setPadding(new Insets(5, 0, 5, 0));
+	    flow.setVgap(4);
+	    flow.setHgap(4);
+	    flow.setPrefWrapLength(170); // preferred width allows for two columns
+	    flow.setStyle("-fx-background-color: DAE6F3;");
+
+	    return flow;
+	}
+}
