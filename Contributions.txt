@@ -26,8 +26,13 @@ yy hr - total
 
 Sam
 1 hr - group meeting -- getting to know github
-xx hr - task
-yy hr - total
+2 hr - learning/installing JavaFX
+1 hr - group meeting -- establish roles
+2 hr - learning JavaFX
+3 hr - used combo boxes to make menu bar
+2 hr - group meeting -- redid menu bar using MenuBar, cleaned up the group's code by seperating into classes 
+
+11 hr - total
 
 Kyle
 +2 hr - JavaFX  and GitHub familiarization
@@ -39,4 +44,5 @@ Kyle
 Team Meetings:
 [9/7/17 11am-12pm]: 1 hr - getting to know github
 [9/14/17 11am-12pm]: 1 hr - talked laying out and dividing roles and assignments
+[9/21/17 10am-12pm]: 2 hr - various tasks including integrating code, making text boxes draggable, and seperating into classes
 
