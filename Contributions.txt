@@ -4,20 +4,20 @@ Ashley Camacho
 5 hr - JavaFx tutorial
 1 hr - playing with buttons and Grid
 0.5 hr - adding square and line button with icon
-2 hr - group meetings
 20 mins - Specificiations Iteration 1
 1.5 hrs - resizing buttons and panel research
 1 hr - fixed group Schdule and made a side panel
-2 hrs - group meetings
-13 hrs 20 mins - total
+5 hrs - group meetings
+14 hrs 20 mins - total
 
 Kailash
 September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
 September 10 - 2 hr - Get a solid understanding of the java fx mechanics by building a simple program that draws lines
 September 14 - 1 hr - Group meeting, assigned roles, talked about the different pieces we wanted for the project. Assigned assingments
+September 19 - 1 hr - Group meeting
 September 20 - 3 hr - Learn and research more java fx. Try to understand Grouping and layouts
 September 21 - 3 hr - Code a program that produced a text box with 3 text areas
-10 hr - total     
+11 hr - total     
 
 Peter
 xx hr - task
@@ -29,20 +29,23 @@ Sam
 2 hr - learning/installing JavaFX
 1 hr - group meeting -- establish roles
 2 hr - learning JavaFX
+1 hr - group meeting
 3 hr - used combo boxes to make menu bar
 2 hr - group meeting -- redid menu bar using MenuBar, cleaned up the group's code by seperating into classes 
 
-11 hr - total
+12 hr - total
 
 Kyle
-+2 hr - JavaFX  and GitHub familiarization
-+1 hr - Practicing layout and button presses
-+2 hr - Working with canvas, shapes, and buttons
-+2 hr - Group meetings
-+7 hr - total
+2 hr - JavaFX  and GitHub familiarization
+1 hr - Practicing layout and button presses
+2 hr - Working with canvas, shapes, and buttons
+2 hr - Group meetings
+1 hr - group meeting
+8 hr - total
  
-Team Meetings:
+Group Meetings:
 [9/7/17 11am-12pm]: 1 hr - getting to know github
 [9/14/17 11am-12pm]: 1 hr - talked laying out and dividing roles and assignments
+[9/19/17]: 1hr - shared finished assignments, asked and asnwered some questions
 [9/21/17 10am-12pm]: 2 hr - various tasks including integrating code, making text boxes draggable, and seperating into classes
 
