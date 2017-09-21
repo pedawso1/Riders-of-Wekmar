@@ -90,10 +90,12 @@ public class UMLEditor extends Application {
                 int gotY = (int) e.getY();
                 x = (int) gotX / 50;
                 y = (int) gotY / 50;
-                if (gotX % 25 < 13){cornerX = gotX - gotX % 25;}
-                else {cornerX = gotX + (25 - gotX % 25);}
-                if (gotY % 25 < 13){cornerY = gotY - gotY % 25;}
-                else {cornerY = gotY + (25 - gotY % 25);}
+                if (lineButton.isSelected()){
+                    if (gotX % 25 < 13){cornerX = gotX - gotX % 25;}
+                    else {cornerX = gotX + (25 - gotX % 25);}
+                    if (gotY % 25 < 13){cornerY = gotY - gotY % 25;}
+                    else {cornerY = gotY + (25 - gotY % 25);} 
+                }
                 //System.out.println(x + " , " + y);
                 //System.out.println(cornerX + " , " + cornerY);
             } else if (e.getEventType() == MouseEvent.MOUSE_CLICKED) {
