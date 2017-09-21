@@ -11,9 +11,13 @@ Ashley Camacho
 11 hrs 20 mins - total
 
 Kailash
-xx hr - task
-xx hr - task
-yy hr - total
+September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
+September 10 - 2 hr - Get a solid understanding of the java fx mechanics by building a simple program that draws lines
+September 14 - 1 hr - Group meeting, assigned roles, talked about the different pieces we wanted for the project. Assigned assingments
+September 20 - 3 hr - Learn and research more java fx. Try to understand Grouping and layouts
+September 21 - 3 hr - Code a program that produced a text box with 3 text areas
+
+ total ->     10 hr
 
 Peter
 xx hr - task
