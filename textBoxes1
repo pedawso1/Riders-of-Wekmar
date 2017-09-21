@@ -1,0 +1,203 @@
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class TryAgain3 extends Application{
+///////////////////////////////////////////////////////////////////////////////
+	
+	double orgSceneX;
+	double orgSceneY;
+	double orgTranslateX;
+	double orgTranslateY;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		launch(args);
+		
+		
+	}
+////////////////////////////////////////////////////////////////////////////////
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		Button btn = new Button("add textBox");
+		TextField text1 = new TextField("Class Name");
+		text1.setLayoutY(25);
+		
+       TextArea text2 = new TextArea("Attributes");
+		text2.setMaxSize(200, 75);
+		text2.setMaxWidth(150);
+		text2.setLayoutY(50);
+		
+		TextArea text3 = new TextArea("Instance Varibles");
+		text3.setMaxSize(200, 100);
+		text3.setMaxWidth(150);
+		text3.setLayoutY(125);
+		
+		Group group = new Group();
+		VBox box = new VBox();
+		box.getChildren().addAll(group,btn);
+		group.getChildren().addAll(text1,text2,text3);
+		Scene scene = new Scene(box,640,480);
+	
+		
+		
+		
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+		
+		Node textAreaContent = group.lookup(".content");
+		
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+		textAreaContent.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+
+	           
+
+	            orgSceneX = e.getSceneX();
+	            orgSceneY = e.getSceneY();
+	            orgTranslateX = group.getTranslateX();
+	            orgTranslateY = group.getTranslateY();
+
+	           group.toFront();
+	        });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+		 textAreaContent.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
+
+	          
+
+	            double offsetX = e.getSceneX() - orgSceneX;
+	            double offsetY = e.getSceneY() - orgSceneY;
+	            double newTranslateX = orgTranslateX + offsetX;
+	            double newTranslateY = orgTranslateY + offsetY;
+
+	            group.setTranslateX(newTranslateX);
+	            group.setTranslateY(newTranslateY);
+	        });
+
+	    
+////////////////////////////////////////////////////////////////////////////////		 
+		 btn.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+
+			
+			 TextField n = new TextField("Class Name");
+				n.setLayoutY(25);
+				n.setMaxSize(200, 75);
+				n.setMaxWidth(150);
+				
+		       TextArea nn = new TextArea("Attributes");
+				nn.setMaxSize(200, 75);
+				nn.setMaxWidth(150);
+				nn.setLayoutY(50);
+				
+				TextArea nnn = new TextArea("Instance Varibles");
+				nnn.setMaxSize(200, 100);
+				nnn.setMaxWidth(150);
+				nnn.setLayoutY(125);
+				
+				Group group2 = new Group();
+				box.getChildren().addAll(n,nn,nnn);
+			
+				Node textAreaContent2 = group2.lookup(".content");
+			 
+				
+
+			           
+
+		            orgSceneX = e.getSceneX();
+		            orgSceneY = e.getSceneY();
+		            orgTranslateX = group2.getTranslateX();
+		            orgTranslateY = group2.getTranslateY();
+
+		           group2.toFront();
+		           
+		           
+
+		            double offsetX = e.getSceneX() - orgSceneX;
+		            double offsetY = e.getSceneY() - orgSceneY;
+		            double newTranslateX = orgTranslateX + offsetX;
+		            double newTranslateY = orgTranslateY + offsetY;
+
+		            group2.setTranslateX(newTranslateX);
+		            group2.setTranslateY(newTranslateY);
+		        });
+				
+				
+				
+				
+				
+				
+		 
+		 
+		 
+				
+/////////////////////////////////////////////////////////////////////////////////				
+				
+				
+				
+				
+				
+				
+		 
+		 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+	public Node newBox(){
+		 TextField n = new TextField("Class Name");
+			n.setLayoutY(25);
+		 
+		 
+		 
+		 TextArea  nn= new TextArea();
+		    nn.setMaxSize(200, 75);
+			nn.setMaxWidth(150);
+			nn.setLayoutY(50);
+		 
+		 
+		 
+		 
+		 
+		 
+		 TextArea nnn= new TextArea();
+		 
+		 nnn.setMaxSize(200, 100);
+			nnn.setMaxWidth(150);
+			nnn.setLayoutY(125);
+		 Group g2 = new Group();
+		 
+		 g2.getChildren().addAll(n,nn,nnn);
+		 
+		
+		 
+		 
+		 
+		 
+		 Node textAreaContent2 = g2.lookup(".content");
+		return  textAreaContent2;
+
+}
+}
