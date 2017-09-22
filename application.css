@@ -1,0 +1,14 @@
+.button{
+    -fx-base: #ffffff;
+    -fx-padding: 5 5 5 5;  
+}
+.text{
+	-fx-padding: 11 8 11 8;
+}
+
+.border{
+	-fx-padding: 0 20 0 0;
+}
+.umlSpace{
+	-fx-background-color: DAE6F3;
+}
