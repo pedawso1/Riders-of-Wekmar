@@ -49,8 +49,9 @@ public class snapToGrid {
 
 		// adds box object to the grid
 		grid.getChildren().add(classBox);
+		grid.getStyleClass().add("grid");
 		// THIS IS NOT FOR FINAL RELEASE WE WILL NEED CSS TO DEFINE GRID LINES
-		grid.setStyle("-fx-background-color: white; -fx-grid-lines-visible: true");
+		//grid.setStyle("-fx-background-color: white; -fx-grid-lines-visible: true");
 		// Scene scene = new Scene(grid,(columns * 50),(rows*50),Color.WHITE);
 		return grid;
 
