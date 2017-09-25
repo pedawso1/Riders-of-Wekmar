@@ -26,23 +26,24 @@ The software platform used to create the editor is JavaFx. Most of the developer
 
 4.1.2 Feature List
 * Side Panel
-o Rectangle button
-o Text button
-o Line button
+- Select button: selects current item on the snap to grid
+- Rectangle button(we might not need this)
+- Text button: has 3 layered textboxes
+- Line button: draws lines and snaps to the grid
 * Top Panel
-o File
-* New file
-* Save
-* Open
-o Edit
-o View
-o Help
+- File
+   * New file
+   * Save
+   * Open
+- Edit
+- View
+- Help
 * Center Panel
 4.2 User Interface
 
 4.2.1 Overview
 * At first glance the program looks like a basic windows 2000s paint program.
-o Buttons to draw on the left and file menu at the top with the drawing area being the larger area
+- Buttons to draw on the left and file menu at the top with the drawing area being the larger area
 
 4.2.2 Menus
 * Menu is set at the top.
@@ -50,9 +51,9 @@ o Buttons to draw on the left and file menu at the top with the drawing area bei
 * file has a new file open and save options
 4.2.3 Windows
 * The window is divided by using a border layout.
-o The side panel is set to the left
-o Top panel is set to top
-o And the working space is set to the center.
+- The side panel is set to the left
+- Top panel is set to top
+- And the working space is set to the center.
 
 4.2.4 Inspectors
 
@@ -77,3 +78,4 @@ Can be used on Mac OS and Windows operating systems.
 
 6 Future Enhancements
 * Provide multiple lines
+*add functionality to the top menu
