@@ -8,7 +8,8 @@ Ashley Camacho
 1.5 hrs - resizing buttons and panel research
 1 hr - fixed group Schdule and made a side panel
 5 hrs - group meetings
-14 hrs 20 mins - total
+1 hr - working on specification and changed buttons and added css code
+15 hrs 20 mins - total
 
 Kailash
 September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
@@ -32,7 +33,6 @@ Sam
 1 hr - group meeting
 3 hr - used combo boxes to make menu bar
 2 hr - group meeting -- redid menu bar using MenuBar, cleaned up the group's code by seperating into classes 
-
 12 hr - total
 
 Kyle
