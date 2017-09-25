@@ -29,10 +29,10 @@ public class mySidePanel {
 		/*
 		 * Delete button with icon
 		 */
-		Image imageDelete = new Image(getClass().getResourceAsStream("bin.png"));
-		Button delete = new Button();
-		delete.setGraphic(new ImageView(imageDelete));
-                delete.setAlignment(Pos.CENTER);
+		Image imageSelect = new Image(getClass().getResourceAsStream("select.png"));
+		Button select = new Button();
+		select.setGraphic(new ImageView(imageSelect));
+                select.setAlignment(Pos.CENTER);
 		grid.add(delete, 0, 0);
 
 		/*
