@@ -27,13 +27,22 @@ public class mySidePanel {
                 ToggleGroup tg = new ToggleGroup();
 
 		/*
-		 * Delete button with icon
+		 * Select button with icon
 		 */
 		Image imageSelect = new Image(getClass().getResourceAsStream("select.png"));
+		ImageView imageView = new ImageView(imageSelect);
+		imageView.setFitWidth(30);
+		imageView.setFitHeight(30);
+		
 		Button select = new Button();
+		select.getStyleClass().add("delete");
 		select.setGraphic(new ImageView(imageSelect));
-                select.setAlignment(Pos.CENTER);
-		grid.add(delete, 0, 0);
+		select.setGraphic(imageView);
+		
+		HBox hbBtn = new HBox();
+		hbBtn.setAlignment(Pos.TOP_LEFT);
+		hbBtn.getChildren().add(select);
+		grid.add(hbBtn, 0, 0);
 
 		/*
 		 * Box button with icon
