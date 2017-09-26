@@ -3,6 +3,7 @@ package application;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
 public class lineDrawer {
@@ -10,14 +11,14 @@ public class lineDrawer {
     int x1, y1, x2, y2;
     boolean isSelected;
     mySidePanel sp;
-    GridPane grid;
+    Pane pane;
 
-    //Initializes mouse event handlers and allows drawLine() to see SP and grid
-    public void initialize(mySidePanel sidePanel, snapToGrid snap) {
-        snap.getGrid().setOnMousePressed(click);
-        snap.getGrid().setOnMouseReleased(release);
+    //Initializes mouse event handlers and allows drawLine() to see SP and pane
+    public void initialize(mySidePanel sidePanel, Pane centerPane) {   
+        centerPane.setOnMousePressed(click);
+        centerPane.setOnMouseReleased(release);
         sp = sidePanel;
-        grid = snap.getGrid();
+        pane = centerPane;
     }
 
     //Get first set of coordinates
@@ -67,6 +68,6 @@ public class lineDrawer {
     //Creates line object - Currently right size, wrong position
     private void drawLine() {
         Line l = new Line(x1, y1, x2, y2);
-        grid.getChildren().add(l);
+        pane.getChildren().add(l);
     }
 }
