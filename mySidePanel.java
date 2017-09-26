@@ -58,6 +58,7 @@ public class mySidePanel {
 		 * Line button with icon
 		 */
 		Image imageLine = new Image(getClass().getResourceAsStream("drawLine.png"));
+	        line.getStyleClass().add("line");
                 line.setToggleGroup(tg);
 		line.setGraphic(new ImageView(imageLine));
                 line.setAlignment(Pos.CENTER);
