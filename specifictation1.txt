@@ -1,81 +1,75 @@
-The Riders of Wekmar Editor
-1 Problem statement
-
-2 System Personnel
-2.1 Description of Users
-The user is the student of the University. The students want to be able to tell how classes are scheduled in the University
-
-2.2 Description of System Developers
+1	Problem statement
+What should I do here?
+2	System Personnel
+2.1	Description of Users
+The users are the students of the University and a Computer Science Department Professor, Dr. David Hutchens.
+2.2	Description of System Developers
 The developers are 5 students who are Computer Science Majors, taking Software Engineering.
-3 Operational Setting
-
-3.1 Target Platforms
+3	Operational Setting
+3.1	Target Platforms
 The targeted platforms are Mac OS, Windows and Linux operating systems.
-
-3.2 Required Software Environment
+3.2	Required Software Environment
 The software platform used to create the editor is JavaFx. Most of the developers used Eclipse or NetBeans as the development platform to write the software.
+4	Functional Requirements
+4.1	Functional Description
+The Riders of Wekmar Editor draws lines and pops textboxes into the center panel when pushing the appropriate button. There can be multiple lines and textboxes. The textboxes can be moved by the user around the center panel and snap on to the grid that is in the center panel.
+4.1.1	Overview
+4.1.2	Feature List
+  •	Side Panel
+    o	Select button
+    o	Rectangle button
+    o	Text button
+    o	Line button
+    o	Textbox Button
+  •	The textbox is divided into 3 sections:
+  •	Name
+  •	Attributes
+  •	Operations
 
-3.3 Useful Optional Software Environment
+  •	Top Panel
+    o	File
+      •	New file
+      •	Save
+      •	Open
+    o	Edit
+    o	View
+    o	Help
+      •	Center Panel
+      •	Contains a snap to grid feature, objects will align to the grid coordinates.
+4.2	User Interface
+4.2.1	Overview
+  When the user opens the program, the user will see a side, top and center panel.
+4.2.2	Menus
+  The menu is set at the top panel. The top menu provides a file, edit, view and help menuItem. File has a drop down menu that provide new   file, open and save options.
+4.2.3	Windows
+  •	The window is divided by using a border layout.
+     o	The side panel is set to the left
+     o	Top panel is set to top
+     o	And the working space is set to the center.
+4.2.4	Inspectors
 
-4 Functional Requirements
+4.3	Use Cases
+4.3.1	Use Case 1
 
-4.1 Functional Description
+4.3.2	Use Case 2
 
-4.1.1 Overview
+4.4	Other Interfaces
+
+5	Non-Functional Requirements
+5.1	Reliability
+
+5.2	Performance
+
+5.3	Usability
+
+5.4	Portability
+The editor can be used on Linux, Mac OS and Windows operating systems.
+
+6	Future Enhancements
+For the side panel, the line feature works for only a general line. A future enhancement is to provide multiple lines to that feature by using a drop down menu to the left side and giving the user options on which line to pick. 
+The text button will provide text on the center panel at the location where the user will want to provide plain text.
+The select button, once pressed will give the user availability to select objects and move them in the center panel. For example, once a line is on the center panel the user will be able to push the select button and move the line to a different location.
+	The top panel has a file, edit, view and help drop down menus. None of the top panel features are fit to be used by the user, yet. In the next iteration the top panel will be available for the user. They will be able to save, open and make a new file.
 
 
-4.1.2 Feature List
-* Side Panel
-- Select button: selects current item on the snap to grid
-- Rectangle button(we might not need this)
-- Text button: has 3 layered textboxes
-- Line button: draws lines and snaps to the grid
-* Top Panel
-- File
-   * New file
-   * Save
-   * Open
-- Edit
-- View
-- Help
-* Center Panel
-4.2 User Interface
 
-4.2.1 Overview
-* At first glance the program looks like a basic windows 2000s paint program.
-- Buttons to draw on the left and file menu at the top with the drawing area being the larger area
-
-4.2.2 Menus
-* Menu is set at the top.
-* there is a file, edit, view and help options
-* file has a new file open and save options
-4.2.3 Windows
-* The window is divided by using a border layout.
-- The side panel is set to the left
-- Top panel is set to top
-- And the working space is set to the center.
-
-4.2.4 Inspectors
-
-4.3 Use Cases
-
-4.3.1 Use Case 1
-
-4.3.2 Use Case 2
-
-4.4 Other Interfaces
-
-5 Non-Functional Requirements
-
-5.1 Reliability
-
-5.2 Performance
-
-5.3 Usability
-
-5.4 Portability
-Can be used on Mac OS and Windows operating systems.
-
-6 Future Enhancements
-* Provide multiple lines
-*add functionality to the top menu
