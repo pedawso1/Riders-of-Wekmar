@@ -49,7 +49,13 @@ The Riders of Wekmar Editor draws lines and pops textboxes into the center panel
 4.2.4	Inspectors
 
 4.3	Use Cases
-4.3.1	Use Case 1
+4.3.1	Use Case 1: draw line on grid
+	Precondition:
+	 1.User clicks on button with a pencil drawing a line from the side panel. System goes to drawline class.
+	 2.User clicks on grid. System sets EventHandler to mouse pressed.
+	 3.User drags on click. System is setting the x and y coordinates.
+	 4.User releases and line is drawn. System gets the second coordinates and sets EventHandler to release
+	 Postconditon: A new line will be place in the desired location
 
 4.3.2	Use Case 2
 
@@ -70,6 +76,7 @@ For the side panel, the line feature works for only a general line. A future enh
 The text button will provide text on the center panel at the location where the user will want to provide plain text.
 The select button, once pressed will give the user availability to select objects and move them in the center panel. For example, once a line is on the center panel the user will be able to push the select button and move the line to a different location.
 	The top panel has a file, edit, view and help drop down menus. None of the top panel features are fit to be used by the user, yet. In the next iteration the top panel will be available for the user. They will be able to save, open and make a new file.
+	Last of all, drawLine will be improved by having a drag effect from click to release to show the user this line before they release.
 
 
 
