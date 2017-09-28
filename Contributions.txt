@@ -9,8 +9,9 @@ Ashley Camacho
 1 hr - fixed group Schdule and made a side panel
 5 hrs 30 mins - group meetings
 1 hr - working on specification and changed buttons and added css code
-2hr 50 mins - specification, buttons and css code
-13 hrs 40 mins - total
+2hr 50 mins - group meeting, specification, buttons and css code
+1 hr - tested how line and textbox would look on a Mac OS, changed textbox class name width size, finished specification
+14 hrs 40 mins - total
 
 Kailash
 September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
