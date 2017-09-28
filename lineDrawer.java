@@ -13,14 +13,14 @@ public class lineDrawer {
     Pane pane;
 
     //Initializes mouse event handlers and allows drawLine() to see SP and pane
-    public void initialize(mySidePanel sidePanel, Pane centerPane) {   
+    public void initialize(mySidePanel sidePanel, Pane centerPane) {
         centerPane.setOnMousePressed(click);
         centerPane.setOnMouseReleased(release);
         sp = sidePanel;
         pane = centerPane;
     }
 
-    //Get first set of coordinates
+    //Get first set of coordinates and snap them to grid
     EventHandler<MouseEvent> click = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent e) {
@@ -42,7 +42,7 @@ public class lineDrawer {
         }
     };
 
-    //Get second set of coordinates and drawLine()
+    //Get second set of coordinates, snap them to grid, and drawLine()
     EventHandler<MouseEvent> release = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent e) {
@@ -64,7 +64,7 @@ public class lineDrawer {
         }
     };
 
-    //Creates line object - Currently right size, wrong position
+    //Creates line object
     private void drawLine() {
         Line l = new Line(x1, y1, x2, y2);
         pane.getChildren().add(l);
