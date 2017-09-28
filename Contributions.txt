@@ -43,12 +43,21 @@ Sam
 14 hr - total
 
 Kyle
-2 hr - JavaFX  and GitHub familiarization
-1 hr - Practicing layout and button presses
-2 hr - Working with canvas, shapes, and buttons
-2 hr - Group meetings
-1 hr - group meeting
-8 hr - total
+2hr - 9/6/17 - JavaFX  and GitHub familiarization
+1hr - 9/7 - Group meeting
+1hr - 9/12 - Layout and button presses
+2hr - 9/13 - JavaFX - working with canvas, shapes, and buttons
+1hr - 9/14 - Group meeting
+1.5hr - 9/14 - Restructuring code, experimenting ideas, GitHub familiarization
+4hr - 9/18 - General improvements to code and understanding
+0.8hr - 9/19 - meeting after class
+3hr - 9/19 - Line tool implementation
+2hr - 9/21 - Group meeting
+4hr - 9/22 - Acquaintance with team's code, attempt to implement mine onto their's
+0.4hr - 9/26 - Meeting after class
+2hr - 9/26 - Make boxes stay in center box, fixed line placement, figure out GitHub
+0.5hr - 9/28 - Finalizing stuff and still learning GitHub
+25.2hr - total
  
 Group Meetings:
 [9/7/17 11am-12pm]: 1 hr - getting to know github
