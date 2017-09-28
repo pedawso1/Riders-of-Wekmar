@@ -9,7 +9,8 @@ Ashley Camacho
 1 hr - fixed group Schdule and made a side panel
 5 hrs 30 mins - group meetings
 1 hr - working on specification and changed buttons and added css code
-15 hrs 50 mins - total
+2hr 50 mins - specification, buttons and css code
+13 hrs 40 mins - total
 
 Kailash
 September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
@@ -50,4 +51,4 @@ Group Meetings:
 [9/19/17]: 1hr - shared finished assignments, asked and asnwered some questions
 [9/21/17 10am-12pm]: 2 hr - various tasks including integrating code, making text boxes draggable, and seperating into classes
 [9/26/17 11:30pm-12pm]: 30 mins - Combining line and fixing some code, talk about what to have ready for thursday group meeting
-
+[9/29/17 10am-12:50pm]: 2hr 50 mins- Combining code, fixing snap to grid, working buttons to work with textbox, and getting ready to end iteration 1 
