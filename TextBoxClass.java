@@ -20,8 +20,8 @@ import javafx.scene.shape.Rectangle;
  */
 public class TextBoxClass {
     
-        Rectangle classBox = new Rectangle();
-        double orgSceneX = 0;
+            Rectangle classBox = new Rectangle();
+            double orgSceneX = 0;
 	    double orgSceneY = 0;
 	    double orgTranslateX = 0;
 	    double orgTranslateY = 0;
@@ -35,7 +35,7 @@ public static void main(String[] args) {
 
 
  public Pane spawn(Pane box){
-	              classBox = new Rectangle();
+	          classBox = new Rectangle();
                   classBox.setLayoutX(0);
                   classBox.setLayoutY(0);
                   classBox.setWidth(150);
@@ -59,14 +59,9 @@ public static void main(String[] args) {
 		Pane group = new Pane();
 		StackPane stackp = new StackPane();
 		stackp.getChildren().add(group);
-		//stackp.setLayoutX(0);
-		//stackp.setLayoutX(0);
 		box.getChildren().add(group);
-		
-		
-		
 		group.getChildren().addAll(text1,text2,text3,classBox);
-		//group.setLayoutX(150);
+		
 		
 		
 			
@@ -79,7 +74,7 @@ public static void main(String[] args) {
 	            orgTranslateX = group.getTranslateX();
 	            orgTranslateY = group.getTranslateY();
 
-	         
+               
 	        });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 		 group.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {

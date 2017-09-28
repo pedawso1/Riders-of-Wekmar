@@ -8,14 +8,18 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 
 
 public class mySidePanel {
 
     GridPane grid = new GridPane();
+    TextBoxClass hold = new TextBoxClass();
     ToggleButton line = new ToggleButton();
+    ToggleButton boxwa = new ToggleButton();
     
     public GridPane addSidePanel() {
 		
@@ -46,13 +50,9 @@ public class mySidePanel {
 		grid.add(hbBtn, 0, 0);
 
 		/*
-		 * TextBox button with icon
+		 * Box button with icon
 		 */
-		Image imageBox = new Image(getClass().getResourceAsStream("textBox.png"));
-		Button textBox = new Button();
-		textBox.setGraphic(new ImageView(imageBox));
-        	textBox.setAlignment(Pos.CENTER);
-		grid.add(textBox, 0, 1);
+	
 
 		/*
 		 * Line button with icon
@@ -81,4 +81,25 @@ public class mySidePanel {
     public boolean lineBtnToggled(){
         return line.isSelected();
     }
+      public boolean boxBtnToggled(){
+        return boxwa.isSelected();
+    }
+      
+     public Pane box(Pane pane)
+     {
+          	Image imageBox = new Image(getClass().getResourceAsStream("square.png"));
+		Button box = new Button();
+		box.setGraphic(new ImageView(imageBox));
+                box.setAlignment(Pos.CENTER);
+		grid.add(box, 0, 1);
+                
+                	 box.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
+                 {
+                           TextBoxClass hold = new TextBoxClass();
+                           hold.spawn(pane);
+             
+
+		 });
+                return pane;
+     }
 }
