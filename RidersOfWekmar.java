@@ -1,13 +1,10 @@
 package application;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 public class RidersOfWekmar extends Application {
@@ -22,16 +19,22 @@ public class RidersOfWekmar extends Application {
 
         //--- layout of panel
         BorderPane border = new BorderPane();
+        TryAgain4 box2 = new TryAgain4();
         mySidePanel sidePanel = new mySidePanel();
         myTopMenu bar = new myTopMenu();
-        snapToGrid snap = new snapToGrid();
+      
         Pane centerPane = new Pane();
-        centerPane.getChildren().add(snap.snapGrid());
+        Pane overlay = new Pane();
+    
+        
 
+
+        
+        
         border.setTop(bar.addMenuBar());
         border.setLeft(sidePanel.addSidePanel());
-        border.setCenter(centerPane);
-        BorderPane.setMargin(snap.getGrid(), new Insets(10, 10, 10, 10));
+        border.setCenter(box2.paneWork());
+        BorderPane.setMargin(box2.paneWork(), new Insets(10, 10, 10, 10));
         
         lineDrawer L = new lineDrawer();
         L.initialize(sidePanel, centerPane);
