@@ -4,14 +4,14 @@ Ashley Camacho
 5 hr - JavaFx tutorial
 1 hr - playing with buttons and Grid
 0.5 hr - adding square and line button with icon
-20 mins - Specificiations Iteration 1
+.3 hr - Specificiations Iteration 1
 1.5 hrs - resizing buttons and panel research
 1 hr - fixed group Schdule and made a side panel
-5 hrs 30 mins - group meetings
+5.5 hrs - group meetings
 1 hr - working on specification and changed buttons and added css code
-2hr 50 mins - group meeting, specification, buttons and css code
+2.8 hr - group meeting, specification, buttons and css code
 1 hr - tested how line and textbox would look on a Mac OS, changed textbox class name width size, finished specification
-14 hrs 40 mins - total
+28.1 hrs - total
 
 Kailash
 September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
