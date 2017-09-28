@@ -42,6 +42,7 @@ public static void main(String[] args) {
                   classBox.setHeight(25);
 		
 		TextField text1 = new TextField("Class Name");
+	 	text1.setMaxWidth(150);
 		text1.setLayoutY(25);
 		
                 TextArea text3 = new TextArea("Attributes!!!!");
