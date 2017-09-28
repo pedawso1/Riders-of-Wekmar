@@ -8,7 +8,6 @@ import javafx.scene.shape.Line;
 public class lineDrawer {
 
     int x1, y1, x2, y2;
-    boolean isSelected;
     mySidePanel sp;
     Pane pane;
 
@@ -66,7 +65,18 @@ public class lineDrawer {
 
     //Creates line object
     private void drawLine() {
-        Line l = new Line(x1, y1, x2, y2);
-        pane.getChildren().add(l);
+        //if no ints are below 0
+        if (!(x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0)) {
+            Line l = new Line(x1, y1, x2, y2);
+            pane.getChildren().add(l);
+        } else{
+            if (x1 < 0) {x1 = 0;}
+            if (x2 < 0) {x2 = 0;}
+            if (y1 < 0) {y1 = 0;}
+            if (y2 < 0) {y2 = 0;}
+            Line l = new Line(x1, y1, x2, y2);
+            pane.getChildren().add(l);
+        }
+        
     }
 }
