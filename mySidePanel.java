@@ -50,11 +50,6 @@ public class mySidePanel {
 		grid.add(hbBtn, 0, 0);
 
 		/*
-		 * Box button with icon
-		 */
-	
-
-		/*
 		 * Line button with icon
 		 */
 		Image imageLine = new Image(getClass().getResourceAsStream("drawLine.png"));
@@ -71,9 +66,6 @@ public class mySidePanel {
 		text.getStyleClass().add("text");
                 text.setAlignment(Pos.CENTER);
                 grid.add(text, 0, 3);
-                
-                
-
 
 		return grid;
 	}
@@ -87,13 +79,16 @@ public class mySidePanel {
       
      public Pane box(Pane pane)
      {
-          	Image imageBox = new Image(getClass().getResourceAsStream("square.png"));
-		Button box = new Button();
-		box.setGraphic(new ImageView(imageBox));
-                box.setAlignment(Pos.CENTER);
-		grid.add(box, 0, 1);
+		/*
+		 * TextBox button with icon
+		 */
+		Image imageBox = new Image(getClass().getResourceAsStream("textBox.png"));
+		Button textBox = new Button();
+		textBox.setGraphic(new ImageView(imageBox));
+                textBox.setAlignment(Pos.CENTER);
+		grid.add(textBox, 0, 1);
                 
-                	 box.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
+                	 textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
                  {
                            TextBoxClass hold = new TextBoxClass();
                            hold.spawn(pane);
