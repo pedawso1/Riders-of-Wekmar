@@ -23,6 +23,7 @@ public class RidersOfWekmar extends Application {
         myTopMenu bar = new myTopMenu();
       
         Pane centerPane = new Pane();
+        centerPane.getStyleClass().add("centerPane");
         sidePanel.box(centerPane);
 
 
