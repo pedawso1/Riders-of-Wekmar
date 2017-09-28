@@ -46,13 +46,13 @@ public class mySidePanel {
 		grid.add(hbBtn, 0, 0);
 
 		/*
-		 * Box button with icon
+		 * TextBox button with icon
 		 */
-		Image imageBox = new Image(getClass().getResourceAsStream("square.png"));
-		Button box = new Button();
-		box.setGraphic(new ImageView(imageBox));
-                box.setAlignment(Pos.CENTER);
-		grid.add(box, 0, 1);
+		Image imageBox = new Image(getClass().getResourceAsStream("textBox.png"));
+		Button textBox = new Button();
+		textBox.setGraphic(new ImageView(imageBox));
+        	textBox.setAlignment(Pos.CENTER);
+		grid.add(textBox, 0, 1);
 
 		/*
 		 * Line button with icon
