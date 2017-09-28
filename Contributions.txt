@@ -19,7 +19,11 @@ September 14 - 1 hr - Group meeting, assigned roles, talked about the different 
 September 19 - 1 hr - Group meeting
 September 20 - 3 hr - Learn and research more java fx. Try to understand Grouping and layouts
 September 21 - 3 hr - Code a program that produced a text box with 3 text areas
-11 hr - total     
+September 25 - 2 hr - Make the textboxes spawn in the grid and make sure the snapping correct
+September 27 - 1 hr - Fix the text boxing snapping
+September 28 - meet with group, add the text box code to a master, finialize iteration 1
+
+14 hr - total     
 
 Peter
 xx hr - task
