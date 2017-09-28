@@ -34,8 +34,9 @@ Sam
 2 hr - learning JavaFX
 1 hr - group meeting
 3 hr - used combo boxes to make menu bar
-2 hr - group meeting -- redid menu bar using MenuBar, cleaned up the group's code by seperating into classes 
-12 hr - total
+2 hr - group meeting -- redid menu bar using MenuBar, cleaned up the group's code by seperating into classes
+2 hr - group meeting -- worked on getting buttons and combining textbox/line code into our side panel
+14 hr - total
 
 Kyle
 2 hr - JavaFX  and GitHub familiarization
