@@ -71,7 +71,6 @@ public static void main(String[] args) {
 
 	            orgSceneX = e.getSceneX();
 	            orgSceneY = e.getSceneY();
-                    System.out.println(orgSceneY);
 	            orgTranslateX = group.getTranslateX();
 	            orgTranslateY = group.getTranslateY();
 
