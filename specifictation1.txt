@@ -72,7 +72,7 @@ Postcondition: A new textbox will be placed in the desired location
 	
 5	Non-Functional Requirements
 5.1	Reliability
-The Editor is reliable when user clicks on textboxes, the textboxes stay in the center panel and do not go into the side and top panel. The Editor’s line is not as reliable; the line can be drawn in the side and top panel, causing the button to be unusable.
+The Editor is reliable when user clicks on textboxes and line, the textboxes stay in the center panel and does not go into the side and top panel. Line button lets the user make a line from one destination to another. All lines and textboxes can only be added into the center panel
 5.2	Performance
 The editor works in real time. Changes as user feels fit. 
 5.3	Usability
@@ -85,8 +85,8 @@ For the side panel, the line feature works for only a general line. A future enh
 The text button will provide text on the center panel at the location where the user will want to provide plain text.
 The select button, once pressed will give the user availability to select objects and move them in the center panel. For example, once a line is on the center panel the user will be able to push the select button and move the line to a different location.
 	The top panel has a file, edit, view and help drop down menus. None of the top panel features are fit to be used by the user, yet. In the next iteration the top panel will be available for the user. They will be able to save, open and make a new file.
-The drawLine class will be improved by having a drag effect from click to release to show the user this line before they release. Also, when a line is drawn on the side panel side panel is no longer accessible.
-Center panel is layering every object; an adjustment would be made to work on one layer to be able to snap objects together.
+The drawLine class will be improved by having a drag effect from click to release to show the user this line before they release. 
+	Center panel is layering every object; an adjustment would be made to work on one layer to be able to snap objects together.
 
 
 
