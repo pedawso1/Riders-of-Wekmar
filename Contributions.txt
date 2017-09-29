@@ -10,7 +10,7 @@ Ashley Camacho
 5.5 hrs - group meetings
 1 hr - working on specification and changed buttons and added css code
 2.8 hr - group meeting, specification, buttons and css code
-1 hr - tested how line and textbox would look on a Mac OS, changed textbox class name width size, finished specification
+1 hr - tested how line and textbox would look on a Mac OS, changed textbox class name width size, touch up specification
 28.1 hrs - total
 
 Kailash
