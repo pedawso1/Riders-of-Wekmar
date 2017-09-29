@@ -27,10 +27,15 @@ September 28 - meet with group, add the text box code to a master, finialize ite
 14 hr - total     
 
 Peter
-xx hr - task
-xx hr - task
+3 hr - Reviewing JavaFx
+3 hr - Creating shapes and buttons
+2 hr - Creating drawable line
+2 hr - Creating moveable objects
+4 hr - Creating SnapGrid
+4 hr - Implementing text boxes with SnapGrid
+2 hr - Implementing TextBoxClass with mySidePanel button
 5 hrs 30 mins - group meetings
-yy hr - total
+25:30 hr - total
 
 Sam
 1 hr - group meeting -- getting to know github
