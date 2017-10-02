@@ -11,7 +11,8 @@ Ashley Camacho
 1 hr - working on specification and changed buttons and added css code
 2.8 hr - group meeting, specification, buttons and css code
 1 hr - tested how line and textbox would look on a Mac OS, changed textbox class name width size, touch up specification
-28.1 hrs - total
+1 hr - working on making a jar file on a mac
+29.1 hrs - total
 
 Kailash
 September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
