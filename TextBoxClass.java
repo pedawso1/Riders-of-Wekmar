@@ -18,29 +18,34 @@ import javafx.scene.shape.Rectangle;
  *
  * @author pedawso1
  */
-public class TextBoxClass {
+public class TextBoxClass 
+{
     
             Rectangle classBox = new Rectangle();
             double orgSceneX = 0;
 	    double orgSceneY = 0;
 	    double orgTranslateX = 0;
 	    double orgTranslateY = 0;
-        
-public static void main(String[] args) {
-		// TODO Auto-generated method stu
+	
+////////////////////////////////////////////////////////////////////////////////       
+public static void main(String[] args)
+	{
 		launch(args);	
 	}
 ////////////////////////////////////////////////////////////////////////////////
 //@Override
 
 
- public Pane spawn(Pane box){
+ public Pane spawn(Pane box)
+ {
+	 //creating box to grab for TextBox movement
 	          classBox = new Rectangle();
                   classBox.setLayoutX(0);
                   classBox.setLayoutY(0);
                   classBox.setWidth(150);
                   classBox.setHeight(25);
 		
+	 //Text fields for Class,Attributes, Instance Variables
 		TextField text1 = new TextField("Class Name");
 	 	text1.setMaxWidth(150);
 		text1.setLayoutY(25);
@@ -65,9 +70,12 @@ public static void main(String[] args) {
 		
 		
 		
-			
-
- group.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	 
+	 
+		 //On mouse press event get current scene coordinates for x and y and store them in global variables
+		 group.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> 
+		{
 
 	            orgSceneX = e.getSceneX();
 	            orgSceneY = e.getSceneY();
@@ -76,8 +84,12 @@ public static void main(String[] args) {
 
                
 	        });
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
-		 group.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	 
+	 
+		 //On mouse drag event, compute offset of object and set group to new x and y coordinates
+		 group.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> 
+		{
 
 	            double offsetX = e.getSceneX() - orgSceneX;
 	            double offsetY = e.getSceneY() - orgSceneY;
@@ -88,16 +100,23 @@ public static void main(String[] args) {
 	            group.setTranslateY(newTranslateY);
 	        });
                
-                   group.addEventHandler(MouseEvent.MOUSE_RELEASED, e -> {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	 
+	 
+	         //Gets new x and y coordinates and computes the closest (currently lower) value 
+	 	 //divisible by 50 so object can snap to grid
+                 group.addEventHandler(MouseEvent.MOUSE_RELEASED, e ->
+		{
  
-      
                        double firstX = e.getSceneX();
                        double firstY = e.getSceneY();
+			
+		       //Making sure objects stay within centerPane 	
                        if(firstX >= 0)
                        firstX = (firstX-firstX%50);
                        else
                            firstX = 0;
-                       
+ 	                  
                        if(firstY >= 0)
                        firstY = (firstY-firstY%50);
                        else
@@ -107,7 +126,8 @@ public static void main(String[] args) {
                        group.setTranslateY(firstY);
                       
 
-    });
+  	     });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
                 return box;
  }
 }
