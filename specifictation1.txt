@@ -1,0 +1,94 @@
+1	Introduction
+1.1	Purpose
+The Riders of Wekmar Editor provides the user 2 working features, drawing lines and textboxes. The user can a line going from one textbox to another.
+
+2	System Personnel
+2.1	Description of Users
+The users are the students of the University and a Computer Science Department Professor, Dr. David Hutchens.
+2.2	Description of System Developers
+The developers are 5 students who are Computer Science Majors, taking Software Engineering.
+
+3	Operational Setting
+3.1	Target Platforms
+The targeted platforms are Mac OS, Windows and Linux operating systems.
+3.2	Required Software Environment
+The software platform used to create the editor is JavaFx. Most of the developers used Eclipse or NetBeans as the development platform to write the software.
+
+4	Functional Requirements
+4.1	Functional Description
+The Riders of Wekmar Editor draws lines and pops textboxes into the center panel when pushing the appropriate button. There can be multiple lines and textboxes. The textboxes can be moved by the user around the center panel and snap on to the grid that is in the center panel.
+4.1.1	Feature List
+•	Side Panel
+o	Select button
+o	Rectangle button
+o	Text button
+o	Line button
+o	Textbox Button
+•	The textbox is divided into 3 sections:
+•	Name
+•	Attributes
+•	Operations
+•	Top Panel
+o	File
+•	New file
+•	Save
+•	Open
+o	Edit
+o	View
+o	Help
+•	Center Panel
+•	Contains a snap to grid feature, objects will align to the grid coordinates.
+
+4.2	User Interface
+4.2.1	Overview
+When the user opens the program, the user will see a side, top and center panel.
+4.2.2	Menus
+The menu is set at the top panel. The top menu provides a file, edit, view and help menuItem. File has a drop down menu that provide new file, open and save options.
+4.2.3	Windows
+•	The window is divided by using a border layout.
+o	The side panel is set to the left
+o	Top panel is set to top
+o	And the working space is set to the center.
+
+4.3	Use Cases
+4.3.1	Use Case 1: Draw a Line
+Precondition:  Program is open
+1.    User clicks on button with a pencil drawing a line from the side panel. 
+ 		       System goes to drawline class.
+	2.    User clicks on grid. System sets EventHandler to mouse pressed.
+	3.    User drags on click. System is setting the x and y coordinates.
+	4.    User releases and line is drawn. System gets the second coordinates 
+       and sets EventHandler to release.
+Postconditon: A new line will be place in the desired location
+
+4.3.2	Use Case 2: Add text boxes
+Precondition: program is open
+1.	User clicks on button with a square and pencil inside it, once, from the side panel. System pops up a textbox with 3 sections, one for class name, attributes and operations. System also spawns the textbox in the top left corner of the center panel.
+2.	User clicks one of the 3 sections of the textbox. System provides the users text areas that can be edited.
+3.	User clicks and holds on black tab of the textboxes. System sets EventHandler to mouse pressed, applying coordinates.
+4.	User drags textbox. System sets EventHandler to mouse dragged, changing coordinates
+5.	User release textbox. System gets new coordinates and sets EventHandler to release.
+Postcondition: A new textbox will be placed in the desired location
+	
+5	Non-Functional Requirements
+5.1	Reliability
+The Editor is reliable when user clicks on textboxes and line, the textboxes stay in the center panel and does not go into the side and top panel. Line button lets the user make a line from one destination to another. All lines and textboxes can only be added into the center panel
+5.2	Performance
+The editor works in real time. Changes as user feels fit. 
+5.3	Usability
+Buttons are clear to what their actions are. Layout is not overwhelming, very simple.
+5.4	Portability
+The editor can be used on Linux, Mac OS and Windows operating systems. On Mac OS the textboxes do not snap into place correctly like they do in Windows.
+
+6	Future Enhancements
+For the side panel, the line feature works for only a general line. A future enhancement is to provide multiple lines to that feature by using a drop down menu to the left side and giving the user options on which line to pick. Also, the user will be able to hover over the buttons and seen the features name.
+The text button will provide text on the center panel at the location where the user will want to provide plain text.
+The select button, once pressed will give the user availability to select objects and move them in the center panel. For example, once a line is on the center panel the user will be able to push the select button and move the line to a different location.
+	The top panel has a file, edit, view and help drop down menus. None of the top panel features are fit to be used by the user, yet. In the next iteration the top panel will be available for the user. They will be able to save, open and make a new file.
+The drawLine class will be improved by having a drag effect from click to release to show the user this line before they release. 
+	Center panel is layering every object; an adjustment would be made to work on one layer to be able to snap objects together.
+
+
+
+
+
