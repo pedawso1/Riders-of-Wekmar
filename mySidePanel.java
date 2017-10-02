@@ -14,14 +14,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 
-public class mySidePanel {
+public class mySidePanel 
+{
 
     GridPane grid = new GridPane();
     TextBoxClass hold = new TextBoxClass();
     ToggleButton line = new ToggleButton();
     ToggleButton boxwa = new ToggleButton();
     
-    public GridPane addSidePanel() {
+    public GridPane addSidePanel() 
+    {
 		
 		grid.setAlignment(Pos.TOP_LEFT);
 		grid.setHgap(10);
@@ -70,31 +72,23 @@ public class mySidePanel {
 		return grid;
 	}
     
-    public boolean lineBtnToggled(){
-        return line.isSelected();
-    }
-      public boolean boxBtnToggled(){
-        return boxwa.isSelected();
-    }
+         public boolean lineBtnToggled()
+  	 {
+      	        return line.isSelected();
+ 	 }
       
-     public Pane box(Pane pane)
-     {
-		/*
-		 * TextBox button with icon
-		 */
+    	 public Pane box(Pane pane)
+   	 {
 		Image imageBox = new Image(getClass().getResourceAsStream("textBox.png"));
 		Button textBox = new Button();
 		textBox.setGraphic(new ImageView(imageBox));
                 textBox.setAlignment(Pos.CENTER);
 		grid.add(textBox, 0, 1);
-                
-                	 textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
-                 {
+                textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
+                {
                            TextBoxClass hold = new TextBoxClass();
                            hold.spawn(pane);
-             
-
-		 });
-                return pane;
-     }
+		});
+             return pane;
+    	 }
 }
