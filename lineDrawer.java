@@ -53,7 +53,8 @@ public class lineDrawer
     };
 
     //On mouse release, get second set of coordinates, snap them to grid, and drawLine()
-    EventHandler<MouseEvent> release = new EventHandler<MouseEvent>() {
+    EventHandler<MouseEvent> release = new EventHandler<MouseEvent>() 
+    {
         @Override
         public void handle(MouseEvent e) 
         {
