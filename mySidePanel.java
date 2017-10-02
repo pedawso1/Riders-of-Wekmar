@@ -28,7 +28,6 @@ public class mySidePanel
 		grid.setAlignment(Pos.TOP_LEFT);
 		grid.setHgap(10);
 		grid.setVgap(10);
-                //is this supposed to be 0? (insets are top, left, bottom, right)
 		grid.setPadding(new Insets(10, 10, 0, 10));
                 
                 ToggleGroup tg = new ToggleGroup();
@@ -71,12 +70,13 @@ public class mySidePanel
 
 		return grid;
 	}
-    
+    	 //setting the line button boolean toggle 
          public boolean lineBtnToggled()
   	 {
       	        return line.isSelected();
  	 }
-      
+      	
+	 //setting the box button to be click event spawnable while box button selected
     	 public Pane box(Pane pane)
    	 {
 		Image imageBox = new Image(getClass().getResourceAsStream("textBox.png"));
@@ -84,6 +84,7 @@ public class mySidePanel
 		textBox.setGraphic(new ImageView(imageBox));
                 textBox.setAlignment(Pos.CENTER);
 		grid.add(textBox, 0, 1);
+		//setting click event to spawn box 
                 textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
                 {
                            TextBoxClass hold = new TextBoxClass();
