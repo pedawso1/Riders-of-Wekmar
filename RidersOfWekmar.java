@@ -17,11 +17,12 @@ public class RidersOfWekmar extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Riders of Wekmar Editor");
 
-        //--- layout of panel
+        //creating objects
         BorderPane border = new BorderPane();
         mySidePanel sidePanel = new mySidePanel();
         myTopMenu bar = new myTopMenu();
-      
+       
+        //creating Pane object for object creation to take place on
         Pane centerPane = new Pane();
         centerPane.getStyleClass().add("centerPane");
         sidePanel.box(centerPane);
