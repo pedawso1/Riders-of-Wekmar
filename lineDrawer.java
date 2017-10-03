@@ -27,6 +27,9 @@ public class lineDrawer
         @Override
         public void handle(MouseEvent e) 
         {
+            //Specifies that depending on the location the line points are located
+            //the line ends will either snap to the higher or lower value divisible by 25
+            //25 was chosen instead of 50 for the line, for flexibility in the UML diagram
             if (sp.lineBtnToggled()) 
             {
                 int x = (int) e.getX();
