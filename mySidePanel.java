@@ -13,20 +13,22 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-
-public class mySidePanel {
+//Creates a side panel to house the buttons to create the TextClassBoxes and drawLines 
+//to form the UML diagram
+public class mySidePanel 
+{
 
     GridPane grid = new GridPane();
     TextBoxClass hold = new TextBoxClass();
     ToggleButton line = new ToggleButton();
     ToggleButton boxwa = new ToggleButton();
     
-    public GridPane addSidePanel() {
+    public GridPane addSidePanel() 
+    {
 		
 		grid.setAlignment(Pos.TOP_LEFT);
 		grid.setHgap(10);
 		grid.setVgap(10);
-                //is this supposed to be 0? (insets are top, left, bottom, right)
 		grid.setPadding(new Insets(10, 10, 0, 10));
                 
                 ToggleGroup tg = new ToggleGroup();
@@ -44,15 +46,12 @@ public class mySidePanel {
 		select.setGraphic(new ImageView(imageSelect));
 		select.setGraphic(imageView);
 		
+	    
+	    	//creates a hBox to contain borders
 		HBox hbBtn = new HBox();
 		hbBtn.setAlignment(Pos.TOP_LEFT);
 		hbBtn.getChildren().add(select);
 		grid.add(hbBtn, 0, 0);
-
-		/*
-		 * Box button with icon
-		 */
-	
 
 		/*
 		 * Line button with icon
@@ -71,35 +70,29 @@ public class mySidePanel {
 		text.getStyleClass().add("text");
                 text.setAlignment(Pos.CENTER);
                 grid.add(text, 0, 3);
-                
-                
-
 
 		return grid;
 	}
-    
-    public boolean lineBtnToggled(){
-        return line.isSelected();
-    }
-      public boolean boxBtnToggled(){
-        return boxwa.isSelected();
-    }
-      
-     public Pane box(Pane pane)
-     {
-          	Image imageBox = new Image(getClass().getResourceAsStream("square.png"));
-		Button box = new Button();
-		box.setGraphic(new ImageView(imageBox));
-                box.setAlignment(Pos.CENTER);
-		grid.add(box, 0, 1);
-                
-                	 box.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
-                 {
+    	 //setting the line button boolean toggle 
+         public boolean lineBtnToggled()
+  	 {
+      	        return line.isSelected();
+ 	 }
+      	
+	 //setting the box button to be click event spawnable while box button selected
+    	 public Pane box(Pane pane)
+   	 {
+		Image imageBox = new Image(getClass().getResourceAsStream("textBox.png"));
+		Button textBox = new Button();
+		textBox.setGraphic(new ImageView(imageBox));
+                textBox.setAlignment(Pos.CENTER);
+		grid.add(textBox, 0, 1);
+		//setting click event to spawn box 
+                textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
+                {
                            TextBoxClass hold = new TextBoxClass();
                            hold.spawn(pane);
-             
-
-		 });
-                return pane;
-     }
+		});
+             return pane;
+    	 }
 }

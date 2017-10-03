@@ -5,58 +5,84 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
-public class lineDrawer {
+
+//Creates a line that has endpoints that will snap to the higher or lower value divisible by 25
+//to be used to connect the TextBoxClass objects, later implementations will add different end shapes
+//to describe the different types of UML connections
+public class lineDrawer 
+{
 
     int x1, y1, x2, y2;
-    boolean isSelected;
     mySidePanel sp;
     Pane pane;
 
-    //Initializes mouse event handlers and allows drawLine() to see SP and pane
-    public void initialize(mySidePanel sidePanel, Pane centerPane) {   
+    //Initializes mouse event handlers and allows drawLine() to see the mySidePanel and Pane
+    public void initialize(mySidePanel sidePanel, Pane centerPane) 
+    {
         centerPane.setOnMousePressed(click);
         centerPane.setOnMouseReleased(release);
         sp = sidePanel;
         pane = centerPane;
     }
 
-    //Get first set of coordinates
-    EventHandler<MouseEvent> click = new EventHandler<MouseEvent>() {
+    //On mouse click, get first set of coordinates and snap them to grid
+    EventHandler<MouseEvent> click = new EventHandler<MouseEvent>() 
+    {
         @Override
-        public void handle(MouseEvent e) {
-            if (sp.lineBtnToggled()) {
+        public void handle(MouseEvent e) 
+        {
+            //Specifies that depending on the location the line points are located
+            //the line ends will either snap to the higher or lower value divisible by 25
+            //25 was chosen instead of 50 for the line, for flexibility in the UML diagram
+            if (sp.lineBtnToggled()) 
+            {
                 int x = (int) e.getX();
                 int y = (int) e.getY();
                 //System.out.println(x + " , " + y);
-                if (x % 25 < 13) {
+                if (x % 25 < 13) 
+                {
                     x1 = x - x % 25;
-                } else {
+                } 
+                else 
+                {
                     x1 = x + 25 - x % 25;
                 }
-                if (y % 25 < 13) {
+                if (y % 25 < 13) 
+                {
                     y1 = y - y % 25;
-                } else {
+                }
+                else
+                {
                     y1 = y + 25 - y % 25;
                 }
             }
         }
     };
 
-    //Get second set of coordinates and drawLine()
-    EventHandler<MouseEvent> release = new EventHandler<MouseEvent>() {
+    //On mouse release, get second set of coordinates, snap them to grid, and drawLine()
+    EventHandler<MouseEvent> release = new EventHandler<MouseEvent>() 
+    {
         @Override
-        public void handle(MouseEvent e) {
-            if (sp.lineBtnToggled()) {
+        public void handle(MouseEvent e) 
+        {
+            if (sp.lineBtnToggled()) 
+            {
                 int x = (int) e.getX();
                 int y = (int) e.getY();
-                if (x % 25 < 13) {
+                if (x % 25 < 13) 
+                {
                     x2 = x - x % 25;
-                } else {
+                } 
+                else 
+                {
                     x2 = x + 25 - x % 25;
                 }
-                if (y % 25 < 13) {
+                if (y % 25 < 13) 
+                {
                     y2 = y - y % 25;
-                } else {
+                } 
+                else 
+                {
                     y2 = y + 25 - y % 25;
                 }
                 drawLine();
@@ -64,9 +90,23 @@ public class lineDrawer {
         }
     };
 
-    //Creates line object - Currently right size, wrong position
-    private void drawLine() {
-        Line l = new Line(x1, y1, x2, y2);
-        pane.getChildren().add(l);
+    //Creates line object
+    private void drawLine() 
+    {
+        //if no ints are below 0
+        if (!(x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0)) 
+        {
+            Line l = new Line(x1, y1, x2, y2);
+            pane.getChildren().add(l);
+        } 
+        else
+        {
+            if (x1 < 0) {x1 = 0;}
+            if (x2 < 0) {x2 = 0;}
+            if (y1 < 0) {y1 = 0;}
+            if (y2 < 0) {y2 = 0;}
+            Line l = new Line(x1, y1, x2, y2);
+            pane.getChildren().add(l);
+        }
     }
 }

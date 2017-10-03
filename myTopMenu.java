@@ -1,13 +1,10 @@
 package application;
 
-
-
-
-
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 
-
+//myTopMenu is an object to add file options through drop down menus
+//currently none of the drop down options are functional, will be implemented for iteration 2
 public class myTopMenu {
 
     MenuBar menuBar = new MenuBar();
@@ -20,11 +17,7 @@ public class myTopMenu {
             MenuItem save = new MenuItem("Save");
             MenuItem exit = new MenuItem("Exit");
             menuFile.getItems().addAll(newFile, open, save, exit);
-            /*
-            add.setOnAction(new EventHandler<ActionEvent>() {
-                public void handle(ActionEvent t) {
-                    
-            */
+
             javafx.scene.control.Menu menuEdit = new javafx.scene.control.Menu("Edit");
             javafx.scene.control.Menu menuView = new javafx.scene.control.Menu("View");
             javafx.scene.control.Menu menuHelp = new javafx.scene.control.Menu("Help");
