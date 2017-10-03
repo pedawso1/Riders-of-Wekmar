@@ -20,13 +20,12 @@ September 10 - 2 hr - Get a solid understanding of the java fx mechanics by buil
 September 14 - 1 hr - Group meeting, assigned roles, talked about the different pieces we wanted for the project. Assigned assingments
 September 19 - 1 hr - Group meeting
 September 20 - 3 hr - Learn and research more java fx. Try to understand Grouping and layouts
-September 21 - 4 hr - Code a program that produced a text box with 3 text areas
+September 21 - 3 hr - Code a program that produced a text box with 3 text areas
 September 25 - 2 hr - Make the textboxes spawn in the grid and make sure the snapping correct
 September 27 - 1 hr - Fix the text boxing snapping
 September 28 - meet with group, add the text box code to a master, finialize iteration 1
-October   2  - Create design implementation documentation 
 
-17 hr - total     
+14 hr - total     
 
 Peter
 3 hr - Reviewing JavaFx
@@ -48,7 +47,10 @@ Sam
 3 hr - used combo boxes to make menu bar
 2 hr - group meeting -- redid menu bar using MenuBar, cleaned up the group's code by seperating into classes
 2 hr - group meeting -- worked on getting buttons and combining textbox/line code into our side panel
-14 hr - total
+1 hr 30 mins - testing, did test cases on final iteration1
+30 mins - group meeting preparing to submit iteration1
+30 mins - group meeting submitting iteration1
+16.5 hrs - total
 
 Kyle
 2hr - 9/6/17 - JavaFX  and GitHub familiarization
