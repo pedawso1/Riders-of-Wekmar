@@ -13,7 +13,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-
+//Creates a side panel to house the buttons to create the TextClassBoxes and drawLines 
+//to form the UML diagram
 public class mySidePanel 
 {
 
@@ -45,6 +46,8 @@ public class mySidePanel
 		select.setGraphic(new ImageView(imageSelect));
 		select.setGraphic(imageView);
 		
+	    
+	    	//creates a hBox to contain borders
 		HBox hbBtn = new HBox();
 		hbBtn.setAlignment(Pos.TOP_LEFT);
 		hbBtn.getChildren().add(select);
