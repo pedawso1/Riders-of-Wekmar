@@ -18,6 +18,9 @@ import javafx.scene.shape.Rectangle;
  *
  * @author pedawso1
  */
+//Creates text boxes stacked via layout on top of eachother with a box shape as 
+//a head portion of the box that can be used to grab, the boxes release event triggers
+//a modulo algorithm that snaps the box in place on a grid
 public class TextBoxClass 
 {
     
