@@ -38,7 +38,7 @@ public static void main(String[] args)
 ////////////////////////////////////////////////////////////////////////////////
 //@Override
 
-
+//Returns a box with a box for moving at the top and three text boxes below it, formated via setLayout
  public Pane spawn(Pane box)
  {
 	 //creating box to grab for TextBox movement
