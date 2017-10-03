@@ -7,12 +7,12 @@ Ashley Camacho
 .3 hr - Specificiations Iteration 1
 1.5 hrs - resizing buttons and panel research
 1 hr - fixed group Schdule and made a side panel
-5.5 hrs - group meetings
+6.5 hrs - group meetings
 1 hr - working on specification and changed buttons and added css code
 2.8 hr - group meeting, specification, buttons and css code
 1 hr - tested how line and textbox would look on a Mac OS, changed textbox class name width size, touch up specification
 1 hr - working on making a jar file on a mac
-29.1 hrs - total
+21.6hrs - total
 
 Kailash
 September 7  - 1 hr - Met with group, discussed how to approach the project, set up github
@@ -35,9 +35,8 @@ Peter
 4 hr - Creating SnapGrid
 2 hr - Implementing text boxes with SnapGrid
 2 hr - Implementing TextBoxClass with mySidePanel button
-2 hr - Implementing and cleaning code
-8 hrs 30 mins - group meetings
-28.5 hr - total
+5 hrs 30 mins - group meetings
+23.5 hr - total
 
 Sam
 1 hr - group meeting -- getting to know github
@@ -77,3 +76,5 @@ Group Meetings:
 [9/21/17 10am-12pm]: 2 hr - various tasks including integrating code, making text boxes draggable, and seperating into classes
 [9/26/17 11:30pm-12pm]: 30 mins - Combining line and fixing some code, talk about what to have ready for thursday group meeting
 [9/29/17 10am-12:50pm]: 2hr 50 mins- Combining code, fixing snap to grid, working buttons to work with textbox, and getting ready to end iteration 1 
+[10/2/17 12PM-12:30pm]: 30 mins - preparing to submit iteration1
+[10/3/17 9:30am-10am]: 30 mins - submit first iteration
