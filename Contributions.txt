@@ -35,8 +35,9 @@ Peter
 4 hr - Creating SnapGrid
 2 hr - Implementing text boxes with SnapGrid
 2 hr - Implementing TextBoxClass with mySidePanel button
-5 hrs 30 mins - group meetings
-23.5 hr - total
+2 hr - Implementing and cleaning code
+8 hrs 30 mins - group meetings
+28.5 hr - total
 
 Sam
 1 hr - group meeting -- getting to know github
