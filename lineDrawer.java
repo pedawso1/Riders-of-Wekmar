@@ -5,6 +5,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
+
+//Creates a line that has endpoints that will snap to the higher or lower value divisible by 25
+//to be used to connect the TextBoxClass objects, later implementations will add different end shapes
+//to describe the different types of UML connections
 public class lineDrawer 
 {
 
