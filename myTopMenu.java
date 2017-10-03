@@ -3,6 +3,8 @@ package application;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 
+//myTopMenu is an object to add file options through drop down menus
+//currently none of the drop down options are functional, will be implemented for iteration 2
 public class myTopMenu {
 
     MenuBar menuBar = new MenuBar();
