@@ -19,74 +19,66 @@ public class lineDrawer
     //Initializes mouse event handlers and allows drawLine() to see the mySidePanel and Pane
     public lineDrawer(mySidePanel sidePanel, Pane centerPane) 
     {
-        centerPane.setOnMousePressed(click);
+        centerPane.setOnMousePressed(press);
         centerPane.setOnMouseReleased(release);
         sp = sidePanel;
         pane = centerPane;
     }
 
     //On mouse click, get first set of coordinates and snap them to grid
-    EventHandler<MouseEvent> click = new EventHandler<MouseEvent>() 
+    EventHandler<MouseEvent> press = (MouseEvent e) ->
     {
-        @Override
-        public void handle(MouseEvent e) 
+        //Specifies that depending on the location the line points are located
+        //the line ends will either snap to the higher or lower value divisible by 25
+        //25 was chosen instead of 50 for the line, for flexibility in the UML diagram
+        if (sp.lineBtnToggled()) 
         {
-            //Specifies that depending on the location the line points are located
-            //the line ends will either snap to the higher or lower value divisible by 25
-            //25 was chosen instead of 50 for the line, for flexibility in the UML diagram
-            if (sp.lineBtnToggled()) 
+            int x = (int) e.getX();
+            int y = (int) e.getY();
+            //System.out.println(x + " , " + y);
+            if (x % 25 < 13) 
             {
-                int x = (int) e.getX();
-                int y = (int) e.getY();
-                //System.out.println(x + " , " + y);
-                if (x % 25 < 13) 
-                {
-                    x1 = x - x % 25;
-                } 
-                else 
-                {
-                    x1 = x + 25 - x % 25;
-                }
-                if (y % 25 < 13) 
-                {
-                    y1 = y - y % 25;
-                }
-                else
-                {
-                    y1 = y + 25 - y % 25;
-                }
+                x1 = x - x % 25;
+            } 
+            else 
+            {
+                x1 = x + 25 - x % 25;
+            }
+            if (y % 25 < 13) 
+            {
+                y1 = y - y % 25;
+            }
+            else
+            {
+                y1 = y + 25 - y % 25;
             }
         }
     };
 
     //On mouse release, get second set of coordinates, snap them to grid, and drawLine()
-    EventHandler<MouseEvent> release = new EventHandler<MouseEvent>() 
+    EventHandler<MouseEvent> release = (MouseEvent e) ->
     {
-        @Override
-        public void handle(MouseEvent e) 
+        if (sp.lineBtnToggled()) 
         {
-            if (sp.lineBtnToggled()) 
+            int x = (int) e.getX();
+            int y = (int) e.getY();
+            if (x % 25 < 13) 
             {
-                int x = (int) e.getX();
-                int y = (int) e.getY();
-                if (x % 25 < 13) 
-                {
-                    x2 = x - x % 25;
-                } 
-                else 
-                {
-                    x2 = x + 25 - x % 25;
-                }
-                if (y % 25 < 13) 
-                {
-                    y2 = y - y % 25;
-                } 
-                else 
-                {
-                    y2 = y + 25 - y % 25;
-                }
-                drawLine();
+                x2 = x - x % 25;
+            } 
+            else 
+            {
+                x2 = x + 25 - x % 25;
             }
+            if (y % 25 < 13) 
+            {
+                y2 = y - y % 25;
+            } 
+            else 
+            {
+                y2 = y + 25 - y % 25;
+            }
+            drawLine();
         }
     };
 
@@ -97,6 +89,8 @@ public class lineDrawer
         if (!(x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0)) 
         {
             Line l = new Line(x1, y1, x2, y2);
+            l.setStrokeWidth(3);
+            l.setOnMouseClicked(delete);
             pane.getChildren().add(l);
         } 
         else
@@ -109,4 +103,11 @@ public class lineDrawer
             pane.getChildren().add(l);
         }
     }
+
+    EventHandler<MouseEvent> delete = (MouseEvent e) -> {
+        if (sp.deleteBtnToggled())
+        {
+            pane.getChildren().remove(e.getSource());
+        }
+    };
 }

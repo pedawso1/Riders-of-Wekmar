@@ -1,6 +1,7 @@
 package RidersOfWekmar;
 
 
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -97,6 +98,7 @@ public class mySidePanel
                 
 		return grid;
 	}
+    
     	 //setting the line button boolean toggle 
          public boolean lineBtnToggled()
   	 {

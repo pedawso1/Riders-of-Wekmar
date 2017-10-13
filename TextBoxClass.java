@@ -7,6 +7,7 @@
  package RidersOfWekmar;
 
 import static javafx.application.Application.launch;
+import javafx.event.EventHandler;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -138,15 +139,14 @@ public TextBoxClass (mySidePanel sidePanel)
   	      });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
-
-                group.addEventHandler(MouseEvent.MOUSE_CLICKED, e->
+            EventHandler<MouseEvent> delete = (MouseEvent e) -> {
+                if (sp.deleteBtnToggled())
                 {
-                    if (sp.deleteBtnToggled())
-                    {
-                        //do stuff, seems like will not work because textbox moves on click
-                    }
-                });
+                    box.getChildren().remove(group);
+                }
+            };
 
-                return box;
+            group.setOnMouseClicked(delete);
+            return box;
  }
 }
