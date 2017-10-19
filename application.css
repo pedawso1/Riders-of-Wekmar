@@ -1,31 +1,23 @@
-//Sets the background color for the pane that the box and line objects are created
+/*Sets the background color for the pane that the box and line objects are created*/
 .centerPane
 {
 	-fx-background-color: white;
 }
 
-//sets the border padding for the border object 
-.border
+/*sets button format options*/
+.toggle
 {
-	-fx-padding: 0 50 0 0;
-}
-
-//sets button format options
-.button
-{
-    -fx-base: #ffffff;
+    /*-fx-base: #ffffff;*/
     -fx-padding: 5 5 5 5; 
-    -fx-alignment: center ;
+    -fx-alignment: center; 
 }
 
-// line padding
-.line
-{
-	-fx-padding: 4 5 4 5;
- }
-
-//text padding for text boxes
+/*text padding for text button*/
 .text
 {
-	-fx-padding: 11 7 11 7;
+	-fx-padding: 11 13 11 13;
+}
+
+.delete{
+	-fx-padding :5 9 5 9;
 }
