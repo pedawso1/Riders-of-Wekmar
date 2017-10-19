@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -44,6 +45,7 @@ public class mySidePanel {
 		delete.setToggleGroup(tg);
 		delete.setGraphic(new ImageView(imageDelete));
 		delete.setAlignment(Pos.CENTER);
+		delete.setTooltip(new Tooltip("Delete"));
 		grid.add(delete, 0, 0);
 
 		// TextBox button
@@ -51,6 +53,7 @@ public class mySidePanel {
 		Button textBox = new Button();
 		textBox.setGraphic(new ImageView(imageBox));
 		textBox.setAlignment(Pos.CENTER);
+		textBox.setTooltip(new Tooltip("Textbox"));
 		grid.add(textBox, 0, 1);
 		// setting click event to spawn box
 		textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
@@ -64,8 +67,8 @@ public class mySidePanel {
 		Button text = new Button("Text");
 		text.getStyleClass().add("text");
 		text.setAlignment(Pos.CENTER);
+		text.setTooltip(new Tooltip("Text"));
 		grid.add(text, 0, 2);
-
 
 		/*
 		 * Line button with icon
@@ -75,7 +78,12 @@ public class mySidePanel {
 		line.setToggleGroup(tg);
 		line.setGraphic(new ImageView(imageLine));
 		line.setAlignment(Pos.CENTER);
+		line.setTooltip(new Tooltip("Draw Line"));
 		grid.add(line, 0, 3);
+		
+		//ChoiceBox whichLine = new ChoiceBox();
+		
+		
 		return grid;
 	}
 
