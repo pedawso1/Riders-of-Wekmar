@@ -4,7 +4,8 @@ Ashley Camacho
 1 hrs - studying ways to add an arrow to a line
 1 hr - trying to figure out how to add line into a combo box
 .5 hr - adding a hover text to the buttons
-hrs - total
+.5 hr - arranging github cards and adding icons to branch
+3 hrs - total
 
 Kailash
  hr - total     
@@ -20,4 +21,5 @@ Kyle
  - total
  
 Group Meetings:
-
+[10/12/17 11am-11:30am] .5 hrs
+[10/17/17 11:50am - 12pm] .2 hrs
