@@ -7,7 +7,6 @@
 /*sets button format options*/
 .toggle
 {
-    /*-fx-base: #ffffff;*/
     -fx-padding: 5 5 5 5; 
     -fx-alignment: center; 
 }
@@ -15,7 +14,8 @@
 /*text padding for text button*/
 .text
 {
-	-fx-padding: 11 13 11 13;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 50px;
 }
 
 .delete{
