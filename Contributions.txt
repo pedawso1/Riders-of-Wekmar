@@ -5,7 +5,8 @@ Ashley Camacho
 1 hr - trying to figure out how to add line into a combo box
 .5 hr - adding a hover text to the buttons
 .5 hr - arranging github cards and adding icons to branch
-3 hrs - total
+1 hr - studying scrollpane
+4 hrs - total
 
 Kailash
  hr - total     
