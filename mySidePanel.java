@@ -81,7 +81,22 @@ public class mySidePanel {
 		line.setTooltip(new Tooltip("Draw Line"));
 		grid.add(line, 0, 3);
 		
-		//ChoiceBox whichLine = new ChoiceBox();
+		//where i am trying to make a drop down menu of different lines to use
+		//having a hard time implementings the drawline
+		MenuButton lineOpts = new MenuButton();
+		MenuItem gen = new MenuItem("General");
+		gen.setOnAction(event -> {
+			line.setToggleGroup(tg);
+		});
+		MenuItem basicAgg = new MenuItem("Basic Aggregation");
+		MenuItem compAgg = new MenuItem("Composition Aggregation");
+
+		lineOpts.setGraphic(new ImageView(imageLine));
+		lineOpts.getItems().addAll(gen, basicAgg, compAgg);
+
+		lineOpts.setTooltip(new Tooltip("Select Line"));
+		lineOpts.setAlignment(Pos.CENTER);
+		grid.add(lineOpts, 0, 4);
 		
 		
 		return grid;
