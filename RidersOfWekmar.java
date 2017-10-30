@@ -20,20 +20,19 @@ public class RidersOfWekmar extends Application {
         //creating objects
         BorderPane border = new BorderPane();
         Pane centerPane = new Pane();
+        centerPane.getStyleClass().add("centerPane");
         mySidePanel sidePanel = new mySidePanel(centerPane);
         myTopMenu bar = new myTopMenu();
-       
-        centerPane.getStyleClass().add("centerPane");
-
+      
+        //layout of editor
         border.setTop(bar.addMenuBar());
         border.setLeft(sidePanel.addSidePanel());
         border.setCenter(centerPane);
         BorderPane.setMargin(centerPane, new Insets(10, 10, 10, 10));
         
+        //features
         lineDrawer L = new lineDrawer(sidePanel, centerPane);
 
-
-        //---
         Scene scene = new Scene(border, 800, 800);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(RidersOfWekmar.class.getResource("application.css").toExternalForm());
