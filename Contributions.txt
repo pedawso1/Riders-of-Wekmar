@@ -2,11 +2,13 @@ Iteration 2
 
 Ashley Camacho
 1 hrs - studying ways to add an arrow to a line
-1 hr - trying to figure out how to add line into a combo box
+1.5 hr - trying to figure out how to add line into a combo box
 .5 hr - adding a hover text to the buttons
 .5 hr - arranging github cards and adding icons to branch
 1 hr - studying scrollpane
-4 hrs - total
+1 hr - studying menu button give the user options on which line they would like to use
+1 hr - trying to make the first menu item to draw a general line
+6.5 hrs - total
 
 Kailash
  hr - total     
@@ -22,5 +24,6 @@ Kyle
  - total
  
 Group Meetings:
-[10/12/17 11am-11:30am] .5 hrs
+[10/12/17 11am - 11:30am] .5 hrs
 [10/17/17 11:50am - 12pm] .2 hrs
+[10/31/17 12pm - 1pm] 1 hr
