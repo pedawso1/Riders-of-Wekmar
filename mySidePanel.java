@@ -3,6 +3,8 @@ package RidersOfWekmar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
@@ -40,7 +42,7 @@ public class mySidePanel {
 		/*
 		 * Delete button with icon
 		 */
-		Image imageDelete = new Image(getClass().getResourceAsStream("delete.png"));
+		Image imageDelete = new Image(getClass().getResourceAsStream("icons/delete.png"));
 		delete.getStyleClass().add("delete");
 		delete.setToggleGroup(tg);
 		delete.setGraphic(new ImageView(imageDelete));
@@ -49,7 +51,7 @@ public class mySidePanel {
 		grid.add(delete, 0, 0);
 
 		// TextBox button
-		Image imageBox = new Image(getClass().getResourceAsStream("textBox.png"));
+		Image imageBox = new Image(getClass().getResourceAsStream("icons/textBox.png"));
 		Button textBox = new Button();
 		textBox.setGraphic(new ImageView(imageBox));
 		textBox.setAlignment(Pos.CENTER);
@@ -73,32 +75,43 @@ public class mySidePanel {
 		/*
 		 * Line button with icon
 		 */
-		Image imageLine = new Image(getClass().getResourceAsStream("drawLine.png"));
+		Image imageLine = new Image(getClass().getResourceAsStream("icons/drawLine.png"));
 		line.getStyleClass().add("line");
 		line.setToggleGroup(tg);
 		line.setGraphic(new ImageView(imageLine));
 		line.setAlignment(Pos.CENTER);
 		line.setTooltip(new Tooltip("Draw Line"));
 		grid.add(line, 0, 3);
-		
-		//where i am trying to make a drop down menu of different lines to use
-		//having a hard time implementings the drawline
+
 		MenuButton lineOpts = new MenuButton();
 		MenuItem gen = new MenuItem("General");
 		gen.setOnAction(event -> {
 			line.setToggleGroup(tg);
+			System.out.println("drawing General line");
 		});
+		
 		MenuItem basicAgg = new MenuItem("Basic Aggregation");
+		basicAgg.setOnAction(event -> {
+			System.out.println("drawing BasicAGG line");
+		});
+		
 		MenuItem compAgg = new MenuItem("Composition Aggregation");
+		compAgg.setOnAction(event -> {
+			System.out.println("drawing CompositionAGG line");
+		});
+		
+		MenuItem depend = new MenuItem("Dependency");
+		compAgg.setOnAction(event -> {
+			System.out.println("drawing dependency line");
+		});
 
 		lineOpts.setGraphic(new ImageView(imageLine));
-		lineOpts.getItems().addAll(gen, basicAgg, compAgg);
+		lineOpts.getItems().addAll(gen, basicAgg, compAgg, depend);
 
 		lineOpts.setTooltip(new Tooltip("Select Line"));
 		lineOpts.setAlignment(Pos.CENTER);
 		grid.add(lineOpts, 0, 4);
-		
-		
+
 		return grid;
 	}
 
