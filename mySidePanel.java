@@ -76,17 +76,11 @@ public class mySidePanel {
 		 * Line button with icon
 		 */
 		Image imageLine = new Image(getClass().getResourceAsStream("icons/drawLine.png"));
-		line.getStyleClass().add("line");
-		line.setToggleGroup(tg);
-		line.setGraphic(new ImageView(imageLine));
-		line.setAlignment(Pos.CENTER);
-		line.setTooltip(new Tooltip("Draw Line"));
-		grid.add(line, 0, 3);
-
 		MenuButton lineOpts = new MenuButton();
+		lineOpts.getStyleClass().add("line");
 		MenuItem gen = new MenuItem("General");
 		gen.setOnAction(event -> {
-			line.setToggleGroup(tg);
+			line.setSelected(true);
 			System.out.println("drawing General line");
 		});
 		
