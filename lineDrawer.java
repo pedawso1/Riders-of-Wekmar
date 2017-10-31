@@ -86,12 +86,10 @@ public class lineDrawer
     private void drawLine() 
     {
         //if no ints are below 0
-        if (!(x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0)) 
+        Line l;
+        if (x1 >= 0 && x2 >= 0 && y1 >= 0 && y2 >= 0)
         {
-            Line l = new Line(x1, y1, x2, y2);
-            l.setStrokeWidth(3);
-            l.setOnMouseClicked(delete);
-            pane.getChildren().add(l);
+            l = new Line(x1, y1, x2, y2);
         } 
         else
         {
@@ -99,9 +97,11 @@ public class lineDrawer
             if (x2 < 0) {x2 = 0;}
             if (y1 < 0) {y1 = 0;}
             if (y2 < 0) {y2 = 0;}
-            Line l = new Line(x1, y1, x2, y2);
-            pane.getChildren().add(l);
+            l = new Line(x1, y1, x2, y2);
         }
+        l.setStrokeWidth(3);
+        l.setOnMouseClicked(delete);
+        pane.getChildren().add(l);
     }
 
     EventHandler<MouseEvent> delete = (MouseEvent e) -> {
