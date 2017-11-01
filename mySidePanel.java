@@ -46,7 +46,7 @@ public class mySidePanel {
 		delete.getStyleClass().add("delete");
 		delete.setToggleGroup(tg);
 		delete.setGraphic(new ImageView(imageDelete));
-		delete.setAlignment(Pos.CENTER);
+		//delete.setAlignment(Pos.CENTER);
 		delete.setTooltip(new Tooltip("Delete"));
 		grid.add(delete, 0, 0);
 
@@ -54,7 +54,7 @@ public class mySidePanel {
 		Image imageBox = new Image(getClass().getResourceAsStream("icons/textBox.png"));
 		Button textBox = new Button();
 		textBox.setGraphic(new ImageView(imageBox));
-		textBox.setAlignment(Pos.CENTER);
+		//textBox.setAlignment(Pos.CENTER);
 		textBox.setTooltip(new Tooltip("Textbox"));
 		grid.add(textBox, 0, 1);
 		// setting click event to spawn box
@@ -68,7 +68,7 @@ public class mySidePanel {
 		 */
 		Button text = new Button("Text");
 		text.getStyleClass().add("text");
-		text.setAlignment(Pos.CENTER);
+		//text.setAlignment(Pos.CENTER);
 		text.setTooltip(new Tooltip("Text"));
 		grid.add(text, 0, 2);
 
@@ -77,7 +77,6 @@ public class mySidePanel {
 		 */
 		Image imageLine = new Image(getClass().getResourceAsStream("icons/drawLine.png"));
 		MenuButton lineOpts = new MenuButton();
-		lineOpts.getStyleClass().add("line");
 		MenuItem gen = new MenuItem("General");
 		gen.setOnAction(event -> {
 			line.setSelected(true);
@@ -103,8 +102,8 @@ public class mySidePanel {
 		lineOpts.getItems().addAll(gen, basicAgg, compAgg, depend);
 
 		lineOpts.setTooltip(new Tooltip("Select Line"));
-		lineOpts.setAlignment(Pos.CENTER);
-		grid.add(lineOpts, 0, 4);
+		//lineOpts.setAlignment(Pos.CENTER);
+		grid.add(lineOpts, 0, 3);
 
 		return grid;
 	}
