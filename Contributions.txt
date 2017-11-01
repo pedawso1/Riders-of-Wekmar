@@ -8,7 +8,8 @@ Ashley Camacho
 1 hr - studying scrollpane
 1 hr - studying menu button give the user options on which line they would like to use
 1 hr - trying to make the first menu item to draw a general line
-6.5 hrs - total
+4 hrs - trying to fix the spacing between two buttons
+10.5 hrs - total
 
 Kailash
  hr - total     
