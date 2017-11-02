@@ -6,13 +6,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
 
-//Creates a line that has endpoints that will snap to the higher or lower value divisible by 25
+//Creates a line that has endpoints that will snap to the higher or lower value divisible by 10
 //to be used to connect the TextBoxClass objects, later implementations will add different end shapes
 //to describe the different types of UML connections
 public class lineDrawer 
 {
 
-    int x1, y1, x2, y2;
+    double x1, y1, x2, y2;
     mySidePanel sp;
     Pane pane;
 
@@ -29,28 +29,28 @@ public class lineDrawer
     EventHandler<MouseEvent> press = (MouseEvent e) ->
     {
         //Specifies that depending on the location the line points are located
-        //the line ends will either snap to the higher or lower value divisible by 25
-        //25 was chosen instead of 50 for the line, for flexibility in the UML diagram
+        //the line ends will either snap to the higher or lower value divisible by 10
+        //10 was chosen instead of 50 for the line, for flexibility in the UML diagram
         if (sp.lineBtnToggled()) 
         {
-            int x = (int) e.getX();
-            int y = (int) e.getY();
+            double x = e.getX();
+            double y = e.getY();
             //System.out.println(x + " , " + y);
-            if (x % 25 < 13) 
+            if (x % 10 < 5) 
             {
-                x1 = x - x % 25;
+                x1 = x - x % 10;
             } 
             else 
             {
-                x1 = x + 25 - x % 25;
+                x1 = x + 10 - x % 10;
             }
-            if (y % 25 < 13) 
+            if (y % 10 < 5) 
             {
-                y1 = y - y % 25;
+                y1 = y - y % 10;
             }
             else
             {
-                y1 = y + 25 - y % 25;
+                y1 = y + 10 - y % 10;
             }
         }
     };
@@ -60,48 +60,38 @@ public class lineDrawer
     {
         if (sp.lineBtnToggled()) 
         {
-            int x = (int) e.getX();
-            int y = (int) e.getY();
-            if (x % 25 < 13) 
-            {
-                x2 = x - x % 25;
-            } 
-            else 
-            {
-                x2 = x + 25 - x % 25;
-            }
-            if (y % 25 < 13) 
-            {
-                y2 = y - y % 25;
-            } 
-            else 
-            {
-                y2 = y + 25 - y % 25;
-            }
+            double x = e.getX();
+            double y = e.getY();
+            if (x % 10 < 5)  {x2 = x - x % 10;} 
+            else {x2 = x + 10 - x % 10;}
+            if (y % 10 < 5) {y2 = y - y % 10;} 
+            else {y2 = y + 10 - y % 10;}
+            if (x2 < 0) {x2 = 0;}
+            if (y2 < 0) {y2 = 0;}
             drawLine();
+            //drawRightAngleLine();
         }
     };
 
+    
     //Creates line object
     private void drawLine() 
     {
-        //if no ints are below 0
-        Line l;
-        if (x1 >= 0 && x2 >= 0 && y1 >= 0 && y2 >= 0)
-        {
-            l = new Line(x1, y1, x2, y2);
-        } 
-        else
-        {
-            if (x1 < 0) {x1 = 0;}
-            if (x2 < 0) {x2 = 0;}
-            if (y1 < 0) {y1 = 0;}
-            if (y2 < 0) {y2 = 0;}
-            l = new Line(x1, y1, x2, y2);
-        }
+        Line l = new Line(x1, y1, x2, y2);
         l.setStrokeWidth(3);
         l.setOnMouseClicked(delete);
         pane.getChildren().add(l);
+    }
+    
+    private void drawRightAngleLine()
+    {
+        Line l1 = new Line(x1, y1, x2, y1);
+        Line l2 = new Line(x2, y1, x2, y2);
+        l1.setStrokeWidth(3);
+        l1.setOnMouseClicked(delete);
+        l2.setStrokeWidth(3);
+        l2.setOnMouseClicked(delete);
+        pane.getChildren().addAll(l1, l2);
     }
 
     EventHandler<MouseEvent> delete = (MouseEvent e) -> {
