@@ -22,7 +22,7 @@ public class mySidePanel {
 	ToggleButton select = new ToggleButton();
 	ToggleButton line = new ToggleButton();
 	ToggleButton delete = new ToggleButton();
-	ToggleButton boxwa = new ToggleButton();
+        ToggleButton textBox = new ToggleButton();
 	Pane centerPane = new Pane();
 
 	// Force centerPane integration to reduce main class clutter
@@ -41,7 +41,7 @@ public class mySidePanel {
                 select.setToggleGroup(tg);
                 line.setToggleGroup(tg);
                 delete.setToggleGroup(tg);
-                boxwa.setToggleGroup(tg);
+                textBox.setToggleGroup(tg);
 
 		/*
 		 * Delete button with icon
@@ -55,7 +55,6 @@ public class mySidePanel {
 
 		// TextBox button
 		Image imageBox = new Image(getClass().getResourceAsStream("icons/textBox.png"));
-		Button textBox = new Button();
 		textBox.setGraphic(new ImageView(imageBox));
 		//textBox.setAlignment(Pos.CENTER);
 		textBox.setTooltip(new Tooltip("Textbox"));
