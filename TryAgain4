@@ -1,0 +1,40 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class tryagain4 extends Application{
+           Pane box = new Pane();
+           text fresh = new text();
+///////////////////////////////////////////////////////////////////////////////    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		launch(args);
+	}
+////////////////////////////////////////////////////////////////////////////////
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+                Button btn = new Button("Add Textbox");
+              
+	
+         
+		box.getChildren().add(btn);
+		Scene scene = new Scene(box,1200,800);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		//Node textAreaContent = group.lookup(".content");
+
+////////////////////////////////////////////////////////////////////////////////		 
+		 btn.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                           text hold = new text();
+                           hold.spawn(box);
+                           
+                           
+
+		        });
+	}
+}
