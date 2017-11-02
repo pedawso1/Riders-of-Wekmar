@@ -38,13 +38,16 @@ public class mySidePanel {
 		grid.setPadding(new Insets(10, 10, 0, 10));
 
 		ToggleGroup tg = new ToggleGroup();
+                select.setToggleGroup(tg);
+                line.setToggleGroup(tg);
+                delete.setToggleGroup(tg);
+                boxwa.setToggleGroup(tg);
 
 		/*
 		 * Delete button with icon
 		 */
 		Image imageDelete = new Image(getClass().getResourceAsStream("icons/delete.png"));
 		delete.getStyleClass().add("delete");
-		delete.setToggleGroup(tg);
 		delete.setGraphic(new ImageView(imageDelete));
 		//delete.setAlignment(Pos.CENTER);
 		delete.setTooltip(new Tooltip("Delete"));
