@@ -1,4 +1,4 @@
-package application;
+package RidersOfWekmar;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -13,33 +13,26 @@ public class RidersOfWekmar extends Application {
         launch(args);
     }
 
-    @Override
+    @Override  
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Riders of Wekmar Editor");
 
-        //--- layout of panel
+        //creating objects
         BorderPane border = new BorderPane();
-        TryAgain4 box2 = new TryAgain4();
-        mySidePanel sidePanel = new mySidePanel();
+        Pane centerPane = new Pane();
+        centerPane.getStyleClass().add("centerPane");
+        mySidePanel sidePanel = new mySidePanel(centerPane);
         myTopMenu bar = new myTopMenu();
       
-        Pane centerPane = new Pane();
-        Pane overlay = new Pane();
-    
-        
-
-
-        
-        
+        //layout of editor
         border.setTop(bar.addMenuBar());
         border.setLeft(sidePanel.addSidePanel());
-        border.setCenter(box2.paneWork());
-        BorderPane.setMargin(box2.paneWork(), new Insets(10, 10, 10, 10));
+        border.setCenter(centerPane);
+        BorderPane.setMargin(centerPane, new Insets(10, 10, 10, 10));
         
-        lineDrawer L = new lineDrawer();
-        L.initialize(sidePanel, centerPane);
+        //features
+        
 
-        //---
         Scene scene = new Scene(border, 800, 800);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(RidersOfWekmar.class.getResource("application.css").toExternalForm());

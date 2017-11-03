@@ -1,22 +1,23 @@
-.grid{
+/*Sets the background color for the pane that the box and line objects are created*/
+.centerPane
+{
 	-fx-background-color: white;
-	-fx-grid-lines-visible: false;
 }
 
-.border{
-	-fx-padding: 0 50 0 0;
-}
-
-.button{
-    -fx-base: #ffffff;
+/*sets button format options*/
+.toggle
+{
     -fx-padding: 5 5 5 5; 
-    -fx-alignment: center ;
+    -fx-alignment: center; 
 }
 
-.line{
-	-fx-padding: 5 5 5 5;
- }
+/*text padding for text button*/
+.text
+{
+    -fx-pref-height: 40px;
+    -fx-pref-width: 50px;
+}
 
-.text{
-	-fx-padding: 11 7 11 7;
+.delete{
+	-fx-padding :5 9 5 9;
 }
