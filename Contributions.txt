@@ -9,7 +9,8 @@ Ashley Camacho
 1 hr - studying menu button give the user options on which line they would like to use
 1 hr - trying to make the first menu item to draw a general line
 4 hrs - trying to fix the spacing between two buttons
-10.5 hrs - total
+.5 hr - researching save and open functions
+11 hrs - total
 
 Kailash
  hr - total     
@@ -28,3 +29,5 @@ Group Meetings:
 [10/12/17 11am - 11:30am] .5 hrs
 [10/17/17 11:50am - 12pm] .2 hrs
 [10/31/17 11:50am - 1pm] 1.2 hrs
+[11/2/17 12:30pm-1pm] .5 hrs
+ - total
