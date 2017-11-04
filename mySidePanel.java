@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Line;
 
 //Creates a side panel to house the buttons to create the TextClassBoxes and drawLines 
 //to form the UML diagram
@@ -26,7 +25,6 @@ public class mySidePanel {
 	ToggleButton select = new ToggleButton();
 	ToggleButton line = new ToggleButton();
 	ToggleButton delete = new ToggleButton();
-	ToggleButton boxwa = new ToggleButton();
         ToggleButton textBox = new ToggleButton();
 	Pane centerPane = new Pane();
         
@@ -53,7 +51,6 @@ public class mySidePanel {
             select.setToggleGroup(tg);
             line.setToggleGroup(tg);
             delete.setToggleGroup(tg);
-            boxwa.setToggleGroup(tg);
             textBox.setToggleGroup(tg);
 
             /*
