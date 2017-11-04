@@ -38,11 +38,13 @@ public class LineDrawer
         lineStack.push(l);
     }
     
-    public Line undo()
+    public void undo()
     {
-        Line l = lineStack.pop();
-        pane.getChildren().remove(l);
-        return l;
+        if (!lineStack.empty())
+        {
+            Line l = lineStack.pop();
+            pane.getChildren().remove(l);
+        }
     }
     
     /*

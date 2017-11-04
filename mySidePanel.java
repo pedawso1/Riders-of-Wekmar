@@ -2,7 +2,6 @@ package RidersOfWekmar;
 
 import java.util.Stack;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -164,7 +163,10 @@ public class mySidePanel {
             undoClassBox.setTooltip(new Tooltip("Undo Textbox"));
             grid.add(undoClassBox, 0, 7); 
             undoClassBox.setOnAction((ActionEvent e) -> {
-                centerPane.getChildren().remove(classBoxStack.pop());
+                if (!classBoxStack.empty())
+                {
+                    centerPane.getChildren().remove(classBoxStack.pop());
+                }                
             });
             
             /*
