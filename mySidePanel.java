@@ -121,58 +121,67 @@ public class mySidePanel {
             lineOpts.setTooltip(new Tooltip("Select Line"));
             //lineOpts.setAlignment(Pos.CENTER);
             grid.add(lineOpts, 0, 3);
-
-
+			
             /*
-             * Clear lines button
+             * Clear lines button "Designed by Freepik from www.flaticon.com"
              */
-            Button ClearAllLines = new Button("Delete All Lines");
-            grid.add(ClearAllLines, 0, 4);
-            ClearAllLines.setOnAction((ActionEvent e) -> {
+            Image imageClearLines = new Image(getClass().getResourceAsStream("icons/clearLines.png"));
+            Button clearAllLines = new Button(/*"Delete All Lines"*/);
+            clearAllLines.setGraphic(new ImageView(imageClearLines));
+            clearAllLines.setTooltip(new Tooltip("Delete All Lines"));
+            grid.add(clearAllLines, 0, 4);
+            clearAllLines.setOnAction((ActionEvent e) -> {
                 lineDrawer.deleteAll();
             });
-            
-            
+             
             /*
              * Clear boxes button
              */
-            Button clearAllBoxes = new Button("Delete All Boxes");
+            Image imageTxtBox = new Image(getClass().getResourceAsStream("icons/deleteTextBox.png"));
+            Button clearAllBoxes = new Button(/*"Delete All Boxes"*/);
+            clearAllBoxes.setGraphic(new ImageView(imageTxtBox));
+            clearAllBoxes.setTooltip(new Tooltip("Delete All Textboxes"));
             grid.add(clearAllBoxes, 0, 5);
             clearAllBoxes.setOnAction((ActionEvent e) -> {
                 deleteAllClassBoxes();
             });
             
             /*
-             * Undo Line button
+             * Undo Line button "Designed by Freepik from www.flaticon.com"
              */
-            Button undoLine = new Button("Undo Line");
+            Image undoline = new Image(getClass().getResourceAsStream("icons/undo-arrow.png"));
+            Button undoLine = new Button(/*"Undo Line"*/);
+            undoLine.setGraphic(new ImageView(undoline));
+            undoLine.setTooltip(new Tooltip("Undo Line"));
             grid.add(undoLine, 0, 6);
             undoLine.setOnAction((ActionEvent e) -> {
                 lineDrawer.undo();
             });
             
             /*
-             * Undo Box button
+             * Undo Box button "Designed by Freepik from www.flaticon.com"
              */
-            Button undoClassBox = new Button("Undo Class Box");
-            grid.add(undoClassBox, 0, 7);
+            Image undoTextBox = new Image(getClass().getResourceAsStream("icons/undoTextBox.png"));
+            Button undoClassBox = new Button(/*"Undo Class Box"*/);
+            undoClassBox.setGraphic(new ImageView(undoTextBox));
+            undoClassBox.setTooltip(new Tooltip("Undo Textbox"));
+            grid.add(undoClassBox, 0, 7); 
             undoClassBox.setOnAction((ActionEvent e) -> {
                 centerPane.getChildren().remove(classBoxStack.pop());
             });
             
             /*
-             * Clear All button
+             * Clear All button 
              */
-            
-            Button clearAll = new Button("Clear All");
+            Image imageClear = new Image(getClass().getResourceAsStream("icons/clearAll.png"));
+            Button clearAll = new Button(/*"Clear All"*/);
+            clearAll.setGraphic(new ImageView(imageClear));
+            clearAll.setTooltip(new Tooltip("Clear All"));
             grid.add(clearAll, 0, 8);
             clearAll.setOnAction((ActionEvent e) -> {
                lineDrawer.deleteAll();
                deleteAllClassBoxes();
             });
-            
-            
-            
 
             return grid;
 	}
