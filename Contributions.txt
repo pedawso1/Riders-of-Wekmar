@@ -11,6 +11,7 @@ Ashley Camacho
 4 hrs  - trying to fix the spacing between two buttons
 .5 hr  - researching save and open functions
 1.5 hr - writing the specification
+.5 hr - rearranging buttons
 2.4 hr - team meetings
 14 hrs - total
 
