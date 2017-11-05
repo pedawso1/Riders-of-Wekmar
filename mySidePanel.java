@@ -118,14 +118,14 @@ public class mySidePanel {
             //lineOpts.setAlignment(Pos.CENTER);
             grid.add(lineOpts, 0, 3);
 			
-            /*
+           /*
              * Clear lines button "Designed by Freepik from www.flaticon.com"
              */
             Image imageClearLines = new Image(getClass().getResourceAsStream("icons/clearLines.png"));
             Button clearAllLines = new Button(/*"Delete All Lines"*/);
             clearAllLines.setGraphic(new ImageView(imageClearLines));
             clearAllLines.setTooltip(new Tooltip("Delete All Lines"));
-            grid.add(clearAllLines, 0, 4);
+            grid.add(clearAllLines, 1, 3);
             clearAllLines.setOnAction((ActionEvent e) -> {
                 lineDrawer.deleteAll();
             });
@@ -137,7 +137,7 @@ public class mySidePanel {
             Button clearAllBoxes = new Button(/*"Delete All Boxes"*/);
             clearAllBoxes.setGraphic(new ImageView(imageTxtBox));
             clearAllBoxes.setTooltip(new Tooltip("Delete All Textboxes"));
-            grid.add(clearAllBoxes, 0, 5);
+            grid.add(clearAllBoxes, 1, 1);
             clearAllBoxes.setOnAction((ActionEvent e) -> {
                 deleteAllClassBoxes();
             });
@@ -149,7 +149,7 @@ public class mySidePanel {
             Button undoLine = new Button(/*"Undo Line"*/);
             undoLine.setGraphic(new ImageView(undoline));
             undoLine.setTooltip(new Tooltip("Undo Line"));
-            grid.add(undoLine, 0, 6);
+            grid.add(undoLine, 0, 5);
             undoLine.setOnAction((ActionEvent e) -> {
                 lineDrawer.undo();
             });
@@ -161,7 +161,7 @@ public class mySidePanel {
             Button undoClassBox = new Button(/*"Undo Class Box"*/);
             undoClassBox.setGraphic(new ImageView(undoTextBox));
             undoClassBox.setTooltip(new Tooltip("Undo Textbox"));
-            grid.add(undoClassBox, 0, 7); 
+            grid.add(undoClassBox, 1, 5); 
             undoClassBox.setOnAction((ActionEvent e) -> {
                 if (!classBoxStack.empty())
                 {
@@ -176,7 +176,7 @@ public class mySidePanel {
             Button clearAll = new Button(/*"Clear All"*/);
             clearAll.setGraphic(new ImageView(imageClear));
             clearAll.setTooltip(new Tooltip("Clear All"));
-            grid.add(clearAll, 0, 8);
+            grid.add(clearAll, 1, 0);
             clearAll.setOnAction((ActionEvent e) -> {
                lineDrawer.deleteAll();
                deleteAllClassBoxes();
