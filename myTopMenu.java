@@ -17,8 +17,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-//myTopMenu is an object to add file options through drop down menus
-//currently none of the drop down options are functional, will be implemented for iteration 2
+/**
+ * An object to add file options through drop down menus * 
+ */
 public class myTopMenu {
 
     MenuBar menuBar = new MenuBar();
@@ -26,7 +27,12 @@ public class myTopMenu {
     TextBoxClass textBox;
     String addingToFile = "";
     
-    
+    /**
+     * Create menu bar with save functionality
+     * @param primary PrimaryStage from RidersOfWekmar class
+     * @param centerPane centerPane from RidersOfWekmar class
+     * @return return the menu bar itself
+     */
     public MenuBar addMenuBar(Stage primary, Pane centerPane) {    
         javafx.scene.control.Menu menuFile = new javafx.scene.control.Menu("File");
         MenuItem newFile = new MenuItem("New");
@@ -68,7 +74,7 @@ public class myTopMenu {
         return menuBar;
            
     }
-    
+
     private void SaveFile(String content, File file){
         try {
             FileWriter fileWriter = null;

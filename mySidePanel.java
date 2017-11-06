@@ -16,8 +16,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-//Creates a side panel to house the buttons to create the TextClassBoxes and drawLines 
-//to form the UML diagram
+
+/**
+ * Creates a side panel to house the buttons to create the TextClassBoxes and 
+ * LineDrawer to form the UML diagram
+ */
 public class mySidePanel {
 
 	GridPane grid = new GridPane();
@@ -26,15 +29,20 @@ public class mySidePanel {
 	ToggleButton delete = new ToggleButton();
         ToggleButton textBox = new ToggleButton();
 	Pane centerPane = new Pane();
-        
-        //Stack<Line> lineStack;
         Stack<Pane> classBoxStack;
 
-	// Force centerPane integration to reduce main class clutter
+        /**
+         * Get the center pane to allow buttons to have an effect on it.
+         * @param cp centerPane from RidersOfWekmar class
+         */
 	public mySidePanel(Pane cp) {
 		centerPane = cp;
 	}
 
+        /**
+         * 
+         * @return GridPane with SidePanel elements
+         */
 	public GridPane addSidePanel() 
         {
             //lineStack = new Stack<>();
@@ -185,6 +193,9 @@ public class mySidePanel {
             return grid;
 	}
 
+        /**
+         * Perform a delete task on every class box until the stack is empty
+         */
         private void deleteAllClassBoxes()
         {
             while (!classBoxStack.empty())
@@ -193,11 +204,19 @@ public class mySidePanel {
             }
         }
         
-	// setting the line button boolean toggle
+	/**
+         * Getter for checking the toggle status of the Line button.
+         * @return If the Line button is toggled.
+         */
 	public boolean lineBtnToggled() {
 		return line.isSelected();
 	}
-
+        
+        
+        /**
+         * Getter for checking the toggle status of the Delete button.
+         * @return If the Delete button is toggled.
+         */
 	public boolean deleteBtnToggled() {
 		return delete.isSelected();
 	}
