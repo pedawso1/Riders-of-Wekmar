@@ -15,7 +15,21 @@ Ashley Camacho
 //edit 2.4 hr - team meetings
 14 hrs - total
 
-Kailash
+Kailash Sayal
+2 hours - research ways to change size of of pane dynamically 
+2 hour  - Firgure out how to drag and object to change the size
+4 hours - Redesigning the textbox, programming buttons to grow and shrink the the text box
+2 hours - add limitations to the growth and shrink functionality
+.5 hours - add another function to the text box that sets the class box back to default size
+3.5 hours - Group meetings
+
+Total - 14 hours
+
+
+
+
+
+
  hr - total     
 
 Peter
