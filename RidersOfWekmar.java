@@ -1,7 +1,6 @@
 package RidersOfWekmar;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -28,10 +27,6 @@ public class RidersOfWekmar extends Application {
         border.setTop(bar.addMenuBar(primaryStage, centerPane));
         border.setLeft(sidePanel.addSidePanel());
         border.setCenter(centerPane);
-        BorderPane.setMargin(centerPane, new Insets(10, 10, 10, 10));
-        
-        //features
-        
 
         Scene scene = new Scene(border, 800, 800);
         primaryStage.setScene(scene);
