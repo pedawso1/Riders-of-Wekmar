@@ -23,7 +23,15 @@ Peter
  hr - total
 
 Sam
- hrs - total
+1 hr  - researching save function
+3 hrs  - working on save function
+2 hrs  - undid previous save function work, started on implementing new save function
+1 hr   - implementing save function
+4 hrs  - implementing save function/uploading to github
+2 hrs  - fixing text box snap to grid functionality
+1 hr   - combining Kailash's resize code with my snap to grid code / cleaning it up / uploading to github
+2.4 hrs - team meetings
+ 16.4 hrs - total
 
 Kyle
  - total
