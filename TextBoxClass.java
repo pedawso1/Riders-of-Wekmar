@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
 */
- package RidersOfWekmar;
+ package RidersOfWekmar2;
 
 import static javafx.application.Application.launch;
 import javafx.event.EventHandler;
@@ -110,6 +110,7 @@ public TextBoxClass (mySidePanel sidePanel)
 
 	            group.setTranslateX(newTranslateX);
 	            group.setTranslateY(newTranslateY);
+	            
 	         });
                
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
@@ -149,6 +150,8 @@ public TextBoxClass (mySidePanel sidePanel)
             };
 
             group.setOnMouseClicked(delete);
-            return group;
+            
+            return box;
+            
  }
 }
