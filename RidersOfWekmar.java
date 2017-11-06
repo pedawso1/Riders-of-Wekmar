@@ -25,7 +25,7 @@ public class RidersOfWekmar extends Application {
         myTopMenu bar = new myTopMenu();
       
         //layout of editor
-        border.setTop(bar.addMenuBar());
+        border.setTop(bar.addMenuBar(primaryStage, centerPane));
         border.setLeft(sidePanel.addSidePanel());
         border.setCenter(centerPane);
         BorderPane.setMargin(centerPane, new Insets(10, 10, 10, 10));

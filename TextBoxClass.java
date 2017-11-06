@@ -78,6 +78,8 @@ public TextBoxClass (mySidePanel sidePanel)
 		box.getChildren().add(group);
 		group.getChildren().addAll(text1,text2,text3,classBox);
 		
+		group.setId("Text Box");
+		
 		
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	

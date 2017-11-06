@@ -34,6 +34,7 @@ public class LineDrawer
         Line l = new Line(x1, y1, x2, y2);
         l.setStrokeWidth(3);
         l.setOnMouseClicked(delete);
+        l.setId("Line");
         pane.getChildren().add(l);
         lineStack.push(l);
     }
