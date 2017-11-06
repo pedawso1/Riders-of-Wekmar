@@ -4,10 +4,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
 */
- package RidersOfWekmar2;
+ package RidersOfWekmar;
 
 import static javafx.application.Application.launch;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -88,7 +89,7 @@ public TextBoxClass (mySidePanel sidePanel)
 		 //On mouse press event get current scene coordinates for x and y and store them in global variables
 		 group.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> 
 		{
-
+			
 	            orgSceneX = e.getSceneX();
 	            orgSceneY = e.getSceneY();
 	            orgTranslateX = group.getTranslateX();
@@ -102,7 +103,7 @@ public TextBoxClass (mySidePanel sidePanel)
 		 //On mouse drag event, compute offset of object and set group to new x and y coordinates
 		 group.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> 
 		{
-
+				
 	            double offsetX = e.getSceneX() - orgSceneX;
 	            double offsetY = e.getSceneY() - orgSceneY;
 	            double newTranslateX = orgTranslateX + offsetX;
@@ -110,36 +111,46 @@ public TextBoxClass (mySidePanel sidePanel)
 
 	            group.setTranslateX(newTranslateX);
 	            group.setTranslateY(newTranslateY);
-	            
 	         });
                
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	 
 	 
-	         //Gets new x and y coordinates and computes the closest (currently lower) value 
+	     //Gets new x and y coordinates and computes the closest (currently lower) value 
 	 	 //divisible by 50 so object can snap to grid
-                 group.addEventHandler(MouseEvent.MOUSE_RELEASED, e ->
+		 
+		 		group.addEventHandler(MouseEvent.MOUSE_RELEASED, e ->
 		{
- 
-                       double firstX = e.getSceneX();
-                       double firstY = e.getSceneY();
-			
+					Bounds bounds = group.localToParent(group.getBoundsInLocal());
+                    double firstX = bounds.getMinX();
+                    double firstY = bounds.getMinY();
+                    
+                    
 		       //Making sure objects stay within centerPane 	
-                       if(firstX >= 0)
-                       firstX = (firstX-firstX%50);
-                       else
-                           firstX = 0;
+                    if(firstX >= 0)
+                  	   if(firstX%30 >= 15)
+                   		   firstX = (firstX + 30 - firstX%30);
+                  	   else
+                   		   firstX = (firstX - firstX%30);
+                    else
+                       firstX = 0;
  	                  
-                       if(firstY >= 0)
-                       firstY = (firstY-firstY%50);
-                       else
+                    
+                    
+                    if(firstY >= 0)
+                  	   if(firstY%30 >= 15)
+                   		   firstY = (firstY + 30 - firstY%30);
+                   	   else
+                   		   firstY = (firstY - firstY%30);
+                    else
                        firstY = 0;
                                    
-                       group.setTranslateX(firstX);
-                       group.setTranslateY(firstY);
-                      
+                    System.out.println(firstX + " " + firstY);
+                    group.setTranslateX(firstX);
+                    group.setTranslateY(firstY);
 
   	      });
+  	      
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
             EventHandler<MouseEvent> delete = (MouseEvent e) -> {
@@ -150,8 +161,6 @@ public TextBoxClass (mySidePanel sidePanel)
             };
 
             group.setOnMouseClicked(delete);
-            
-            return box;
-            
+            return group;
  }
 }
