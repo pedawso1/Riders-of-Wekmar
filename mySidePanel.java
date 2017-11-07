@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Creates a side panel to house the buttons to create the TextClassBoxes and drawLines 
 //to form the UML diagram
