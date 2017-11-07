@@ -44,8 +44,11 @@ Sam
 4 hrs  - implementing save function/uploading to github
 2 hrs  - fixing text box snap to grid functionality
 1 hr   - combining Kailash's resize code with my snap to grid code / cleaning it up / uploading to github
-2.4 hrs - team meetings
- 16.4 hrs - total
+1 hr   - Test cases
+.5 hr  - Learning about JUnit Tests
+1 hr   - Making JUnit Tests
+4.4 hrs - team meetings
+ 20.9 hrs - total
 
 Kyle
  - total
