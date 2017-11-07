@@ -35,7 +35,8 @@ public class RidersOfWekmar extends Application
      * @param primaryStage 
      */
     @Override  
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) 
+    {
         primaryStage.setTitle("Riders of Wekmar Editor");
 
         //creating objects
