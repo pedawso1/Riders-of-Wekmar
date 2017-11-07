@@ -17,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //myTopMenu is an object to add file options through drop down menus
 public class myTopMenu 
 {
@@ -26,7 +27,7 @@ public class myTopMenu
     TextBoxClass textBox;
     String addingToFile = "";
     
-    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
     public MenuBar addMenuBar(Stage primary, Pane centerPane) 
     {    
         javafx.scene.control.Menu menuFile = new javafx.scene.control.Menu("File");
@@ -66,7 +67,7 @@ public class myTopMenu
             }
         });  
                 
-                
+          
         MenuItem exit = new MenuItem("Exit");
         menuFile.getItems().addAll(newFile, open, save, exit);
 
@@ -79,7 +80,8 @@ public class myTopMenu
         return menuBar;
            
     }
-    
+  
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void SaveFile(String content, File file)
     {
         try 
@@ -96,6 +98,7 @@ public class myTopMenu
          
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
     //Fuction to return Arraylist of only top left corner of nodes
     //intended use is for snapping Lines to text boxes within a predetermined
     //proximity, currently not used
@@ -109,6 +112,7 @@ public class myTopMenu
     	return list;
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Returns the bounds for all nodes in scene, returning both the min
     //and max X and Y coordinates too record both sides of lines and
     //also because we can resize our text boxes we need the diagonal coordinates
@@ -125,6 +129,7 @@ public class myTopMenu
     	return list;
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Returns all nodes from "root" and descendents
     public static ArrayList<Node> getAllNodes(Parent root) 
     {
@@ -132,7 +137,8 @@ public class myTopMenu
         addAllDescendents(root, nodes);
         return nodes;
     }
-
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Returns all descendents from parent node
     private static void addAllDescendents(Parent parent, ArrayList<Node> nodes)
     {
