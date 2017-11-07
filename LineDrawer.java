@@ -7,9 +7,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
 
-//Creates a line that has endpoints that will snap to the higher or lower value divisible by 10
-//to be used to connect the TextBoxClass objects, later implementations will add different end shapes
-//to describe the different types of UML connections
+
+/**
+ * Independent class for handling lines and their creation on centerPane. Line 
+ * endpoints snap to a 10x10 grid.
+ */
 public class LineDrawer 
 {
 
@@ -18,7 +20,12 @@ public class LineDrawer
     mySidePanel sidePanel;
     Stack<Line> lineStack;
 
-    //Initializes mouse event handlers and allows drawLine() to see the mySidePanel and Pane
+    /**
+     * Initialize the class so that components of the class may check sidePanel 
+     * toggles and perform actions on the centerPane
+     * @param sp application's side panel
+     * @param centerPane application's center pane
+     */
     public LineDrawer(mySidePanel sp, Pane centerPane) 
     {
         centerPane.setOnMousePressed(press);
@@ -27,8 +34,11 @@ public class LineDrawer
         pane = centerPane;
         sidePanel = sp;
     }
-    
-        //Creates line object
+
+    /**
+     * Create new line object and add it as a child to the center pane after the
+     * coordinates have been acquired.
+     */
     private void drawLine() 
     {
         Line l = new Line(x1, y1, x2, y2);
@@ -39,6 +49,9 @@ public class LineDrawer
         lineStack.push(l).toBack();
     }
     
+    /**
+     * Undo the creation the last line (delete last created line)
+     */
     public void undo()
     {
         if (!lineStack.empty())
@@ -48,6 +61,9 @@ public class LineDrawer
         }
     }
     
+    /**
+     * Prototype function for drawing right-angle lines (WIP)
+     */
     /*
     private void drawRightAngleLine()
     {
@@ -61,11 +77,18 @@ public class LineDrawer
     }
     */
 
+    /**
+     * Remove passed in Line object as a child of center pane
+     * @param l 
+     */
     public void delete(Line l)
     {  
        pane.getChildren().remove(l); 
     }
     
+    /**
+     * Perform delete on all lines by clearing the line stack
+     */
     public void deleteAll()
     {
         while (!lineStack.empty())
@@ -75,7 +98,9 @@ public class LineDrawer
         }
     }   
 
-    //On mouse click, get first set of coordinates and snap them to grid
+    /**
+     * On mouse click, get the first set of coordinates and snap them to grid
+     */
     EventHandler<MouseEvent> press = (MouseEvent e) ->
     {
         //Specifies that depending on the location the line points are located
@@ -105,7 +130,9 @@ public class LineDrawer
         }
     };
 
-    //On mouse release, get second set of coordinates, snap them to grid, and drawLine()
+    /**
+     * On mouse release, get second set of coordinates
+     */
     EventHandler<MouseEvent> release = (MouseEvent e) ->
     {
         if (sidePanel.lineBtnToggled()) 
@@ -123,7 +150,9 @@ public class LineDrawer
         }
     };
 
-    //Deletes current Line
+    /**
+     * Delete a line when it is clicked on
+     */
     EventHandler<MouseEvent> delete = (MouseEvent e) -> 
     {
         delete((Line) e.getSource());
