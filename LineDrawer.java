@@ -36,7 +36,7 @@ public class LineDrawer
         l.setOnMouseClicked(delete);
         l.setId("Line");
         pane.getChildren().add(l);
-        lineStack.push(l);
+        lineStack.push(l).toBack();
     }
     
     public void undo()
