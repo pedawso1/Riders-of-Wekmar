@@ -33,8 +33,13 @@ Total - 14 hours
  hr - total     
 
 Peter
-
- hr - total
+3 hrs - JavaFx Research into linking objects
+1 hrs - Understanding how layering works with Objects and Pane objects
+4 hrs - Attempting to Implement line to object snapping
+1 hrs - Implementing correct layering for lines and boxes
+2 hrs - Formatting project code and commenting
+4.4hrs - Team Meetings
+15.4 hr - total
 
 Sam
 1 hr  - researching save function
