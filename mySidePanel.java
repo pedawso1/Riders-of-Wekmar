@@ -16,12 +16,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-
-/**
- * Creates a side panel to house the buttons to create the TextClassBoxes and 
- * LineDrawer to form the UML diagram
- */
-public class mySidePanel {
+//Creates a side panel to house the buttons to create the TextClassBoxes and drawLines 
+//to form the UML diagram
+public class mySidePanel 
+{
 
 	GridPane grid = new GridPane();
 	ToggleButton select = new ToggleButton();
@@ -31,21 +29,15 @@ public class mySidePanel {
 	Pane centerPane = new Pane();
         Stack<Pane> classBoxStack;
 
-        /**
-         * Get the center pane to allow buttons to have an effect on it.
-         * @param cp centerPane from RidersOfWekmar class
-         */
-	public mySidePanel(Pane cp) {
+	// Force centerPane integration to reduce main class clutter
+	public mySidePanel(Pane cp) 
+        {
 		centerPane = cp;
 	}
 
-        /**
-         * 
-         * @return GridPane with SidePanel elements
-         */
 	public GridPane addSidePanel() 
         {
-            //lineStack = new Stack<>();
+            
             classBoxStack = new Stack<>();
             LineDrawer lineDrawer = new LineDrawer(this, centerPane);
 
@@ -66,7 +58,6 @@ public class mySidePanel {
             Image imageDelete = new Image(getClass().getResourceAsStream("icons/delete.png"));
             delete.getStyleClass().add("delete");
             delete.setGraphic(new ImageView(imageDelete));
-            //delete.setAlignment(Pos.CENTER);
             delete.setTooltip(new Tooltip("Delete"));
             grid.add(delete, 0, 0);
 
@@ -76,8 +67,10 @@ public class mySidePanel {
             //textBox.setAlignment(Pos.CENTER);
             textBox.setTooltip(new Tooltip("Textbox"));
             grid.add(textBox, 0, 1);
+		
             // setting click event to spawn box
-            textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            textBox.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
+	    {
                     TextBoxClass hold = new TextBoxClass(this);
                     //hold.spawn(centerPane);
                     //classBoxStack.push(hold);
@@ -98,30 +91,34 @@ public class mySidePanel {
              */
             Image imageLine = new Image(getClass().getResourceAsStream("icons/drawLine.png"));
             MenuButton lineOpts = new MenuButton();
+		
             MenuItem gen = new MenuItem("General");
-            gen.setOnAction(event -> {
+            gen.setOnAction(event -> 
+            {
                     line.setSelected(true);
                     System.out.println("drawing General line");
             });
 
             MenuItem basicAgg = new MenuItem("Basic Aggregation");
-            basicAgg.setOnAction(event -> {
+            basicAgg.setOnAction(event -> 
+            {
                     System.out.println("drawing BasicAGG line");
             });
 
             MenuItem compAgg = new MenuItem("Composition Aggregation");
-            compAgg.setOnAction(event -> {
+            compAgg.setOnAction(event -> 
+            {
                     System.out.println("drawing CompositionAGG line");
             });
 
             MenuItem depend = new MenuItem("Dependency");
-            compAgg.setOnAction(event -> {
+            compAgg.setOnAction(event -> 
+            {
                     System.out.println("drawing dependency line");
             });
 
             lineOpts.setGraphic(new ImageView(imageLine));
             lineOpts.getItems().addAll(gen, basicAgg, compAgg, depend);
-
             lineOpts.setTooltip(new Tooltip("Select Line"));
             //lineOpts.setAlignment(Pos.CENTER);
             grid.add(lineOpts, 0, 3);
@@ -134,7 +131,9 @@ public class mySidePanel {
             clearAllLines.setGraphic(new ImageView(imageClearLines));
             clearAllLines.setTooltip(new Tooltip("Delete All Lines"));
             grid.add(clearAllLines, 1, 3);
-            clearAllLines.setOnAction((ActionEvent e) -> {
+		
+            clearAllLines.setOnAction((ActionEvent e) -> 
+            {
                 lineDrawer.deleteAll();
             });
              
@@ -146,7 +145,9 @@ public class mySidePanel {
             clearAllBoxes.setGraphic(new ImageView(imageTxtBox));
             clearAllBoxes.setTooltip(new Tooltip("Delete All Textboxes"));
             grid.add(clearAllBoxes, 1, 1);
-            clearAllBoxes.setOnAction((ActionEvent e) -> {
+		
+            clearAllBoxes.setOnAction((ActionEvent e) -> 
+            {
                 deleteAllClassBoxes();
             });
             
@@ -158,7 +159,9 @@ public class mySidePanel {
             undoLine.setGraphic(new ImageView(undoline));
             undoLine.setTooltip(new Tooltip("Undo Line"));
             grid.add(undoLine, 0, 5);
-            undoLine.setOnAction((ActionEvent e) -> {
+		
+            undoLine.setOnAction((ActionEvent e) -> 
+            {
                 lineDrawer.undo();
             });
             
@@ -170,7 +173,9 @@ public class mySidePanel {
             undoClassBox.setGraphic(new ImageView(undoTextBox));
             undoClassBox.setTooltip(new Tooltip("Undo Textbox"));
             grid.add(undoClassBox, 1, 5); 
-            undoClassBox.setOnAction((ActionEvent e) -> {
+		
+            undoClassBox.setOnAction((ActionEvent e) -> 
+            {
                 if (!classBoxStack.empty())
                 {
                     centerPane.getChildren().remove(classBoxStack.pop());
@@ -185,17 +190,17 @@ public class mySidePanel {
             clearAll.setGraphic(new ImageView(imageClear));
             clearAll.setTooltip(new Tooltip("Clear All"));
             grid.add(clearAll, 1, 0);
-            clearAll.setOnAction((ActionEvent e) -> {
+		
+            clearAll.setOnAction((ActionEvent e) -> 
+            {
                lineDrawer.deleteAll();
                deleteAllClassBoxes();
             });
 
             return grid;
 	}
-
-        /**
-         * Perform a delete task on every class box until the stack is empty
-         */
+	
+        //deletes all textbox nodes
         private void deleteAllClassBoxes()
         {
             while (!classBoxStack.empty())
@@ -204,20 +209,15 @@ public class mySidePanel {
             }
         }
         
-	/**
-         * Getter for checking the toggle status of the Line button.
-         * @return If the Line button is toggled.
-         */
-	public boolean lineBtnToggled() {
-		return line.isSelected();
+	// setting the line button boolean toggle
+	public boolean lineBtnToggled() 
+        {
+	    return line.isSelected();
 	}
-        
-        
-        /**
-         * Getter for checking the toggle status of the Delete button.
-         * @return If the Delete button is toggled.
-         */
-	public boolean deleteBtnToggled() {
-		return delete.isSelected();
+	
+	//setting the delete button boolean toggle
+	public boolean deleteBtnToggled() 
+        {
+	    return delete.isSelected();
 	}
 }
