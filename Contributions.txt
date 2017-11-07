@@ -10,10 +10,10 @@ Ashley Camacho
 1 hr   - trying to make the first menu item to draw a general line
 4 hrs  - trying to fix the spacing between two buttons
 .5 hr  - researching save and open functions
-1.5 hr - writing the specification
+2 hr - writing the specification
 .5 hr - rearranging buttons
-//edit 2.4 hr - team meetings
-14 hrs - total
+3.98 hr - team meetings
+18.98 hrs - total
 
 Kailash Sayal
 2 hours - research ways to change size of of pane dynamically 
@@ -21,16 +21,8 @@ Kailash Sayal
 4 hours - Redesigning the textbox, programming buttons to grow and shrink the the text box
 2 hours - add limitations to the growth and shrink functionality
 .5 hours - add another function to the text box that sets the class box back to default size
-3.5 hours - Group meetings
-
-Total - 14 hours
-
-
-
-
-
-
- hr - total     
+4.98 hours - Group meetings
+Total - 15.48 hours
 
 Peter
 3 hrs - JavaFx Research into linking objects
@@ -38,8 +30,8 @@ Peter
 4 hrs - Attempting to Implement line to object snapping
 1 hrs - Implementing correct layering for lines and boxes
 2 hrs - Formatting project code and commenting
-4.4hrs - Team Meetings
-15.4 hr - total
+4.98hrs - Team Meetings
+15.98 hr - total
 
 Sam
 1 hr  - researching save function
@@ -52,17 +44,22 @@ Sam
 1 hr   - Test cases
 .5 hr  - Learning about JUnit Tests
 1 hr   - Making JUnit Tests
-4.4 hrs - team meetings
- 20.9 hrs - total
+4.98 hrs - team meetings
+21.48 hrs - total
 
 Kyle
- - total
+1 hr - Github management and learning
+10 hrs - Implementing code
+4.5 hrs - Group meetings
+1 hr - Misc Project work
+16.5 hrs - total
  
 Team Meetings:
-[10/12/17 11am - 11:30am] .5 hrs //kyle did not show
+[10/12/17 11am - 11:30am] .5 hrs 
 [10/17/17 11:50am - 12pm] .2 hrs
 [10/31/17 11:50am - 1pm] 1.2 hrs
 [11/2/17 12:30pm-1pm] .5 hrs
 [11/3/17 12pm-1pm] 1 hr //ashley did not show
 [11/6/17 12pm-1pm] 1 hr 
- - total
+[11/7/17 11:15am -11:50am] .58 hrs
+ 4.98 hrs - total
