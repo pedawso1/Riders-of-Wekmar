@@ -15,7 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Creates a side panel to house the buttons to create the TextClassBoxes and drawLines 
 //to form the UML diagram
 public class mySidePanel 
@@ -28,13 +28,15 @@ public class mySidePanel
         ToggleButton textBox = new ToggleButton();
 	Pane centerPane = new Pane();
         Stack<Pane> classBoxStack;
-
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Force centerPane integration to reduce main class clutter
 	public mySidePanel(Pane cp) 
         {
 		centerPane = cp;
 	}
-
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public GridPane addSidePanel() 
         {
             
@@ -51,7 +53,8 @@ public class mySidePanel
             line.setToggleGroup(tg);
             delete.setToggleGroup(tg);
             textBox.setToggleGroup(tg);
-
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
              * Delete button with icon
              */
@@ -60,7 +63,8 @@ public class mySidePanel
             delete.setGraphic(new ImageView(imageDelete));
             delete.setTooltip(new Tooltip("Delete"));
             grid.add(delete, 0, 0);
-
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // TextBox button
             Image imageBox = new Image(getClass().getResourceAsStream("icons/textBox.png"));
             textBox.setGraphic(new ImageView(imageBox));
@@ -76,7 +80,8 @@ public class mySidePanel
                     //classBoxStack.push(hold);
                     classBoxStack.push(hold.spawn(centerPane)).toFront();
             });
-
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
              * Text button
              */
@@ -85,7 +90,8 @@ public class mySidePanel
             //text.setAlignment(Pos.CENTER);
             text.setTooltip(new Tooltip("Text"));
             grid.add(text, 0, 2);
-
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
              * Line button with icon
              */
@@ -122,7 +128,8 @@ public class mySidePanel
             lineOpts.setTooltip(new Tooltip("Select Line"));
             //lineOpts.setAlignment(Pos.CENTER);
             grid.add(lineOpts, 0, 3);
-			
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
            /*
              * Clear lines button "Designed by Freepik from www.flaticon.com"
              */
@@ -136,7 +143,8 @@ public class mySidePanel
             {
                 lineDrawer.deleteAll();
             });
-             
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
              * Clear boxes button
              */
@@ -150,7 +158,8 @@ public class mySidePanel
             {
                 deleteAllClassBoxes();
             });
-            
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////            
             /*
              * Undo Line button "Designed by Freepik from www.flaticon.com"
              */
@@ -164,7 +173,8 @@ public class mySidePanel
             {
                 lineDrawer.undo();
             });
-            
+		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////            
             /*
              * Undo Box button "Designed by Freepik from www.flaticon.com"
              */
@@ -181,7 +191,8 @@ public class mySidePanel
                     centerPane.getChildren().remove(classBoxStack.pop());
                 }                
             });
-            
+		
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
             /*
              * Clear All button 
              */
@@ -208,13 +219,15 @@ public class mySidePanel
                 centerPane.getChildren().remove(classBoxStack.pop());
             }
         }
-        
+	
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
 	// setting the line button boolean toggle
 	public boolean lineBtnToggled() 
         {
 	    return line.isSelected();
 	}
 	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	//setting the delete button boolean toggle
 	public boolean deleteBtnToggled() 
         {
