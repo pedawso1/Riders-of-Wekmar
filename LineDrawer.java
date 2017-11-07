@@ -85,7 +85,7 @@ public class LineDrawer
         {
             double x = e.getX();
             double y = e.getY();
-            //System.out.println(x + " , " + y);
+          
             if (x % 10 < 5) 
             {
                 x1 = x - x % 10;
@@ -123,8 +123,9 @@ public class LineDrawer
         }
     };
 
-
-    EventHandler<MouseEvent> delete = (MouseEvent e) -> {
+    //Deletes current Line
+    EventHandler<MouseEvent> delete = (MouseEvent e) -> 
+    {
         delete((Line) e.getSource());
     };
 }
