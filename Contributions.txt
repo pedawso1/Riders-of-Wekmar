@@ -1,0 +1,68 @@
+Iteration 2
+
+Ashley Camacho
+1 hrs  - studying ways to add an arrow to a line
+1.5 hr - trying to figure out how to add line into a combo box
+1 hr   - adding a hover text to the buttons
+1.5 hr - arranging github cards and adding icons to branch
+1 hr   - studying scrollpane
+1 hr   - studying menu button give the user options on which line they would like to use
+1 hr   - trying to make the first menu item to draw a general line
+4 hrs  - trying to fix the spacing between two buttons
+.5 hr  - researching save and open functions
+1.5 hr - writing the specification
+.5 hr - rearranging buttons
+//edit 2.4 hr - team meetings
+14 hrs - total
+
+Kailash Sayal
+2 hours - research ways to change size of of pane dynamically 
+2 hour  - Firgure out how to drag and object to change the size
+4 hours - Redesigning the textbox, programming buttons to grow and shrink the the text box
+2 hours - add limitations to the growth and shrink functionality
+.5 hours - add another function to the text box that sets the class box back to default size
+3.5 hours - Group meetings
+
+Total - 14 hours
+
+
+
+
+
+
+ hr - total     
+
+Peter
+3 hrs - JavaFx Research into linking objects
+1 hrs - Understanding how layering works with Objects and Pane objects
+4 hrs - Attempting to Implement line to object snapping
+1 hrs - Implementing correct layering for lines and boxes
+2 hrs - Formatting project code and commenting
+4.4hrs - Team Meetings
+15.4 hr - total
+
+Sam
+1 hr  - researching save function
+3 hrs  - working on save function
+2 hrs  - undid previous save function work, started on implementing new save function
+1 hr   - implementing save function
+4 hrs  - implementing save function/uploading to github
+2 hrs  - fixing text box snap to grid functionality
+1 hr   - combining Kailash's resize code with my snap to grid code / cleaning it up / uploading to github
+1 hr   - Test cases
+.5 hr  - Learning about JUnit Tests
+1 hr   - Making JUnit Tests
+4.4 hrs - team meetings
+ 20.9 hrs - total
+
+Kyle
+ - total
+ 
+Team Meetings:
+[10/12/17 11am - 11:30am] .5 hrs //kyle did not show
+[10/17/17 11:50am - 12pm] .2 hrs
+[10/31/17 11:50am - 1pm] 1.2 hrs
+[11/2/17 12:30pm-1pm] .5 hrs
+[11/3/17 12pm-1pm] 1 hr //ashley did not show
+[11/6/17 12pm-1pm] 1 hr 
+ - total
