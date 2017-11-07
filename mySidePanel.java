@@ -81,7 +81,7 @@ public class mySidePanel {
                     TextBoxClass hold = new TextBoxClass(this);
                     //hold.spawn(centerPane);
                     //classBoxStack.push(hold);
-                    classBoxStack.push(hold.spawn(centerPane));
+                    classBoxStack.push(hold.spawn(centerPane)).toFront();
             });
 
             /*
