@@ -1,0 +1,3 @@
+The delete function was implemented by setting an 'on click' event handler for each object created on the center pane that removes the object's node from the center pane's children.
+The undo functions were implemented by adding lines and class boxes created on the center pane to stacks that have been created for each object. There are currently two stacks because the LineDrawer class does not return the lines that are drawn because it handles them all itself, but this functionality is expected to change. In order to perform the actual undo function, the stack is simply popped.
+The clear all function is performed by clearing the stacks of both class boxes and lines, which is performed by a simple while loop.
