@@ -1,0 +1,17 @@
+.button{
+    -fx-base: #ffffff;
+    -fx-padding: 5 5 5 5;  
+}
+
+.text{
+	-fx-padding: 11 8 11 8;
+}
+
+.border{
+	-fx-padding: 0 20 0 0;
+}
+
+.grid{
+	-fx-background-color: white;
+	-fx-grid-lines-visible: true;
+}
