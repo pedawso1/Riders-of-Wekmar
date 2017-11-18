@@ -1,16 +1,22 @@
 package RidersOfWekmar;
 
 import java.io.File;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
@@ -30,7 +36,7 @@ public class myTopMenu
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
     public MenuBar addMenuBar(Stage primary, Pane centerPane) 
     {    
-        javafx.scene.control.Menu menuFile = new javafx.scene.control.Menu("File");
+        Menu menuFile = new javafx.scene.control.Menu("File");
         MenuItem newFile = new MenuItem("New");
         MenuItem open = new MenuItem("Open");
         MenuItem save = new MenuItem("Save");
@@ -62,22 +68,40 @@ public class myTopMenu
                 {
                     SaveFile(addingToFile , file);
                 }
-                
                 addingToFile = "";
             }
-        });  
-                
-          
-        MenuItem exit = new MenuItem("Exit");
-        menuFile.getItems().addAll(newFile, open, save, exit);
+        });             
+        
+       //exiting the program
+       MenuItem exit = new MenuItem("Exit", null);
+       exit.setOnAction(actionEvent -> Platform.exit());
+        
+       //what is in the file tab
+       menuFile.getItems().addAll(newFile, open, save, exit);
+        
+        
+       //edit should contain the undos, redos and clear
+       Menu menuEdit = new javafx.scene.control.Menu("Edit");
+       Menu menuView = new javafx.scene.control.Menu("View");
+       
+       //gives an information about the program
+       Menu menuHelp = new javafx.scene.control.Menu("About");
+       MenuItem about = new MenuItem("Welcome"); 
+       Alert alert = new Alert(AlertType.INFORMATION);
+       alert.setTitle("About");
+       alert.setHeaderText("About The Riders Of Wekmar Editor");
+       String s ="This program is created to produce uml diagrams. There are resizale textboxes with three sections"
+       		+ " name the class, instance variables and attributes. User has a choice of different lines to pick from to connect textboxes."
+       		+ "\n\n"
+       		+ "The main purpose to create the program was for a Software Engineering course by Ashley Camacho, Kailash Sayal, Kyle Marten, Peter Dawson and Samuel Aungst."
+       		+ "The Students attend Millersville University.";
+       alert.setContentText(s);
+       about.setOnAction(actionEvent -> alert.show());
+       menuHelp.getItems().addAll(about);
+     
+       menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuHelp);
 
-        javafx.scene.control.Menu menuEdit = new javafx.scene.control.Menu("Edit");
-        javafx.scene.control.Menu menuView = new javafx.scene.control.Menu("View");
-        javafx.scene.control.Menu menuHelp = new javafx.scene.control.Menu("Help");
-
-        menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuHelp);
-
-        return menuBar;
+       return menuBar;
            
     }
   
@@ -148,6 +172,5 @@ public class myTopMenu
             //if (node instanceof Parent)
             //    addAllDescendents((Parent)node, nodes);
         }        
-    }
-           
+    }         
 }
