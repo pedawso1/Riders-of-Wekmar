@@ -99,7 +99,7 @@ public class myTopMenu
        about.setOnAction(actionEvent -> alert.show());
        menuHelp.getItems().addAll(about);
      
-       menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuHelp);
+       menuBar.getMenus().addAll(menuFile, menuEdit, /*menuView,*/ menuHelp);
 
        return menuBar;
            
