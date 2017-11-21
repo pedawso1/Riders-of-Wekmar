@@ -82,7 +82,7 @@ public class myTopMenu
         
        //edit should contain the undos, redos and clear
        Menu menuEdit = new javafx.scene.control.Menu("Edit");
-       Menu menuView = new javafx.scene.control.Menu("View");
+       //Menu menuView = new javafx.scene.control.Menu("View");
        
        //gives an information about the program
        Menu menuHelp = new javafx.scene.control.Menu("About");
