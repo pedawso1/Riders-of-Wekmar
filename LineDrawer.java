@@ -16,27 +16,29 @@ public class LineDrawer
 {
 
     double x1, y1, x2, y2;
-    Pane pane;
+    Pane centerPane;
     mySidePanel sidePanel;
-    Stack<Line> lineStack;
+    //Stack<Line> lineStack;
+    
 
     /**
      * Initialize the class so that components of the class may check sidePanel 
      * toggles and perform actions on the centerPane
      * @param sp application's side panel
-     * @param centerPane application's center pane
+     * @param centerPane application's center centerPane
      */
-    public LineDrawer(mySidePanel sp, Pane centerPane) 
+    public LineDrawer(mySidePanel sp) 
     {
+        centerPane = sp.getCenterPane();
         centerPane.setOnMousePressed(press);
         centerPane.setOnMouseReleased(release);
-        lineStack = new Stack<>();
-        pane = centerPane;
+        //lineStack = new Stack<>();
+        centerPane = centerPane;
         sidePanel = sp;
     }
 
     /**
-     * Create new line object and add it as a child to the center pane after the
+     * Create new line object and add it as a child to the center centerPane after the
      * coordinates have been acquired.
      */
     private void drawLine() 
@@ -45,21 +47,26 @@ public class LineDrawer
         l.setStrokeWidth(3);
         l.setOnMouseClicked(delete);
         l.setId("Line");
-        pane.getChildren().add(l);
-        lineStack.push(l).toBack();
+        centerPane.getChildren().add(l);
+        l.toBack();
+        sidePanel.getObjectStack().push(l);
+        //lineStack.push(l).toBack();
     }
     
     /**
      * Undo the creation the last line (delete last created line)
+     * Line stack not currently used
      */
+    /*
     public void undo()
     {
         if (!lineStack.empty())
         {
             Line l = lineStack.pop();
-            pane.getChildren().remove(l);
+            centerPane.getChildren().remove(l);
         }
     }
+    */
     
     /**
      * Prototype function for drawing right-angle lines (WIP)
@@ -73,22 +80,24 @@ public class LineDrawer
         l1.setOnMouseClicked(delete);
         l2.setStrokeWidth(3);
         l2.setOnMouseClicked(delete);
-        pane.getChildren().addAll(l1, l2);
+        centerPane.getChildren().addAll(l1, l2);
     }
     */
 
     /**
-     * Remove passed in Line object as a child of center pane
+     * Remove passed in Line object as a child of center centerPane
      * @param l 
      */
     public void delete(Line l)
     {  
-       pane.getChildren().remove(l); 
+       centerPane.getChildren().remove(l); 
     }
     
     /**
      * Perform delete on all lines by clearing the line stack
+     * dysfunct because line stack no longer in use
      */
+    /*
     public void deleteAll()
     {
         while (!lineStack.empty())
@@ -97,6 +106,7 @@ public class LineDrawer
             delete(l);
         }
     }   
+    */
 
     /**
      * On mouse click, get the first set of coordinates and snap them to grid

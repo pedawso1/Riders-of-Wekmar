@@ -28,7 +28,8 @@ public class mySidePanel
 	ToggleButton delete = new ToggleButton();
         ToggleButton textBox = new ToggleButton();
 	Pane centerPane = new Pane();
-        Stack<Pane> classBoxStack;
+        //Stack<Pane> classBoxStack;
+        Stack objectStack;
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Force centerPane integration to reduce main class clutter
@@ -41,8 +42,9 @@ public class mySidePanel
 	public GridPane addSidePanel() 
         {
             
-            classBoxStack = new Stack<>();
-            LineDrawer lineDrawer = new LineDrawer(this, centerPane);
+            //classBoxStack = new Stack<>();
+            objectStack = new Stack<>();
+            LineDrawer lineDrawer = new LineDrawer(this);
 
             grid.setAlignment(Pos.TOP_LEFT);
             grid.setHgap(10);
@@ -80,7 +82,10 @@ public class mySidePanel
                     TextBoxClass hold = new TextBoxClass(this);
                     //hold.spawn(centerPane);
                     //classBoxStack.push(hold);
-                    classBoxStack.push(hold.spawn(centerPane)).toFront();
+                    //classBoxStack.push(hold.spawn(centerPane)).toFront();
+                    Pane classBox = hold.spawn(centerPane);
+                    classBox.toFront();
+                    objectStack.push(classBox);  
             });
 		
 
@@ -133,9 +138,11 @@ public class mySidePanel
 	   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
            /*
              * Clear lines button "Designed by Freepik from www.flaticon.com"
+             * dysfunctional because lineStack not currently in use
              */
+           /*
             Image imageClearLines = new Image(getClass().getResourceAsStream("icons/clearLines.png"));
-            Button clearAllLines = new Button(/*"Delete All Lines"*/);
+            Button clearAllLines = new Button(); //"Delete All Lines"
             clearAllLines.setGraphic(new ImageView(imageClearLines));
             clearAllLines.setTooltip(new Tooltip("Delete All Lines"));
             grid.add(clearAllLines, 1, 3);
@@ -144,13 +151,16 @@ public class mySidePanel
             {
                 lineDrawer.deleteAll();
             });
+            */
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
              * Clear boxes button
+             * dysfunctional because class box stack no longer in use
              */
+            /*
             Image imageTxtBox = new Image(getClass().getResourceAsStream("icons/deleteTextBox.png"));
-            Button clearAllBoxes = new Button(/*"Delete All Boxes"*/);
+            Button clearAllBoxes = new Button(); //"Delete All Boxes"
             clearAllBoxes.setGraphic(new ImageView(imageTxtBox));
             clearAllBoxes.setTooltip(new Tooltip("Delete All Textboxes"));
             grid.add(clearAllBoxes, 1, 1);
@@ -159,13 +169,15 @@ public class mySidePanel
             {
                 deleteAllClassBoxes();
             });
+            */
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////            
             /*
              * Undo Line button "Designed by Freepik from www.flaticon.com"
              */
+            /*
             Image undoline = new Image(getClass().getResourceAsStream("icons/undo-arrow.png"));
-            Button undoLine = new Button(/*"Undo Line"*/);
+            Button undoLine = new Button(); //"Undo Line"
             undoLine.setGraphic(new ImageView(undoline));
             undoLine.setTooltip(new Tooltip("Undo Line"));
             grid.add(undoLine, 0, 5);
@@ -174,13 +186,15 @@ public class mySidePanel
             {
                 lineDrawer.undo();
             });
+            */
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////            
             /*
-             * Undo Box button "Designed by Freepik from www.flaticon.com"
+             * Undo (Box) button "Designed by Freepik from www.flaticon.com"
              */
+            /*
             Image undoTextBox = new Image(getClass().getResourceAsStream("icons/undoTextBox.png"));
-            Button undoClassBox = new Button(/*"Undo Class Box"*/);
+            Button undoClassBox = new Button(); //"Undo Class Box"
             undoClassBox.setGraphic(new ImageView(undoTextBox));
             undoClassBox.setTooltip(new Tooltip("Undo Textbox"));
             grid.add(undoClassBox, 1, 5); 
@@ -192,7 +206,21 @@ public class mySidePanel
                     centerPane.getChildren().remove(classBoxStack.pop());
                 }                
             });
-		
+            */
+            Image undoImg = new Image(getClass().getResourceAsStream("icons/undoTextBox.png"));
+            Button undoBtn = new Button();
+            undoBtn.setGraphic(new ImageView(undoImg));
+            undoBtn.setTooltip(new Tooltip("Undo past action"));
+            grid.add(undoBtn, 1, 5);
+            undoBtn.setOnAction((ActionEvent e) -> 
+            {
+                if (!objectStack.empty())
+                {
+                    centerPane.getChildren().remove(objectStack.pop());
+                }                
+            });
+
+                    
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
             /*
              * Clear All button 
@@ -205,8 +233,12 @@ public class mySidePanel
 		
             clearAll.setOnAction((ActionEvent e) -> 
             {
-               lineDrawer.deleteAll();
-               deleteAllClassBoxes();
+                //lineDrawer.deleteAll();
+                //deleteAllClassBoxes();
+                while (!objectStack.empty())
+                {
+                    centerPane.getChildren().remove(objectStack.pop());
+                }
             });
 
             return grid;
@@ -214,6 +246,8 @@ public class mySidePanel
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
         //deletes all textbox nodes
+        //dysfunctional because classbox stack is not in use
+        /*
         private void deleteAllClassBoxes()
         {
             while (!classBoxStack.empty())
@@ -221,7 +255,7 @@ public class mySidePanel
                 centerPane.getChildren().remove(classBoxStack.pop());
             }
         }
-	
+	*/
  	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
 	// setting the line button boolean toggle
 	public boolean lineBtnToggled() 
@@ -235,4 +269,14 @@ public class mySidePanel
         {
 	    return delete.isSelected();
 	}
+       
+        public Pane getCenterPane()
+        {
+            return centerPane;
+        }
+        
+        public Stack getObjectStack()
+        {
+            return objectStack;
+        }
 }
