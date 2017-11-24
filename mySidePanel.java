@@ -4,6 +4,7 @@ import java.util.Stack;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -29,7 +30,8 @@ public class mySidePanel
         ToggleButton textBox = new ToggleButton();
 	Pane centerPane = new Pane();
         //Stack<Pane> classBoxStack;
-        Stack objectStack;
+        Stack<Node> undoStack;
+        Stack<Node> redoStack;
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Force centerPane integration to reduce main class clutter
@@ -43,7 +45,8 @@ public class mySidePanel
         {
             
             //classBoxStack = new Stack<>();
-            objectStack = new Stack<>();
+            undoStack = new Stack();
+            redoStack = new Stack();
             LineDrawer lineDrawer = new LineDrawer(this);
 
             grid.setAlignment(Pos.TOP_LEFT);
@@ -85,7 +88,7 @@ public class mySidePanel
                     //classBoxStack.push(hold.spawn(centerPane)).toFront();
                     Pane classBox = hold.spawn(centerPane);
                     classBox.toFront();
-                    objectStack.push(classBox);  
+                    pushToUndoStack(classBox);  
             });
 		
 
@@ -214,12 +217,31 @@ public class mySidePanel
             grid.add(undoBtn, 1, 5);
             undoBtn.setOnAction((ActionEvent e) -> 
             {
-                if (!objectStack.empty())
+                if (!undoStack.empty())
                 {
-                    centerPane.getChildren().remove(objectStack.pop());
-                }                
+                    Node curNode = undoStack.pop();
+                    centerPane.getChildren().remove(curNode);
+                    redoStack.push(curNode);
+                    
+                } else
+                {
+                    System.out.println("Stack is empty");
+                }
             });
 
+            Button redoBtn = new Button("Redo");
+            redoBtn.setTooltip(new Tooltip("Redo past undone action"));
+            grid.add(redoBtn, 0, 5);
+            redoBtn.setOnAction((ActionEvent e) -> 
+            {
+                if (!redoStack.empty())
+                {
+                    Node curNode = redoStack.pop();
+                    centerPane.getChildren().add(curNode);
+                    undoStack.push(curNode);
+                    
+                }                
+            });
                     
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
             /*
@@ -235,9 +257,9 @@ public class mySidePanel
             {
                 //lineDrawer.deleteAll();
                 //deleteAllClassBoxes();
-                while (!objectStack.empty())
+                while (!undoStack.empty())
                 {
-                    centerPane.getChildren().remove(objectStack.pop());
+                    centerPane.getChildren().remove(undoStack.pop());
                 }
             });
 
@@ -275,8 +297,15 @@ public class mySidePanel
             return centerPane;
         }
         
-        public Stack getObjectStack()
+        public void pushToUndoStack(Node n)
         {
-            return objectStack;
+            undoStack.push(n);
+            redoStack = new Stack();
+            /*
+            while (!redoStack.empty())
+            {
+                redoStack.pop();
+            }
+            */
         }
 }
