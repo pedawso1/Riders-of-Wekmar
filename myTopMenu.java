@@ -33,9 +33,12 @@ public class myTopMenu {
 	ArrayList<Node> nodes = new ArrayList<Node>();
 	TextBoxClass textBox;
 	String addingToFile = "";
+        mySidePanel sidePanel;
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	public MenuBar addMenuBar(Stage primary, Pane centerPane) {
+	public MenuBar addMenuBar(Stage primary, mySidePanel sp) {
+                sidePanel = sp;
+                Pane centerPane = sidePanel.getCenterPane();
 		Menu menuFile = new javafx.scene.control.Menu("File");
 		MenuItem newFile = new MenuItem("New");
 		MenuItem open = new MenuItem("Open");
@@ -47,12 +50,12 @@ public class myTopMenu {
 			BorderPane border = new BorderPane();
 			Pane centerPane2 = new Pane();
 			centerPane2.getStyleClass().add("centerPane");
-			mySidePanel sidePanel = new mySidePanel(centerPane2);
+			mySidePanel sidePanel2 = new mySidePanel(centerPane2);
 			myTopMenu bar = new myTopMenu();
 
 			// layout of editor
-			border.setTop(bar.addMenuBar(secondStage, centerPane2));
-			border.setLeft(sidePanel.addSidePanel());
+			border.setLeft(sidePanel2.addSidePanel());
+                        border.setTop(bar.addMenuBar(secondStage, sidePanel2));
 			border.setCenter(centerPane2);
 
 			Scene secondScene = new Scene(border, 800, 800);
@@ -100,6 +103,20 @@ public class myTopMenu {
 
 		// edit should contain the undos, redos and clear
 		Menu menuEdit = new javafx.scene.control.Menu("Edit");
+                MenuItem undo = new MenuItem("Undo");
+                undo.setOnAction((ActionEvent e) -> 
+                {
+                    sidePanel.fireUndoBtn();
+                });
+                
+                MenuItem redo = new MenuItem("Redo");
+                redo.setOnAction((ActionEvent e) -> 
+                {
+                    sidePanel.fireRedoBtn();
+                });
+                
+                
+                menuEdit.getItems().addAll(undo, redo);
 
 		// gives an information about the program
 		Menu menuHelp = new javafx.scene.control.Menu("About");

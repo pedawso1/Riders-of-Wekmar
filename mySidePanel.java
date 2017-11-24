@@ -28,6 +28,8 @@ public class mySidePanel
 	ToggleButton line = new ToggleButton();
 	ToggleButton delete = new ToggleButton();
         ToggleButton textBox = new ToggleButton();
+        Button undoBtn;
+        Button redoBtn;
 	Pane centerPane = new Pane();
         //Stack<Pane> classBoxStack;
         Stack<Node> undoStack;
@@ -211,10 +213,10 @@ public class mySidePanel
             });
             */
             Image undoImg = new Image(getClass().getResourceAsStream("icons/undoTextBox.png"));
-            Button undoBtn = new Button();
+            undoBtn = new Button();
             undoBtn.setGraphic(new ImageView(undoImg));
             undoBtn.setTooltip(new Tooltip("Undo past action"));
-            grid.add(undoBtn, 1, 5);
+            //grid.add(undoBtn, 1, 5);
             undoBtn.setOnAction((ActionEvent e) -> 
             {
                 if (!undoStack.empty())
@@ -223,15 +225,12 @@ public class mySidePanel
                     centerPane.getChildren().remove(curNode);
                     redoStack.push(curNode);
                     
-                } else
-                {
-                    System.out.println("Stack is empty");
                 }
             });
 
-            Button redoBtn = new Button("Redo");
+            redoBtn = new Button("Redo");
             redoBtn.setTooltip(new Tooltip("Redo past undone action"));
-            grid.add(redoBtn, 0, 5);
+            //grid.add(redoBtn, 0, 5);
             redoBtn.setOnAction((ActionEvent e) -> 
             {
                 if (!redoStack.empty())
@@ -307,5 +306,14 @@ public class mySidePanel
                 redoStack.pop();
             }
             */
+        }
+        
+        public void fireUndoBtn(){
+            undoBtn.fire();
+        }
+        
+        public void fireRedoBtn()
+        {
+            redoBtn.fire();
         }
 }
