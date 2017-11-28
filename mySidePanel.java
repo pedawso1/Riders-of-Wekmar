@@ -26,6 +26,7 @@ public class mySidePanel
 	GridPane grid = new GridPane();
 	ToggleButton select = new ToggleButton();
 	ToggleButton line = new ToggleButton();
+	ToggleButton lineDashed = new ToggleButton();
 	ToggleButton delete = new ToggleButton();
         ToggleButton textBox = new ToggleButton();
         Button undoBtn;
@@ -130,8 +131,9 @@ public class mySidePanel
             });
 
             MenuItem depend = new MenuItem("Dependency");
-            compAgg.setOnAction(event -> 
+            depend.setOnAction(event -> 
             {
+		    lineDashed.setSelected(true);
                     System.out.println("drawing dependency line");
             });
 
@@ -279,9 +281,16 @@ public class mySidePanel
 	*/
  	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
 	// setting the line button boolean toggle
-	public boolean lineBtnToggled() 
-        {
+	public boolean lineBtnToggled() {
 	    return line.isSelected();
+	}
+	
+	/**
+	 * 
+	 * @returns selected line which is dashed
+	 */
+	public boolean lineDashBtnToggled() {
+		return lineDashed.isSelected();
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
