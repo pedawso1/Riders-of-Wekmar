@@ -52,6 +52,24 @@ public class LineDrawer
         //lineStack.push(l).toBack();
     }
     
+    
+    /**
+     * Creates new dashed line object and add it as a child to the center centerPane after the
+     * coordinates have been acquired.
+     */
+	private void drawDashedLine() 
+    {
+        Line l = new Line(x1,y1,x2,y2);
+        l.setStrokeWidth(3);
+        l.getStrokeDashArray().addAll(10d, 7d);
+        l.setOnMouseClicked(delete);
+        l.setId("DashedLine");
+        
+        centerPane.getChildren().add(l);
+        l.toBack();
+        sidePanel.pushToUndoStack(l);
+    }
+    
     /**
      * Undo the creation the last line (delete last created line)
      * Line stack not currently used
@@ -137,6 +155,29 @@ public class LineDrawer
                 y1 = y + 10 - y % 10;
             }
         }
+        
+        if (sidePanel.lineDashBtnToggled()) 
+        {
+            double x = e.getX();
+            double y = e.getY();
+          
+            if (x % 10 < 5) 
+            {
+                x1 = x - x % 10;
+            } 
+            else 
+            {
+                x1 = x + 10 - x % 10;
+            }
+            if (y % 10 < 5) 
+            {
+                y1 = y - y % 10;
+            }
+            else
+            {
+                y1 = y + 10 - y % 10;
+            }
+        }
     };
 
     /**
@@ -155,7 +196,18 @@ public class LineDrawer
             if (x2 < 0) {x2 = 0;}
             if (y2 < 0) {y2 = 0;}
             drawLine();
-            //drawRightAngleLine();
+        }
+        if (sidePanel.lineDashBtnToggled()) 
+        {
+            double x = e.getX();
+            double y = e.getY();
+            if (x % 10 < 5)  {x2 = x - x % 10;} 
+            else {x2 = x + 10 - x % 10;}
+            if (y % 10 < 5) {y2 = y - y % 10;} 
+            else {y2 = y + 10 - y % 10;}
+            if (x2 < 0) {x2 = 0;}
+            if (y2 < 0) {y2 = 0;}
+            drawDashedLine();
         }
     };
 
