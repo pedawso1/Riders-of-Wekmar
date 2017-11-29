@@ -1,9 +1,12 @@
 package RidersOfWekmar;
 
 import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 
 
 
@@ -13,11 +16,17 @@ import javafx.scene.shape.Line;
  */
 public class LineDrawer 
 {
-
+    double strokeWidth;
+    double triangleHeight, triangleWidth;
     double x1, y1, x2, y2;
     Pane centerPane;
     mySidePanel sidePanel;
-    //Stack<Line> lineStack;
+    /**
+     * Current lineTypes:
+     * 1: Plain line
+     * 2: Line with arrow
+     */
+    int lineType;
     
 
     /**
@@ -28,6 +37,9 @@ public class LineDrawer
      */
     public LineDrawer(mySidePanel sp) 
     {
+        strokeWidth = 3;
+        triangleHeight = 20;
+        triangleWidth = 40;
         centerPane = sp.getCenterPane();
         centerPane.setOnMousePressed(press);
         centerPane.setOnMouseReleased(release);
@@ -43,32 +55,55 @@ public class LineDrawer
     private void drawLine() 
     {
         Line l = new Line(x1, y1, x2, y2);
-        l.setStrokeWidth(3);
+        l.setStrokeWidth(strokeWidth);
+        if (lineType == 1)
+        {
+            pushLine(l);
+        } else if (lineType == 2)
+        {
+            drawArrowLine(l);
+        } else if (lineType == 3)
+        {
+            drawDashedLine(l);
+        }
+    }
+    
+    private void drawArrowLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        System.out.println(angleDegrees);
+        Polygon triangle = new Polygon();
+        triangle.getPoints().setAll(
+                0.0, 0.0,
+                0.0, triangleWidth,
+                triangleHeight, triangleWidth / 2
+        );
+        triangle.setTranslateX(x2 - triangleHeight / 2);
+        triangle.setTranslateY(y2 - triangleWidth / 2);
+        triangle.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, triangle);
+        pushLine(g);
+    }
+    
+    private void drawDashedLine(Line l)
+    {
+        l.getStrokeDashArray().addAll(10d, 7d);
+        pushLine(l);
+    }
+    
+    private void pushLine(Node l)
+    {
         l.setOnMouseClicked(delete);
         l.setId("Line");
-        centerPane.getChildren().add(l);
         l.toBack();
         sidePanel.pushToUndoStack(l);
-        //lineStack.push(l).toBack();
+        centerPane.getChildren().add(l);  
     }
     
-    
-    /**
-     * Creates new dashed line object and add it as a child to the center centerPane after the
-     * coordinates have been acquired.
-     */
-	private void drawDashedLine() 
-    {
-        Line l = new Line(x1,y1,x2,y2);
-        l.setStrokeWidth(3);
-        l.getStrokeDashArray().addAll(10d, 7d);
-        l.setOnMouseClicked(delete);
-        l.setId("DashedLine");
-        
-        centerPane.getChildren().add(l);
-        l.toBack();
-        sidePanel.pushToUndoStack(l);
-    }
     
     /**
      * Undo the creation the last line (delete last created line)
@@ -155,29 +190,6 @@ public class LineDrawer
                 y1 = y + 10 - y % 10;
             }
         }
-        
-        if (sidePanel.lineDashBtnToggled()) 
-        {
-            double x = e.getX();
-            double y = e.getY();
-          
-            if (x % 10 < 5) 
-            {
-                x1 = x - x % 10;
-            } 
-            else 
-            {
-                x1 = x + 10 - x % 10;
-            }
-            if (y % 10 < 5) 
-            {
-                y1 = y - y % 10;
-            }
-            else
-            {
-                y1 = y + 10 - y % 10;
-            }
-        }
     };
 
     /**
@@ -197,18 +209,6 @@ public class LineDrawer
             if (y2 < 0) {y2 = 0;}
             drawLine();
         }
-        if (sidePanel.lineDashBtnToggled()) 
-        {
-            double x = e.getX();
-            double y = e.getY();
-            if (x % 10 < 5)  {x2 = x - x % 10;} 
-            else {x2 = x + 10 - x % 10;}
-            if (y % 10 < 5) {y2 = y - y % 10;} 
-            else {y2 = y + 10 - y % 10;}
-            if (x2 < 0) {x2 = 0;}
-            if (y2 < 0) {y2 = 0;}
-            drawDashedLine();
-        }
     };
 
     /**
@@ -218,4 +218,10 @@ public class LineDrawer
     {
         delete((Line) e.getSource());
     };
+    
+    
+    public void setLineType(int n)
+    {
+        lineType = n;
+    }
 }
