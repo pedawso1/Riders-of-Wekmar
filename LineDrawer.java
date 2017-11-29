@@ -74,7 +74,6 @@ public class LineDrawer
         //Line head logic        
         double angleRadians = Math.atan2(y2 - y1, x2 - x1);
         double angleDegrees = angleRadians * (180 / Math.PI);
-        System.out.println(angleDegrees);
         Polygon triangle = new Polygon();
         triangle.getPoints().setAll(
                 0.0, 0.0,
