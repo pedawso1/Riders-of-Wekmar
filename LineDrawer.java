@@ -25,6 +25,7 @@ public class LineDrawer
      * Current lineTypes:
      * 1: Plain line
      * 2: Line with arrow
+     * 3: Dependency (dotted) line
      */
     int lineType;
     
