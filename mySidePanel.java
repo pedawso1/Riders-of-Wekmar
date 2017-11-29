@@ -26,7 +26,6 @@ public class mySidePanel
 	GridPane grid = new GridPane();
 	ToggleButton select = new ToggleButton();
 	ToggleButton line = new ToggleButton();
-	ToggleButton lineDashed = new ToggleButton();
 	ToggleButton delete = new ToggleButton();
         ToggleButton textBox = new ToggleButton();
         Button undoBtn;
@@ -115,9 +114,18 @@ public class mySidePanel
             gen.setOnAction(event -> 
             {
                     line.setSelected(true);
+                    lineDrawer.setLineType(1);                
                     System.out.println("drawing General line");
             });
 
+            MenuItem association = new MenuItem("Association");
+            association.setOnAction(event -> 
+            {
+                    line.setSelected(true);
+                    lineDrawer.setLineType(2);  
+                    System.out.println("drawing Association line");
+            });
+            
             MenuItem basicAgg = new MenuItem("Basic Aggregation");
             basicAgg.setOnAction(event -> 
             {
@@ -133,12 +141,13 @@ public class mySidePanel
             MenuItem depend = new MenuItem("Dependency");
             depend.setOnAction(event -> 
             {
-		    lineDashed.setSelected(true);
+                    line.setSelected(true);
+                    lineDrawer.setLineType(3);
                     System.out.println("drawing dependency line");
             });
 
             lineOpts.setGraphic(new ImageView(imageLine));
-            lineOpts.getItems().addAll(gen, basicAgg, compAgg, depend);
+            lineOpts.getItems().addAll(gen, association, basicAgg, compAgg, depend);
             lineOpts.setTooltip(new Tooltip("Select Line"));
             grid.add(lineOpts, 0, 3);
 		
@@ -281,16 +290,9 @@ public class mySidePanel
 	*/
  	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////      
 	// setting the line button boolean toggle
-	public boolean lineBtnToggled() {
+	public boolean lineBtnToggled() 
+        {
 	    return line.isSelected();
-	}
-	
-	/**
-	 * 
-	 * @returns selected line which is dashed
-	 */
-	public boolean lineDashBtnToggled() {
-		return lineDashed.isSelected();
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
