@@ -66,6 +66,9 @@ public class LineDrawer
         } else if (lineType == 3)
         {
             drawDashedLine(l);
+        }else if (lineType == 4) {
+        	
+        	drawClearArrowLine(l);
         }
     }
     
@@ -93,6 +96,29 @@ public class LineDrawer
     {
         l.getStrokeDashArray().addAll(10d, 7d);
         pushLine(l);
+    }
+    
+     private void drawClearArrowLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        Polygon triangle2 = new Polygon();
+        triangle2.getPoints().setAll(
+                0.0, 0.0,
+                0.0, triangleWidth,
+                triangleHeight, triangleWidth / 2
+        );
+        triangle2.setTranslateX(x2 - triangleHeight / 2);
+        triangle2.setTranslateY(y2 - triangleWidth / 2);
+        triangle2.setFill(Color.WHITE);
+        triangle2.setStroke(Color.BLACK);
+        triangle2.setStrokeWidth(3);
+        triangle2.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, triangle2);
+        pushLine(g);
     }
     
     private void pushLine(Node l)
