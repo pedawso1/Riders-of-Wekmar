@@ -21,3 +21,8 @@
 .delete{
 	-fx-padding :5 9 5 9;
 }
+
+.txtbxSize{
+	-fx-pref-height: 10px;
+    -fx-pref-width: 30px;
+}
