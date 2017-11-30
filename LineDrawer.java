@@ -41,6 +41,8 @@ public class LineDrawer
         strokeWidth = 3;
         triangleHeight = 20;
         triangleWidth = 40;
+        diamondHeight = 15;
+        diamondWidth = 25;
         centerPane = sp.getCenterPane();
         centerPane.setOnMousePressed(press);
         centerPane.setOnMouseReleased(release);
