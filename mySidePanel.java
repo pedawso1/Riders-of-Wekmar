@@ -146,6 +146,14 @@ public class mySidePanel
                     lineDrawer.setLineType(2);  
                     System.out.println("drawing Association line");
             });
+		
+	    MenuItem inher = new MenuItem("Inheritance");
+            inher.setOnAction(event -> 
+            {
+                    line.setSelected(true);
+                    lineDrawer.setLineType(4);  
+                    System.out.println("drawing Tnheritance line");
+            });
             
             MenuItem basicAgg = new MenuItem("Basic Aggregation");
             basicAgg.setOnAction(event -> 
@@ -168,7 +176,7 @@ public class mySidePanel
             });
 
             lineOpts.setGraphic(new ImageView(imageLine));
-            lineOpts.getItems().addAll(gen, association, basicAgg, compAgg, depend);
+            lineOpts.getItems().addAll(gen, association, inher, basicAgg, compAgg, depend);
             lineOpts.setTooltip(new Tooltip("Select Line"));
             grid.add(lineOpts, 0, 4);
 		
