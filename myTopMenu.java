@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.UnaryOperator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,19 +13,23 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -124,36 +129,93 @@ public class myTopMenu {
                 MenuItem settings = new MenuItem("Settings");
                 settings.setOnAction((ActionEvent e) -> 
                 {
-                    
+                    Insets insets = new Insets(15, 10, 10, 10);
+                    LineDrawer lineDrawer = sidePanel.getLineDrawer();
                     Stage settingsStage = new Stage();
-                    settingsStage.setTitle("Settings");                    
-                    GridPane basePane = new GridPane(); 
-                    Scene settingsScene = new Scene(basePane, 300, 200);
-                    settingsStage.setScene(settingsScene);
-                    Text lineWidthText = new Text("Line width: ");
-                    TextField lineWidthField = new TextField();                    
-                    //HBox lineWidth = new HBox();
-                    //lineWidth.getChildren().addAll(lineWidthText, lineWidthField);
-                    //basePane.getChildren().add(lineWidth);
+                    settingsStage.setTitle("Settings");
+                    VBox basePane = new VBox();
+                    GridPane gridPane = new GridPane();                     
+                    //gridPane.setPadding(new Insets(10, 10, 10, 10));
+                    gridPane.setPadding(insets);
+                    Scene settingsScene = new Scene(basePane, 216, 125);
+                    settingsStage.setScene(settingsScene);              
+                    
+                    Text lineWidthText = new Text("Line width: ");  
+                    TextField lineWidthField = new TextField();   
+                    lineWidthField.setAlignment(Pos.CENTER_RIGHT);
+                    lineWidthField.setText(String.valueOf(lineDrawer.getStrokeWidth()));                    
+
+                    UnaryOperator<TextFormatter.Change> doubleFilter = new UnaryOperator<TextFormatter.Change>() {
+                        @Override
+                        public TextFormatter.Change apply(TextFormatter.Change c) 
+                        {
+                            //Ensure added characters include one decimal and numeric characters only
+                            if (c.isAdded()) {
+                                if (c.getControlText().contains(".")) {
+                                    if (c.getText().matches("[^0-9]")) {
+                                        c.setText("");
+                                    }
+                                } else if (c.getText().matches("[^0-9.]")) {
+                                    c.setText("");
+                                }
+                            }
+                            
+                            //Ensure text is not replaced by nonnumeric characters
+                            if (c.isReplaced())
+                            {
+                                if(c.getText().matches("[^0-9]"))
+                                {c.setText(c.getControlText().substring(c.getRangeStart(), c.getRangeEnd()));}
+                            } 
+                            
+                            return c;
+                        }
+                    };
+                    
+                    TextFormatter doubleFormatter = new TextFormatter<>(doubleFilter);
+                    
+                    lineWidthField.setTextFormatter(doubleFormatter);
+
+                    //lineWidthField.setTextFormatter();
                     
                     Text testText = new Text("Test Text: ");
                     TextField testField = new TextField();
-                    VBox texts = new VBox();
-                    VBox textFields = new VBox();
+                    
+                    VBox texts = new VBox(5);
+                    VBox textFields = new VBox(5);
+                    
                     texts.setAlignment(Pos.CENTER);
+                    //texts.setPrefWidth(100);
                     textFields.setAlignment(Pos.CENTER);
+                    textFields.setMaxWidth(50);
                     texts.getChildren().addAll(lineWidthText, testText);
-                    textFields.getChildren().addAll(lineWidthField, testField);
-                    //basePane.getChildren().addAll(texts, textFields);
-                    basePane.add(texts, 0,0);
-                    basePane.add(textFields, 1, 0);
+                    textFields.getChildren().addAll(lineWidthField, testField);                    
+                    gridPane.add(texts, 0,0);
+                    gridPane.add(textFields, 1, 0);                    
                     ColumnConstraints column1 = new ColumnConstraints();
                     column1.setPercentWidth(50);
                     ColumnConstraints column2 = new ColumnConstraints();
                     column2.setPercentWidth(50);
-                    basePane.getColumnConstraints().addAll(column1, column2);
-                    settingsStage.show();
+                    gridPane.getColumnConstraints().addAll(column1, column2);
+                    //gridPane.setGridLinesVisible(true);                    
+                    Button OK = new Button("OK");
+                    Button Cancel = new Button("Cancel");                    
+                    HBox buttons = new HBox(10);
+                    buttons.setAlignment(Pos.CENTER);                    
+                    buttons.setPrefWidth(100);
+                    buttons.getChildren().addAll(OK, Cancel);
+                    basePane.getChildren().addAll(gridPane, buttons);
                     
+                    OK.setOnAction((ActionEvent f) -> 
+                    {
+                        lineDrawer.setStrokeWidth(Double.parseDouble(lineWidthField.getText()));
+                        settingsStage.hide();
+                    });
+                    Cancel.setOnAction((ActionEvent f) ->
+                    {
+                        settingsStage.hide();
+                    });
+                    
+                    settingsStage.show();
                 });
                 
                 menuEdit.getItems().addAll(undo, redo, settings);

@@ -39,8 +39,8 @@ public class LineDrawer
     public LineDrawer(mySidePanel sp) 
     {
         strokeWidth = 3;
-        triangleHeight = 20;
-        triangleWidth = 40;
+        triangleHeight = strokeWidth * 4;
+        triangleWidth = strokeWidth * 8;
         centerPane = sp.getCenterPane();
         centerPane.setOnMousePressed(press);
         centerPane.setOnMouseReleased(release);
@@ -223,5 +223,17 @@ public class LineDrawer
     public void setLineType(int n)
     {
         lineType = n;
+    }
+    
+    public double getStrokeWidth()
+    {
+        return strokeWidth;
+    }
+    
+    public void setStrokeWidth(double w)
+    {
+        strokeWidth = w;
+        triangleHeight = strokeWidth * 4;
+        triangleWidth = strokeWidth * 8;
     }
 }

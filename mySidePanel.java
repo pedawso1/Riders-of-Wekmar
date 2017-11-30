@@ -34,6 +34,7 @@ public class mySidePanel
         //Stack<Pane> classBoxStack;
         Stack<Node> undoStack;
         Stack<Node> redoStack;
+        LineDrawer lineDrawer;
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Force centerPane integration to reduce main class clutter
@@ -49,7 +50,7 @@ public class mySidePanel
             //classBoxStack = new Stack<>();
             undoStack = new Stack();
             redoStack = new Stack();
-            LineDrawer lineDrawer = new LineDrawer(this);
+            lineDrawer = new LineDrawer(this);
 
             grid.setAlignment(Pos.TOP_LEFT);
             grid.setHgap(10);
@@ -327,4 +328,10 @@ public class mySidePanel
         {
             redoBtn.fire();
         }
+        
+        public LineDrawer getLineDrawer()
+        {
+            return lineDrawer;
+        }
+     
 }
