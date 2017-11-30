@@ -30,6 +30,7 @@ public class mySidePanel
         ToggleButton textBox = new ToggleButton();
         Button undoBtn;
         Button redoBtn;
+        Button clearAll;
 	Pane centerPane = new Pane();
         //Stack<Pane> classBoxStack;
         Stack<Node> undoStack;
@@ -91,6 +92,7 @@ public class mySidePanel
                     //classBoxStack.push(hold.spawn(centerPane)).toFront();
                     Pane classBox = hold.spawn(centerPane);
                     classBox.toFront();
+                    //classBox.setId("ClassBox");
                     pushToUndoStack(classBox);  
             });
 		
@@ -259,7 +261,7 @@ public class mySidePanel
              * Clear All button 
              */
             Image imageClear = new Image(getClass().getResourceAsStream("icons/clearAll.png"));
-            Button clearAll = new Button(/*"Clear All"*/);
+            clearAll = new Button(/*"Clear All"*/);
             clearAll.setGraphic(new ImageView(imageClear));
             clearAll.setTooltip(new Tooltip("Clear All"));
             grid.add(clearAll, 1, 0);
@@ -327,6 +329,11 @@ public class mySidePanel
         public void fireRedoBtn()
         {
             redoBtn.fire();
+        }
+        
+        public void fireClearAllBtn()
+        {
+            clearAll.fire();
         }
         
         public LineDrawer getLineDrawer()

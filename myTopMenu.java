@@ -1,10 +1,13 @@
 package RidersOfWekmar;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.function.UnaryOperator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +35,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -57,26 +61,59 @@ public class myTopMenu {
 
 		//creates a new stage/window to make a new file 
 		newFile.setOnAction((ActionEvent event) -> {
-			Stage secondStage = new Stage();
-			BorderPane border = new BorderPane();
-			Pane centerPane2 = new Pane();
-			centerPane2.getStyleClass().add("centerPane");
-			mySidePanel sidePanel2 = new mySidePanel(centerPane2);
-			myTopMenu bar = new myTopMenu();
+                    Stage secondStage = new Stage();
+                    BorderPane border = new BorderPane();
+                    Pane centerPane2 = new Pane();
+                    centerPane2.getStyleClass().add("centerPane");
+                    mySidePanel sidePanel2 = new mySidePanel(centerPane2);
+                    myTopMenu bar = new myTopMenu();
 
-			// layout of editor
-			border.setLeft(sidePanel2.addSidePanel());
-                        border.setTop(bar.addMenuBar(secondStage, sidePanel2));
-			border.setCenter(centerPane2);
+                    // layout of editor
+                    border.setLeft(sidePanel2.addSidePanel());
+                    border.setTop(bar.addMenuBar(secondStage, sidePanel2));
+                    border.setCenter(centerPane2);
 
-			Scene secondScene = new Scene(border, 800, 800);
-			secondStage.setTitle("Riders of Wekmar Editor");
-			secondStage.setScene(secondScene);
-			secondScene.getStylesheets().add(RidersOfWekmar.class.getResource("application.css").toExternalForm());
+                    Scene secondScene = new Scene(border, 800, 800);
+                    secondStage.setTitle("Riders of Wekmar Editor");
+                    secondStage.setScene(secondScene);
+                    secondScene.getStylesheets().add(RidersOfWekmar.class.getResource("application.css").toExternalForm());
 
-			secondStage.show();
+                    secondStage.show();
 		});
 
+                open.setOnAction((ActionEvent event) -> {
+                    FileChooser fc = new FileChooser();
+                    fc.setTitle("Open File");
+                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+                    fc.getExtensionFilters().add(extFilter);
+                    File file = fc.showOpenDialog(primary);
+                    try
+                    {
+                        BufferedReader reader = new BufferedReader(new FileReader(file));                        
+                        sidePanel.fireClearAllBtn();
+                        LineDrawer lineDrawer = sidePanel.getLineDrawer();
+                        String curLine;
+                        while ((curLine = reader.readLine()) != null)
+                        {
+                            if (curLine == "Line")
+                            {
+                                lineDrawer.setStrokeWidth(Double.parseDouble(reader.readLine()));
+                                lineDrawer.x1 = Double.parseDouble(reader.readLine());
+                                lineDrawer.y1 = Double.parseDouble(reader.readLine());
+                                lineDrawer.x2 = Double.parseDouble(reader.readLine());
+                                lineDrawer.y2 = Double.parseDouble(reader.readLine());
+                                lineDrawer.setLineType(1);
+                                lineDrawer.drawLine();
+                            }
+                        }
+                        
+                    } catch(IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    
+                });
+                
 		//saves in a text file
 		save.setOnAction(new EventHandler<ActionEvent>() {
 			// We have a functional save aspect that will store node type and location to a
@@ -87,11 +124,29 @@ public class myTopMenu {
 				nodes = getAllNodes(centerPane);
 
 				for (int i = 0; i < nodes.size(); i++) {
-					ArrayList<Double> list = new ArrayList<Double>();
-					list = getBounds(nodes.get(i));
-					System.out.println(i + " " + nodes.get(i).getId() + " " + list);
-					addingToFile = addingToFile + (i + " " + nodes.get(i).getId() + " " + list).toString() + "\n";
-
+                                    Node curNode = nodes.get(i);
+                                    if (curNode.getId() == "Line")
+                                    {
+                                        Line l = (Line) curNode;
+                                        addingToFile += "Line\n"
+                                                + "lineWidth: " + l.getStrokeWidth() + "\n"
+                                                /*+ "x1: "*/ + l.getStartX() + "\n"
+                                                /*+ "y1: "*/ + l.getStartY() + "\n"
+                                                /*+ "x2: "*/ + l.getEndX() + "\n"
+                                                /*+ "y2: "*/ + l.getEndY() + "\n";
+                                        
+                                    } else if(curNode.getId() == "Text Box")
+                                    {
+                                        
+                                    }
+                                    
+                                    /*
+                                    ArrayList<Double> list = new ArrayList<Double>();
+                                    list = getBounds(nodes.get(i));
+                                    System.out.println(i + " " + nodes.get(i).getId() + " " + list);
+                                    addingToFile = addingToFile + (i + " " + nodes.get(i).getId() + " " + list).toString() + "\n";
+                                    */
+                                    
 				}
 
 				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");

@@ -18,7 +18,7 @@ public class LineDrawer
 {
     double strokeWidth;
     double triangleHeight, triangleWidth;
-    double x1, y1, x2, y2;
+    public double x1, y1, x2, y2;
     Pane centerPane;
     mySidePanel sidePanel;
     /**
@@ -53,18 +53,21 @@ public class LineDrawer
      * Create new line object and add it as a child to the center centerPane after the
      * coordinates have been acquired.
      */
-    private void drawLine() 
+    public void drawLine() 
     {
         Line l = new Line(x1, y1, x2, y2);
         l.setStrokeWidth(strokeWidth);
         if (lineType == 1)
         {
+            l.setId("Line");
             pushLine(l);
         } else if (lineType == 2)
         {
+            l.setId("Arrow Line");
             drawArrowLine(l);
         } else if (lineType == 3)
         {
+            l.setId("Dashed Line");
             drawDashedLine(l);
         }
     }
@@ -98,7 +101,6 @@ public class LineDrawer
     private void pushLine(Node l)
     {
         l.setOnMouseClicked(delete);
-        l.setId("Line");
         l.toBack();
         sidePanel.pushToUndoStack(l);
         centerPane.getChildren().add(l);  
