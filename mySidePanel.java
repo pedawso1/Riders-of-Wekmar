@@ -152,19 +152,23 @@ public class mySidePanel
             {
                     line.setSelected(true);
                     lineDrawer.setLineType(4);  
-                    System.out.println("drawing Tnheritance line");
+                    System.out.println("drawing Inheritance line");
             });
             
-            MenuItem basicAgg = new MenuItem("Basic Aggregation");
+            MenuItem basicAgg = new MenuItem("Aggregation");
             basicAgg.setOnAction(event -> 
             {
-                    System.out.println("drawing BasicAGG line");
+		    line.setSelected(true);
+                    lineDrawer.setLineType(5);
+                    System.out.println("drawing Aggregation line");
             });
 
-            MenuItem compAgg = new MenuItem("Composition Aggregation");
+            MenuItem compAgg = new MenuItem("Composition");
             compAgg.setOnAction(event -> 
             {
-                    System.out.println("drawing CompositionAGG line");
+		    line.setSelected(true);
+                    lineDrawer.setLineType(6);
+                    System.out.println("drawing Composition line");
             });
 
             MenuItem depend = new MenuItem("Dependency");
@@ -172,7 +176,7 @@ public class mySidePanel
             {
                     line.setSelected(true);
                     lineDrawer.setLineType(3);
-                    System.out.println("drawing dependency line");
+                    System.out.println("drawing Dependency line");
             });
 
             lineOpts.setGraphic(new ImageView(imageLine));
