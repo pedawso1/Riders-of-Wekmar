@@ -62,6 +62,27 @@ public class mySidePanel
             delete.setToggleGroup(tg);
             textBox.setToggleGroup(tg);
 		
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
+            /*
+             * Clear All button 
+             */
+            Image imageClear = new Image(getClass().getResourceAsStream("icons/clearAll.png"));
+            Button clearAll = new Button(/*"Clear All"*/);
+            clearAll.setGraphic(new ImageView(imageClear));
+            clearAll.setTooltip(new Tooltip("Clear All"));
+            grid.add(clearAll, 0, 1);
+		
+            clearAll.setOnAction((ActionEvent e) -> 
+            {
+                //lineDrawer.deleteAll();
+                //deleteAllClassBoxes();
+                while (!undoStack.empty())
+                {
+                    centerPane.getChildren().remove(undoStack.pop());
+                }
+            });	
+		
+		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
              * Delete button with icon
@@ -70,7 +91,7 @@ public class mySidePanel
             delete.getStyleClass().add("delete");
             delete.setGraphic(new ImageView(imageDelete));
             delete.setTooltip(new Tooltip("Delete"));
-            grid.add(delete, 0, 0);
+            grid.add(delete, 0, 1);
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // TextBox button
@@ -78,7 +99,7 @@ public class mySidePanel
             textBox.setGraphic(new ImageView(imageBox));
             //textBox.setAlignment(Pos.CENTER);
             textBox.setTooltip(new Tooltip("Textbox"));
-            grid.add(textBox, 0, 1);
+            grid.add(textBox, 0, 2);
 		
 		
             // setting click event to spawn box
@@ -101,7 +122,7 @@ public class mySidePanel
             text.getStyleClass().add("text");
             //text.setAlignment(Pos.CENTER);
             text.setTooltip(new Tooltip("Text"));
-            grid.add(text, 0, 2);
+            grid.add(text, 0, 4);
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
@@ -149,7 +170,7 @@ public class mySidePanel
             lineOpts.setGraphic(new ImageView(imageLine));
             lineOpts.getItems().addAll(gen, association, basicAgg, compAgg, depend);
             lineOpts.setTooltip(new Tooltip("Select Line"));
-            grid.add(lineOpts, 0, 3);
+            grid.add(lineOpts, 0, 4);
 		
 	   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
            /*
@@ -223,9 +244,9 @@ public class mySidePanel
                 }                
             });
             */
-            Image undoImg = new Image(getClass().getResourceAsStream("icons/undoTextBox.png"));
+            //Image undoImg = new Image(getClass().getResourceAsStream("icons/undoTextBox.png"));
             undoBtn = new Button();
-            undoBtn.setGraphic(new ImageView(undoImg));
+            //undoBtn.setGraphic(new ImageView(undoImg));
             undoBtn.setTooltip(new Tooltip("Undo past action"));
             //grid.add(undoBtn, 1, 5);
             undoBtn.setOnAction((ActionEvent e) -> 
@@ -251,26 +272,6 @@ public class mySidePanel
                     undoStack.push(curNode);
                     
                 }                
-            });
-                    
-	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
-            /*
-             * Clear All button 
-             */
-            Image imageClear = new Image(getClass().getResourceAsStream("icons/clearAll.png"));
-            Button clearAll = new Button(/*"Clear All"*/);
-            clearAll.setGraphic(new ImageView(imageClear));
-            clearAll.setTooltip(new Tooltip("Clear All"));
-            grid.add(clearAll, 1, 0);
-		
-            clearAll.setOnAction((ActionEvent e) -> 
-            {
-                //lineDrawer.deleteAll();
-                //deleteAllClassBoxes();
-                while (!undoStack.empty())
-                {
-                    centerPane.getChildren().remove(undoStack.pop());
-                }
             });
 
             return grid;
