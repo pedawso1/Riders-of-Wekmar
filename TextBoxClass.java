@@ -51,10 +51,13 @@ public class TextBoxClass
 	public Pane spawn(Pane box) 
 	{
 		//resizing buttons
-		Button grow = new Button("+  ");
-		Button shrink = new Button("-  ");
+		Button grow = new Button("+");
+		grow.getStyleClass().add("txtbxSize");
+		Button shrink = new Button("-");
+		shrink.getStyleClass().add("txtbxSize");
 		shrink.setLayoutX(30);
 		Button setting = new Button("..");
+		setting.getStyleClass().add("txtbxSize");
 		setting.setLayoutX(60);
 		
 		//creating box to grab for TextBox movement
