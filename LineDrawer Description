@@ -1,0 +1,6 @@
+lineDrawer adds event handlers to deal with the click and release of the left mouse button on the center pane (centerPane). The mouse click handlers store the coordinates of the mouse as they are triggered and “snaps” the coordinates to a 25x25 px grid. The handlers are nearly identical, except the mouse release handler uses the drawLine() method to tell the lineDrawer to create the line object. Upon creation of the line object, the x and y coordinates are checked for being above 0, if not they are set to 0, to ensure the line remains restricted to the center panel.
+
+More on “snapping”:
+On mouse click, the x and y coordinates of the click are locally stored in the handler as int variables (named x and y). 
+
+In order to snap the coordinates to a grid, the remainders of x and y divided by 25 are evaluated to see if it they are closer to 0 or 25. For example, if x = 462, then the remainder of 462 divided by 25 (462 % 25 = 12) is 12. Because 12 is less than half of 25, therefore closer to 0, that remainder is subtracted from x (462 - 12 = 450). If the remainder were 13, it would be greater than half of 25, therefore the remainder is still subtracted from x, but only after 25 is added on top of it (463 + 25 - 13 = 475). In this way the coordinates are “snapped” to a 25 x 25 grid.

@@ -1,20 +1,42 @@
 package RidersOfWekmar;
 
-import javafx.application.Application;
-import javafx.geometry.Insets;
+import javafx.application.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
-public class RidersOfWekmar extends Application {
+/**
+ * The Riders of Wekmar UML Editor implements JavaFX panes and nodes to present
+ * a graphical user interface that may be used for creating and designing UML
+ * class diagrams.
+ * 
+ * @author Riders of Wekmar - Ashley Camacho, Kailash Sayal, Peter Dawson, Sam Aungst, Kyle Marten
+ * @version 2.0
+ */
 
-    public static void main(String[] args) {
+public class RidersOfWekmar extends Application 
+{
+
+    /**
+     * Utilization of launch arguments is not implemented in this version of the
+     * Riders of Wekmar UML Editor.
+     * @param args 
+     */
+    public static void main(String[] args) 
+    {
         launch(args);
     }
 
-    @Override
-    public void start(Stage primaryStage) {
+    /**
+     * Override start() to set up the main sections of the interface, including 
+     * the menu bar, side panel, and center pane. The desired layout of these
+     * sections is achieved by adding them to a BorderPane.
+     * @param primaryStage 
+     */
+    @Override  
+    public void start(Stage primaryStage) 
+    {
         primaryStage.setTitle("Riders of Wekmar Editor");
 
         //creating objects
@@ -25,15 +47,13 @@ public class RidersOfWekmar extends Application {
         myTopMenu bar = new myTopMenu();
       
         //layout of editor
-        border.setTop(bar.addMenuBar());
-        border.setLeft(sidePanel.addSidePanel());
+        border.setLeft(sidePanel);
+        border.setTop(bar.addMenuBar(primaryStage, sidePanel));
+  
         border.setCenter(centerPane);
-        BorderPane.setMargin(centerPane, new Insets(10, 10, 10, 10));
-        
-        //features
-        lineDrawer L = new lineDrawer(sidePanel, centerPane);
 
         Scene scene = new Scene(border, 800, 800);
+        HotkeyHandler hkh = new HotkeyHandler(sidePanel);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(RidersOfWekmar.class.getResource("application.css").toExternalForm());
         primaryStage.show();
