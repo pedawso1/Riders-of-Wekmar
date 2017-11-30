@@ -1,10 +1,13 @@
 package RidersOfWekmar;
 
-import java.util.Stack;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 
 
 
@@ -14,53 +17,187 @@ import javafx.scene.shape.Line;
  */
 public class LineDrawer 
 {
-
+    double strokeWidth;
+    double triangleHeight, triangleWidth, diamondHeight, diamondWidth;
     double x1, y1, x2, y2;
-    Pane pane;
+    Pane centerPane;
     mySidePanel sidePanel;
-    Stack<Line> lineStack;
+    /**
+     * Current lineTypes:
+     * 1: Plain line
+     * 2: Line with arrow
+     * 3: Dependency (dotted) line
+     */
+    int lineType;
+    
 
     /**
      * Initialize the class so that components of the class may check sidePanel 
      * toggles and perform actions on the centerPane
      * @param sp application's side panel
-     * @param centerPane application's center pane
+     * @param centerPane application's center centerPane
      */
-    public LineDrawer(mySidePanel sp, Pane centerPane) 
+    public LineDrawer(mySidePanel sp) 
     {
+        strokeWidth = 3;
+        triangleHeight = 20;
+        triangleWidth = 40;
+        diamondHeight = 15;
+        diamondWidth = 25;
+        centerPane = sp.getCenterPane();
         centerPane.setOnMousePressed(press);
         centerPane.setOnMouseReleased(release);
-        lineStack = new Stack<>();
-        pane = centerPane;
+        //lineStack = new Stack<>();
+        centerPane = centerPane;
         sidePanel = sp;
     }
 
     /**
-     * Create new line object and add it as a child to the center pane after the
+     * Create new line object and add it as a child to the center centerPane after the
      * coordinates have been acquired.
      */
     private void drawLine() 
     {
         Line l = new Line(x1, y1, x2, y2);
-        l.setStrokeWidth(3);
+        l.setStrokeWidth(strokeWidth);
+        if (lineType == 1)
+        {
+            pushLine(l);
+        } else if (lineType == 2)
+        {
+            drawArrowLine(l);
+        } else if (lineType == 3)
+        {
+            drawDashedLine(l);
+        }else if (lineType == 4) {
+        	
+        	drawClearArrowLine(l);
+        }else if (lineType == 5) {
+        		drawClearDiamondLine(l);
+        }
+        else if (lineType == 6) {
+    			drawDiamondLine(l);
+        }
+    }
+    
+    private void drawArrowLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        Polygon triangle = new Polygon();
+        triangle.getPoints().setAll(
+                0.0, 0.0,
+                0.0, triangleWidth,
+                triangleHeight, triangleWidth / 2
+        );
+        triangle.setTranslateX(x2 - triangleHeight / 2);
+        triangle.setTranslateY(y2 - triangleWidth / 2);
+        triangle.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, triangle);
+        pushLine(g);
+    }
+    
+    private void drawDashedLine(Line l)
+    {
+        l.getStrokeDashArray().addAll(10d, 7d);
+        pushLine(l);
+    }
+    
+     private void drawClearArrowLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        Polygon triangle2 = new Polygon();
+        triangle2.getPoints().setAll(
+                0.0, 0.0,
+                0.0, triangleWidth,
+                triangleHeight, triangleWidth / 2
+        );
+        triangle2.setTranslateX(x2 - triangleHeight / 2);
+        triangle2.setTranslateY(y2 - triangleWidth / 2);
+        triangle2.setFill(Color.WHITE);
+        triangle2.setStroke(Color.BLACK);
+        triangle2.setStrokeWidth(3);
+        triangle2.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, triangle2);
+        pushLine(g);
+    }
+    
+    private void drawDiamondLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        Polygon diamond = new Polygon();
+        diamond.getPoints().addAll(new Double[]{
+        		0.0, 0.0,
+        		diamondWidth, diamondHeight, 0.0, diamondHeight * 2, 
+               diamondWidth * - 1, diamondHeight
+        });
+        
+        diamond.setTranslateX(x2 - diamondHeight / 2);
+        diamond.setTranslateY(y2 - diamondWidth / 2);
+        diamond.setFill(Color.WHITE);
+        diamond.setStroke(Color.BLACK);
+        diamond.setStrokeWidth(3);
+        diamond.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, diamond);
+        pushLine(g);
+    }
+    
+    private void drawClearDiamondLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        Polygon diamond = new Polygon();
+        diamond.getPoints().addAll(new Double[]{
+        		0.0, 0.0,
+        		diamondWidth, diamondHeight, 0.0, diamondHeight * 2, 
+               diamondWidth * - 1, diamondHeight
+        });
+        
+        diamond.setTranslateX(x2 - diamondHeight / 2);
+        diamond.setTranslateY(y2 - diamondWidth / 2);
+        diamond.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, diamond);
+        pushLine(g);
+    }
+    
+    private void pushLine(Node l)
+    {
         l.setOnMouseClicked(delete);
         l.setId("Line");
-        pane.getChildren().add(l);
-        //lineStack.push(l).toBack();
-        sidePanel.getObjStack().push(l); //.toBack();
+        l.toBack();
+        sidePanel.pushToUndoStack(l);
+        centerPane.getChildren().add(l);  
     }
+    
     
     /**
      * Undo the creation the last line (delete last created line)
+     * Line stack not currently used
      */
+    /*
     public void undo()
     {
         if (!lineStack.empty())
         {
             Line l = lineStack.pop();
-            pane.getChildren().remove(l);
+            centerPane.getChildren().remove(l);
         }
     }
+    */
     
     /**
      * Prototype function for drawing right-angle lines (WIP)
@@ -74,22 +211,24 @@ public class LineDrawer
         l1.setOnMouseClicked(delete);
         l2.setStrokeWidth(3);
         l2.setOnMouseClicked(delete);
-        pane.getChildren().addAll(l1, l2);
+        centerPane.getChildren().addAll(l1, l2);
     }
     */
 
     /**
-     * Remove passed in Line object as a child of center pane
+     * Remove passed in Line object as a child of center centerPane
      * @param l 
      */
     public void delete(Line l)
     {  
-       pane.getChildren().remove(l); 
+       centerPane.getChildren().remove(l); 
     }
     
     /**
      * Perform delete on all lines by clearing the line stack
+     * dysfunct because line stack no longer in use
      */
+    /*
     public void deleteAll()
     {
         while (!lineStack.empty())
@@ -98,6 +237,7 @@ public class LineDrawer
             delete(l);
         }
     }   
+    */
 
     /**
      * On mouse click, get the first set of coordinates and snap them to grid
@@ -147,7 +287,6 @@ public class LineDrawer
             if (x2 < 0) {x2 = 0;}
             if (y2 < 0) {y2 = 0;}
             drawLine();
-            //drawRightAngleLine();
         }
     };
 
@@ -158,4 +297,10 @@ public class LineDrawer
     {
         delete((Line) e.getSource());
     };
+    
+    
+    public void setLineType(int n)
+    {
+        lineType = n;
+    }
 }

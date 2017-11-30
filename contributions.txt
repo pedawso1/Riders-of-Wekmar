@@ -1,5 +1,0 @@
-Learning GitHub: 3.15 hours
-Implementing and reviewing team code: 26.09 hours
-Group meetings: 7.95 hours
-Misc Project work: 1.75
-Total: 38.94
