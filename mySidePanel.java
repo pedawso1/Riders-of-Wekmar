@@ -91,7 +91,7 @@ public class mySidePanel
             delete.getStyleClass().add("delete");
             delete.setGraphic(new ImageView(imageDelete));
             delete.setTooltip(new Tooltip("Delete"));
-            grid.add(delete, 0, 1);
+            grid.add(delete, 0, 0);
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // TextBox button
