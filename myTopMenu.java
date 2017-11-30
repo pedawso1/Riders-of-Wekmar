@@ -134,8 +134,7 @@ public class myTopMenu {
                     Stage settingsStage = new Stage();
                     settingsStage.setTitle("Settings");
                     VBox basePane = new VBox();
-                    GridPane gridPane = new GridPane();                     
-                    //gridPane.setPadding(new Insets(10, 10, 10, 10));
+                    GridPane gridPane = new GridPane();
                     gridPane.setPadding(insets);
                     Scene settingsScene = new Scene(basePane, 216, 125);
                     settingsStage.setScene(settingsScene);              
