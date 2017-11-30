@@ -53,6 +53,7 @@ public class RidersOfWekmar extends Application
         border.setCenter(centerPane);
 
         Scene scene = new Scene(border, 800, 800);
+        HotkeyHandler hkh = new HotkeyHandler(sidePanel);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(RidersOfWekmar.class.getResource("application.css").toExternalForm());
         primaryStage.show();

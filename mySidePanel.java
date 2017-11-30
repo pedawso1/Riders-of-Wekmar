@@ -340,4 +340,9 @@ public class mySidePanel
         {
             redoBtn.fire();
         }
+        
+        public GridPane getGridPane()
+        {
+            return grid;
+        }
 }
