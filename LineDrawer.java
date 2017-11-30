@@ -17,7 +17,7 @@ import javafx.scene.shape.Polygon;
 public class LineDrawer 
 {
     double strokeWidth;
-    double triangleHeight, triangleWidth;
+    double triangleHeight, triangleWidth, diamondHeight, diamondWidth;
     double x1, y1, x2, y2;
     Pane centerPane;
     mySidePanel sidePanel;
@@ -69,6 +69,11 @@ public class LineDrawer
         }else if (lineType == 4) {
         	
         	drawClearArrowLine(l);
+        }else if (lineType == 5) {
+        		drawClearDiamondLine(l);
+        }
+        else if (lineType == 6) {
+    			drawDiamondLine(l);
         }
     }
     
@@ -118,6 +123,51 @@ public class LineDrawer
         
         Group g = new Group();
         g.getChildren().addAll(l, triangle2);
+        pushLine(g);
+    }
+    
+     private void drawDiamondLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        Polygon diamond = new Polygon();
+        diamond.getPoints().addAll(new Double[]{
+        		0.0, 0.0,
+        		diamondWidth, diamondHeight, 0.0, diamondHeight * 2, 
+               diamondWidth * - 1, diamondHeight
+        });
+        
+        diamond.setTranslateX(x2 - diamondHeight / 2);
+        diamond.setTranslateY(y2 - diamondWidth / 2);
+        diamond.setFill(Color.WHITE);
+        diamond.setStroke(Color.BLACK);
+        diamond.setStrokeWidth(3);
+        diamond.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, diamond);
+        pushLine(g);
+    }
+    
+    private void drawClearDiamondLine(Line l) 
+    {
+        //Line head logic        
+        double angleRadians = Math.atan2(y2 - y1, x2 - x1);
+        double angleDegrees = angleRadians * (180 / Math.PI);
+        Polygon diamond = new Polygon();
+        diamond.getPoints().addAll(new Double[]{
+        		0.0, 0.0,
+        		diamondWidth, diamondHeight, 0.0, diamondHeight * 2, 
+               diamondWidth * - 1, diamondHeight
+        });
+        
+        diamond.setTranslateX(x2 - diamondHeight / 2);
+        diamond.setTranslateY(y2 - diamondWidth / 2);
+        diamond.setRotate(angleDegrees);
+        
+        Group g = new Group();
+        g.getChildren().addAll(l, diamond);
         pushLine(g);
     }
     
