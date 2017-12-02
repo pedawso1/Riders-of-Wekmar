@@ -1,4 +1,3 @@
-package RidersOfWekmar;
 
 import java.util.Stack;
 import javafx.event.ActionEvent;
@@ -123,6 +122,22 @@ public class mySidePanel
             //text.setAlignment(Pos.CENTER);
             text.setTooltip(new Tooltip("Text"));
             grid.add(text, 0, 3);
+            
+		
+		
+            //Label
+            text.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> 
+            {
+            	
+            	label x = new label();
+            	x.spawn(centerPane);
+            	
+            	
+            	
+            	
+            	
+            	
+            });
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
