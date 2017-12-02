@@ -39,7 +39,7 @@ public class LineDrawer
      */
     public LineDrawer(mySidePanel sp) 
     {
-        strokeWidth = 3;
+        strokeWidth = 2;
         triangleHeight = 20;
         triangleWidth = 40;
         diamondHeight = 15;
@@ -121,7 +121,7 @@ public class LineDrawer
         triangle2.setTranslateY(y2 - triangleWidth / 2);
         triangle2.setFill(Color.WHITE);
         triangle2.setStroke(Color.BLACK);
-        triangle2.setStrokeWidth(3);
+        triangle2.setStrokeWidth(2);
         triangle2.setRotate(angleDegrees);
         
         Group g = new Group();
@@ -145,7 +145,7 @@ public class LineDrawer
         diamond.setTranslateY(y2 - diamondWidth / 2);
         diamond.setFill(Color.WHITE);
         diamond.setStroke(Color.BLACK);
-        diamond.setStrokeWidth(3);
+        diamond.setStrokeWidth(2);
         diamond.setRotate(angleDegrees);
         
         Group g = new Group();
