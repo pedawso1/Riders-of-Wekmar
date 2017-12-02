@@ -125,7 +125,8 @@ public class myTopMenu {
 		alert.setTitle("About");
 		alert.setHeaderText("About The Riders Of Wekmar Editor");
 		String s = "This program is created to produce uml diagrams. There are resizale textboxes with three sections"
-				+ " name the class, instance variables and attributes. User has a choice of different lines to pick from to connect textboxes."
+				+ " name the class, instance variables and attributes. User has a choice of different lines to pick from to connect textboxes. "
+				+ "Text button adds text any where in the working space, when text is double tapped it can be can be edited."
 				+ "\n\n"
 				+ "The main purpose to create the program was for a Software Engineering course by Ashley Camacho, Kailash Sayal, Kyle Marten, Peter Dawson and Samuel Aungst."
 				+ "The Students attend Millersville University.";
