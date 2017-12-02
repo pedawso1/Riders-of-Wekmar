@@ -26,3 +26,7 @@
 	-fx-pref-height: 10px;
     -fx-pref-width: 30px;
 }
+
+.txtWindow{
+	-fx-alignment: center; 
+}
