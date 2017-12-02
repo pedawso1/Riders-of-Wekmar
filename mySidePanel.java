@@ -70,7 +70,7 @@ public class mySidePanel
             Button clearAll = new Button(/*"Clear All"*/);
             clearAll.setGraphic(new ImageView(imageClear));
             clearAll.setTooltip(new Tooltip("Clear All"));
-            grid.add(clearAll, 0, 1);
+            grid.add(clearAll, 0, 0);
 		
             clearAll.setOnAction((ActionEvent e) -> 
             {
@@ -91,7 +91,7 @@ public class mySidePanel
             delete.getStyleClass().add("delete");
             delete.setGraphic(new ImageView(imageDelete));
             delete.setTooltip(new Tooltip("Delete"));
-            grid.add(delete, 0, 0);
+            grid.add(delete, 0, 1);
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // TextBox button
@@ -122,7 +122,7 @@ public class mySidePanel
             text.getStyleClass().add("text");
             //text.setAlignment(Pos.CENTER);
             text.setTooltip(new Tooltip("Text"));
-            grid.add(text, 0, 4);
+            grid.add(text, 0, 3);
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
