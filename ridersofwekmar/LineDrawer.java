@@ -88,7 +88,7 @@ public class LineDrawer
         pane.getChildren().add(circle1);
         circle1.toBack();
         pane.getChildren().add(circle2);
-        circle2.toBack();
+        circle2.toFront();
 
     }
       private void drawLine(Line temp, Circle circle1, Circle circle2, Polygon shape) 
@@ -332,7 +332,7 @@ public class LineDrawer
       orgSceneY = t.getSceneY();
 
       Circle c = (Circle) (t.getSource());
-      c.toBack();
+      c.toFront();
     });
     
     circle.setOnMouseDragged((t) -> {
