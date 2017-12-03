@@ -34,6 +34,8 @@ public class myTopMenu {
 	TextBoxClass textBox;
 	String addingToFile = "";
         mySidePanel sidePanel;
+        Pane centerPane;
+
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public MenuBar addMenuBar(Stage primary, mySidePanel sp) {
@@ -198,5 +200,14 @@ public class myTopMenu {
 			nodes.add(node);
 		}
 	}
+
+        public ArrayList getNodeList(mySidePanel sp)
+        {
+            sidePanel = sp;
+            centerPane = sidePanel.getCenterPane();
+            nodes = getAllNodes(centerPane);
+            return nodes;
+            
+        }
 
 }

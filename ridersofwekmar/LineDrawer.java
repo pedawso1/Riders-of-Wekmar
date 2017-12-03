@@ -91,6 +91,20 @@ public class LineDrawer
         circle2.toBack();
 
     }
+      private void drawLine(Line temp, Circle circle1, Circle circle2, Polygon shape) 
+    {
+
+        line.setMouseTransparent(true);
+//        lineStack.push(temp);
+        pane.getChildren().add(circle1);
+        circle1.toBack();
+        pane.getChildren().add(circle2);
+        circle2.toBack();
+        pane.getChildren().add(shape);
+        shape.toBack();
+
+
+    }
     /*
     private Polygon drawArrowLine()
     {
@@ -280,7 +294,7 @@ public class LineDrawer
     }
 
     private Circle createCircleStart() {
-    Circle circle = new Circle(xS,yS, 6, Color.BLACK);
+    Circle circle = new Circle(xS,yS, 4, Color.TRANSPARENT);
 
     circle.setCursor(Cursor.HAND);
 
@@ -309,7 +323,7 @@ public class LineDrawer
     return circle;
   }
      private Circle createCircleEnd(double x, double y) {
-    Circle circle = new Circle(x,y, 6, Color.BLACK);
+    Circle circle = new Circle(x,y, 4, Color.TRANSPARENT);
 
     circle.setCursor(Cursor.HAND);
 
@@ -376,15 +390,18 @@ public class LineDrawer
                     endPoint = false;
                     break;
                  case 2: 
-                    circle.setRadius(8);
+                    circle.setRadius(4);
+             
                     circle2.setRadius(8);
-                    circle.setFill(new ImagePattern(arrow));
+              
+                    //circle.setFill(new ImagePattern(arrow));
                     temp = new ImageView(arrow);
                     temp.setRotate(180);
                     imgHold = new SnapshotParameters();
                     imgHold.setFill(Color.TRANSPARENT);
                     rotated = temp.snapshot(imgHold, null);
                     circle2.setFill(new ImagePattern(rotated));
+               
                     endPoint = false;
                     break;
                  case 3: 
@@ -392,9 +409,9 @@ public class LineDrawer
                     endPoint = false;
                     break;
                  case 4:
-                    circle.setRadius(14);
+                    circle.setRadius(4);
                     circle2.setRadius(14);
-                    circle.setFill(new ImagePattern(clearArrow));
+                  //  circle.setFill(new ImagePattern(clearArrow));
                     temp = new ImageView(clearArrow);
                     temp.setRotate(180);
                     imgHold = new SnapshotParameters();
@@ -404,9 +421,9 @@ public class LineDrawer
                     endPoint = true;
                     break;
                  case 5:
-                    circle.setRadius(8);
+                    circle.setRadius(4);
                     circle2.setRadius(8); 
-                    circle.setFill(new ImagePattern(diamond));
+                   // circle.setFill(new ImagePattern(diamond));
                     temp = new ImageView(diamond);
                     temp.setRotate(180);
                     imgHold = new SnapshotParameters();
@@ -416,15 +433,11 @@ public class LineDrawer
                     endPoint = true;
                     break;
                  case 6: 
-                    circle.setRadius(10);
+                    circle.setRadius(4);
                     circle2.setRadius(10);
-                    circle.setFill(new ImagePattern(clearDiamond));
-                    temp = new ImageView(clearDiamond);
-                    temp.setRotate(180);
-                    imgHold = new SnapshotParameters();
-                    imgHold.setFill(Color.WHITE);
-                    rotated = temp.snapshot(imgHold, null);
-                    circle2.setFill(new ImagePattern(rotated));
+                   // circle.setFill(new ImagePattern(clearDiamond));
+                
+                    circle2.setFill(new ImagePattern(clearDiamond));
                     endPoint = true;
                     break;
                 }
