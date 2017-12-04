@@ -146,31 +146,55 @@ public class mySidePanel
             gen.setOnAction(event -> 
             {
                     line.setSelected(true);
+                    lineDrawer.setLineType(1);                
                     System.out.println("drawing General line");
             });
 
-            MenuItem basicAgg = new MenuItem("Basic Aggregation");
+            MenuItem association = new MenuItem("Association");
+            association.setOnAction(event -> 
+            {
+                    line.setSelected(true);
+                    lineDrawer.setLineType(2);  
+                    System.out.println("drawing Association line");
+            });
+		
+	    MenuItem inher = new MenuItem("Inheritance");
+            inher.setOnAction(event -> 
+            {
+                    line.setSelected(true);
+                    lineDrawer.setLineType(4);  
+                    System.out.println("drawing Inheritance line");
+            });
+            
+            MenuItem basicAgg = new MenuItem("Aggregation");
             basicAgg.setOnAction(event -> 
             {
-                    System.out.println("drawing BasicAGG line");
+		    line.setSelected(true);
+                    lineDrawer.setLineType(5);
+                    System.out.println("drawing Aggregation line");
             });
 
-            MenuItem compAgg = new MenuItem("Composition Aggregation");
+            MenuItem compAgg = new MenuItem("Composition");
             compAgg.setOnAction(event -> 
             {
-                    System.out.println("drawing CompositionAGG line");
+		    line.setSelected(true);
+                    lineDrawer.setLineType(6);
+                    System.out.println("drawing Composition line");
             });
 
             MenuItem depend = new MenuItem("Dependency");
-            compAgg.setOnAction(event -> 
+            depend.setOnAction(event -> 
             {
-                    System.out.println("drawing dependency line");
+                    line.setSelected(true);
+                    lineDrawer.setLineType(3);
+                    System.out.println("drawing Dependency line");
             });
 
             lineOpts.setGraphic(new ImageView(imageLine));
-            lineOpts.getItems().addAll(gen, basicAgg, compAgg, depend);
+            lineOpts.getItems().addAll(gen, association, inher, basicAgg, compAgg, depend);
             lineOpts.setTooltip(new Tooltip("Select Line"));
             grid.add(lineOpts, 0, 4);
+		
             
             /////////////////////////////////////////////////////////////
             undoBtn = new Button();
