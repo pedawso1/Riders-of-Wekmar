@@ -415,7 +415,7 @@ public class LineDrawer
                     temp = new ImageView(clearArrow);
                     temp.setRotate(180);
                     imgHold = new SnapshotParameters();
-                    imgHold.setFill(Color.WHITE);
+                    imgHold.setFill(Color.TRANSPARENT);
                     rotated = temp.snapshot(imgHold, null);
                     circle2.setFill(new ImagePattern(rotated));
                     endPoint = true;
