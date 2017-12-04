@@ -153,14 +153,14 @@ public class mySidePanel
             /*
              * Line button with icon, menu options for creating different line types
              */
-            Image imageLine = new Image(getClass().getResourceAsStream("icons/drawLine.png"));
+        Image imageLine = new Image(getClass().getResourceAsStream("icons/drawLine.png"));
             MenuButton lineOpts = new MenuButton();
 		
             MenuItem gen = new MenuItem("General");
             gen.setOnAction(event -> 
             {
                     line.setSelected(true);
-                    lineDrawer.setLineType(1);                
+                    lineDrawer.setLineType("Line");                
                     System.out.println("drawing General line");
             });
 
@@ -168,7 +168,7 @@ public class mySidePanel
             association.setOnAction(event -> 
             {
                     line.setSelected(true);
-                    lineDrawer.setLineType(2);  
+                    lineDrawer.setLineType("Association");  
                     System.out.println("drawing Association line");
             });
 		
@@ -176,7 +176,7 @@ public class mySidePanel
             inher.setOnAction(event -> 
             {
                     line.setSelected(true);
-                    lineDrawer.setLineType(4);  
+                    lineDrawer.setLineType("Inhertance");  
                     System.out.println("drawing Inheritance line");
             });
             
@@ -184,7 +184,7 @@ public class mySidePanel
             basicAgg.setOnAction(event -> 
             {
 		    line.setSelected(true);
-                    lineDrawer.setLineType(5);
+                    lineDrawer.setLineType("Aggregation");
                     System.out.println("drawing Aggregation line");
             });
 
@@ -192,7 +192,7 @@ public class mySidePanel
             compAgg.setOnAction(event -> 
             {
 		    line.setSelected(true);
-                    lineDrawer.setLineType(6);
+                    lineDrawer.setLineType("Composition");
                     System.out.println("drawing Composition line");
             });
 
@@ -200,7 +200,7 @@ public class mySidePanel
             depend.setOnAction(event -> 
             {
                     line.setSelected(true);
-                    lineDrawer.setLineType(3);
+                    lineDrawer.setLineType("Dependency");
                     System.out.println("drawing Dependency line");
             });
 
