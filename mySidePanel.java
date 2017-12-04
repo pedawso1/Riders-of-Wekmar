@@ -131,13 +131,23 @@ public class mySidePanel
             	
             	label x = new label();
             	x.spawn(centerPane);
-            	
-            	
-            	
-            	
-            	
-            	
+	
             });
+		
+	    ///////////////////////////////////////////////////////////////////////////////////////////
+            /*
+             * Deselect line button to make toggle false, allows us to move the line
+             */
+            Button deselectLine = new Button("Deselect");
+            deselectLine.getStyleClass().add("deselect");
+            deselectLine.setTooltip(new Tooltip("Deselect Line"));
+            deselectLine.setOnAction(event -> 
+            {
+                    line.setSelected(false);               
+                    System.out.println("deselect line");
+            });
+            
+            grid.add(deselectLine, 0, 4);	
 		
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             /*
