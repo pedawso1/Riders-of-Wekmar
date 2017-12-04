@@ -30,3 +30,8 @@
 .txtWindow{
 	-fx-alignment: center; 
 }
+
+.deselect{
+    -fx-pref-height: 40px;
+    -fx-padding :0 7 0 7;
+}
