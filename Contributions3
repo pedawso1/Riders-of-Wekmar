@@ -37,7 +37,18 @@ Peter Dawson
 hrs - total
 
 Sam Aungst
-hrs - total
+4 hrs - Revamping the format of the save function
+4 hrs - converting TextBoxClass to be usable with save function
+3 hrs - figuring out how to open a blank file from computer
+4 hrs - Getting the logic down for opening a file with the text box information
+1 hr - Spent on logic for parsing through the string for TextBoxClass in our file
+5 hr - Spent on actually getting text boxes to load from file
+3 hr - Making Kailash's label code work with save function
+5 hr - Open/Save label coordinates and content
+3 hr - Attempting to get Pete's new Line code to work with the save funciton
+3 hr - Junit Testing our final project
+4.39 hrs - group meetings (below)
+39.39 hrs - total
 
 Kyle Marten
 18 hr - coding
