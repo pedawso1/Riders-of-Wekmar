@@ -1,0 +1,32 @@
+/*Sets the background color for the pane that the box and line objects are created*/
+.centerPane
+{
+	-fx-background-color: white;
+}
+
+/*sets button format options*/
+.toggle
+{
+    -fx-padding: 5 5 5 5; 
+    -fx-alignment: center; 
+}
+
+/*text padding for text button*/
+.text
+{
+    -fx-pref-height: 40px;
+    -fx-pref-width: 50px;
+}
+
+.delete{
+	-fx-padding :5 9 5 9;
+}
+
+.txtbxSize{
+	-fx-pref-height: 10px;
+    -fx-pref-width: 30px;
+}
+
+.txtWindow{
+	-fx-alignment: center; 
+}
