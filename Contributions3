@@ -1,0 +1,72 @@
+Iteration 3
+
+Ashley Camacho
+1 hr - coding the exit sub tab under file in top menubar
+4 hrs - coding about tab in the top menubar
+2 hrs - studying on how to make text button work how we want it to
+3 hrs - coding a new file/window for top menubar
+1 hrs - cleaned up button order and icon folder, fixing textboxes sizing buttons
+1.5 hrs - making clear arrow heads, filled and clear diamond heads
+1 hrs - css on label class which is out text button, fixing weird subclass runtime error
+2 hrs - working on moving line clear heads to the front 
+9 hrs - rotating line heads, keeping lines in center pane, trying to delete line header
+1.5 hrs - deselect line button, powerpoint slides
+.5 hrs - ordering slides and finishing them off
+4.39 hrs - group meetings
+4 hrs - writing Specification
+34.89 hrs - total
+
+Kailash Sayal
+2 hr - fixing snap to grid 
+3 hr - adding label to pane
+2 hour - adding pop up window
+3 hour - working with sam to edit function
+2 hours - testing
+1 hours - testing
+2 hours - design
+15 hrs
+Group time total 4 hours
+19 hrs - total
+
+Peter Dawson
+10 hrs - Researching and attempting Snap to Object
+8 hrs - Researching and implementing draggable lines
+4 hrs - Researching Nodes and DoubleProperties
+2 hrs - Implementing draggable circle nodes
+2 hrs - Binding Circles to Lines
+2 hrs - Creating switch statements for lineType string assignment
+1 hrs - Adding Images to circles
+1 hrs - Adding Snap to Grid function to initial line creation
+2 hrs - Documenting and Commenting 
+4 hrs - Group Meetings
+36 hrs - total
+
+Sam Aungst
+4 hrs - Revamping the format of the save function
+4 hrs - converting TextBoxClass to be usable with save function
+3 hrs - figuring out how to open a blank file from computer
+4 hrs - Getting the logic down for opening a file with the text box information
+1 hr - Spent on logic for parsing through the string for TextBoxClass in our file
+5 hr - Spent on actually getting text boxes to load from file
+3 hr - Making Kailash's label code work with save function
+5 hr - Open/Save label coordinates and content
+3 hr - Attempting to get Pete's new Line code to work with the save funciton
+3 hr - Junit Testing our final project
+4.39 hrs - group meetings (below)
+39.39 hrs - total
+
+Kyle Marten
+18 hr - coding
+1.5 hr - github stuff (moving files around, getting directories setup, installing/familiarizing with app)
+2 hr - Misc group stuff
+3.89 hr - group meetings (below)
+25.39 hrs - total
+
+Team Meetings:
+[11/21/17 10am - 10:30am] .5 hrs
+[11/28/17 10:55am - 11:41am] .72 hrs
+[12/2/17 3:40pm - 4:20 pm] .67 hrs
+[12/4/17 10:30am - 11 am] .5 hrs
+[12/4/17 11:30am - 1 pm] 1.5 hrs
+[12/5/17 9:30am - 10am] .5 hrs
+4.39 hrs - total
